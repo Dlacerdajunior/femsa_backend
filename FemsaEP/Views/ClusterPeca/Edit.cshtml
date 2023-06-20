@@ -1,0 +1,59 @@
+﻿@model FemsaEP.Models.cluster_peca_SAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditarcluster" }))
+  {
+      @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    <script>
+        $(function () {
+            // your code goes here
+            $("#bteditarcluster").click(function () {
+                codigo = $("#ZCODCLUST").val()
+                peca = $("#ZCODPECA").val()
+                quan = $("#quantidade").val()
+                if (codigo == "" || peca == "" || quan == "") {
+                    alert("É necessário preencher os campos abaixo.");
+                    return false;
+                }
+                else {
+                    $("#formeditarcluster").submit();
+                }
+
+            });
+        });
+    </script>
+
+    @Html.HiddenFor(model => model.id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZCODCLUST, "Cluster", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.DropDownList("ZCODCLUST", String.Empty)
+            @Html.ValidationMessageFor(model => model.ZCODCLUST)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZCODPECA, "Peça", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.DropDownList("ZCODPECA", String.Empty)
+            @Html.ValidationMessageFor(model => model.ZCODPECA)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.quantidade, "Quantidade de Peças", new { @class = "col-md-3 control-label" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(model => model.quantidade, new { @class = "form-control", placeholder = "Quantidade de Peças" })
+            @Html.ValidationMessageFor(model => model.quantidade)
+        </div>
+    </div>
+
+    }

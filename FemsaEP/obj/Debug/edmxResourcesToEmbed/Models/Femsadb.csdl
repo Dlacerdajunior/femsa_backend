@@ -1,0 +1,2180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MC1_DB_FEMSAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="acessorio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="administrador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="login" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="chat_mensagem" Relationship="Self.FK__chat_mens__remet__32767D0B" FromRole="administrador" ToRole="chat_mensagem" />
+    <NavigationProperty Name="mensagem" Relationship="Self.FK__mensagem__admini__76619304" FromRole="administrador" ToRole="mensagem" />
+    <NavigationProperty Name="manutencao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__id_ad__6B0FDBE9" FromRole="administrador" ToRole="manutencao" />
+  </EntityType>
+  <EntityType Name="alimento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ativacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="custo_valor" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_cliente" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="id_projeto" Type="Int32" />
+    <Property Name="situacao" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="executivo" Type="Byte" />
+    <NavigationProperty Name="ativacao_peca" Relationship="Self.FK__ativacao___id_at__4865BE2A" FromRole="ativacao" ToRole="ativacao_peca" />
+    <NavigationProperty Name="ativacao_mensagem" Relationship="Self.FK__ativacao___id_at__4959E263" FromRole="ativacao" ToRole="ativacao_mensagem" />
+    <NavigationProperty Name="ativacao_foto" Relationship="Self.FK__ativacao___id_at__4B422AD5" FromRole="ativacao" ToRole="ativacao_foto" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__ativacao__id_cli__3D2915A8" FromRole="ativacao" ToRole="cliente" />
+    <NavigationProperty Name="projeto" Relationship="Self.FK__ativacao__id_pro__1C873BEC" FromRole="ativacao" ToRole="projeto" />
+    <NavigationProperty Name="status_ativacao" Relationship="Self.FK__ativacao__status__345EC57D" FromRole="ativacao" ToRole="status_ativacao" />
+    <NavigationProperty Name="contrapartida_ativacoes" Relationship="Self.FK__contrapar__id_at__22401542" FromRole="ativacao" ToRole="contrapartida_ativacoes" />
+    <NavigationProperty Name="mensagem" Relationship="Self.FK__mensagem__id_cli__7755B73D" FromRole="ativacao" ToRole="mensagem" />
+  </EntityType>
+  <EntityType Name="ativacao_foto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ativacao" Type="Int32" />
+    <Property Name="url_foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="etapa" Type="Int32" />
+    <Property Name="id_peca" Type="Int32" />
+    <Property Name="executivo" Type="Byte" />
+    <NavigationProperty Name="ativacao" Relationship="Self.FK__ativacao___id_at__4B422AD5" FromRole="ativacao_foto" ToRole="ativacao" />
+    <NavigationProperty Name="peca" Relationship="Self.FK__ativacao___id_pe__4C364F0E" FromRole="ativacao_foto" ToRole="peca" />
+  </EntityType>
+  <EntityType Name="ativacao_mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ativacao" Type="Int32" />
+    <Property Name="mensagem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ativacao" Relationship="Self.FK__ativacao___id_at__4959E263" FromRole="ativacao_mensagem" ToRole="ativacao" />
+  </EntityType>
+  <EntityType Name="ativacao_peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_peca" Type="Int32" />
+    <Property Name="id_ativacao" Type="Int32" />
+    <Property Name="quantidade" Type="Int32" />
+    <NavigationProperty Name="ativacao" Relationship="Self.FK__ativacao___id_at__4865BE2A" FromRole="ativacao_peca" ToRole="ativacao" />
+    <NavigationProperty Name="peca" Relationship="Self.FK__ativacao___id_pe__477199F1" FromRole="ativacao_peca" ToRole="peca" />
+  </EntityType>
+  <EntityType Name="book_online">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="url_upload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="canal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__canal__308E3499" FromRole="canal" ToRole="cliente" />
+    <NavigationProperty Name="cluster" Relationship="Self.FK__cluster__canal__5006DFF2" FromRole="canal" ToRole="cluster" />
+  </EntityType>
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="carta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="razao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="uf_id" Type="Int32" />
+    <Property Name="bairro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="endereco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contato" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rota_vendedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cluster" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="unidade" Type="Int32" />
+    <Property Name="desenvolvedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="prospector" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="zat" Type="Int32" />
+    <Property Name="nome_zat" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ano_cliente" Type="Int32" />
+    <Property Name="ano_contrapartida" Type="Int32" />
+    <NavigationProperty Name="uf" Relationship="Self.FK__carta__uf_id__3864608B" FromRole="carta" ToRole="uf" />
+  </EntityType>
+  <EntityType Name="chat_mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mensagem_id" Type="Int32" />
+    <Property Name="usuario_id" Type="Int32" />
+    <Property Name="remetente_id" Type="Int32" />
+    <Property Name="texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="hora" Type="DateTime" Precision="3" />
+    <Property Name="tipo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="administrador" Relationship="Self.FK__chat_mens__remet__32767D0B" FromRole="chat_mensagem" ToRole="administrador" />
+    <NavigationProperty Name="mensagem" Relationship="Self.FK__chat_mens__mensa__336AA144" FromRole="chat_mensagem" ToRole="mensagem" />
+    <NavigationProperty Name="colaborador" Relationship="Self.FK__chat_mens__usuar__7D0E9093" FromRole="chat_mensagem" ToRole="colaborador" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numero_cliente" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="id_territorio" Type="Int32" />
+    <Property Name="id_unidade" Type="Int32" />
+    <Property Name="id_novo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_antigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_cluster" Type="Int32" />
+    <Property Name="executivo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="prospector" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="razao_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="uf_id" Type="Int32" />
+    <Property Name="id_rota" Type="Int32" />
+    <Property Name="desenvolvedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fornecedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="design" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="termo_de_pesquisa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cnpj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="endereco" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="bairro" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="local" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="regiao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ponto_referencia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="primeiro_telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="canal" Type="Int32" />
+    <Property Name="classificacao_clientes" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="zona_transporte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_zat" Type="Int32" />
+    <Property Name="id_kits" Type="Int32" />
+    <Property Name="id_localizacao" Type="Int32" />
+    <Property Name="marca_gdm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="localizacao" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="nome_shopping" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="red" Type="Int32" />
+    <Property Name="nome_red" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="habilitar_ativacao" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="habilitar_manutencao" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="habilitar_shopping" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="regional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numero" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="lattext" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="longtext" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status_ativacao" Type="Int32" />
+    <Property Name="id_colaborador" Type="Int32" />
+    <Property Name="custo_budget" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="motivo_id" Type="Int32" />
+    <Property Name="motivotxt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cidade_limpa" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="segundo_telefone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="id_executivo" Type="Int32" />
+    <Property Name="id_prospector" Type="Int32" />
+    <NavigationProperty Name="ativacao" Relationship="Self.FK__ativacao__id_cli__3D2915A8" FromRole="cliente" ToRole="ativacao" />
+    <NavigationProperty Name="canal1" Relationship="Self.FK__cliente__canal__308E3499" FromRole="cliente" ToRole="canal" />
+    <NavigationProperty Name="cluster" Relationship="Self.FK__cliente__id_clus__18B6AB08" FromRole="cliente" ToRole="cluster" />
+    <NavigationProperty Name="colaborador" Relationship="Self.FK__cliente__id_cola__1B9317B3" FromRole="cliente" ToRole="colaborador" />
+    <NavigationProperty Name="colaborador1" Relationship="Self.FK__cliente__id_cola__662B2B3B" FromRole="cliente" ToRole="colaborador" />
+    <NavigationProperty Name="executivo1" Relationship="Self.FK__cliente__id_exec__7869D707" FromRole="cliente" ToRole="executivo" />
+    <NavigationProperty Name="kit" Relationship="Self.FK__cliente__id_kits__2B0A656D" FromRole="cliente" ToRole="kit" />
+    <NavigationProperty Name="localizacao1" Relationship="Self.FK__cliente__id_loca__2DE6D218" FromRole="cliente" ToRole="localizacao" />
+    <NavigationProperty Name="prospector1" Relationship="Self.FK__cliente__id_pros__7775B2CE" FromRole="cliente" ToRole="prospector" />
+    <NavigationProperty Name="rota" Relationship="Self.FK__cliente__id_rota__2BFE89A6" FromRole="cliente" ToRole="rota" />
+    <NavigationProperty Name="territorio" Relationship="Self.FK__cliente__id_terr__282DF8C2" FromRole="cliente" ToRole="territorio" />
+    <NavigationProperty Name="unidade" Relationship="Self.FK__cliente__id_unid__29221CFB" FromRole="cliente" ToRole="unidade" />
+    <NavigationProperty Name="zat" Relationship="Self.FK__cliente__id_zat__2A164134" FromRole="cliente" ToRole="zat" />
+    <NavigationProperty Name="motivo_de_recuso" Relationship="Self.FK__cliente__motivo___67DE6983" FromRole="cliente" ToRole="motivo_de_recuso" />
+    <NavigationProperty Name="rede" Relationship="Self.FK__cliente__red__318258D2" FromRole="cliente" ToRole="rede" />
+    <NavigationProperty Name="status_ativacao1" Relationship="Self.FK__cliente__status___6AEFE058" FromRole="cliente" ToRole="status_ativacao" />
+    <NavigationProperty Name="uf" Relationship="Self.FK__cliente__uf_id__2CF2ADDF" FromRole="cliente" ToRole="uf" />
+    <NavigationProperty Name="cliente_cluster" Relationship="Self.FK__cliente_c__id_cl__6501FCD8" FromRole="cliente" ToRole="cliente_cluster" />
+    <NavigationProperty Name="cliente_projeto" Relationship="Self.FK__cliente_p__id_cl__02925FBF" FromRole="cliente" ToRole="cliente_projeto" />
+    <NavigationProperty Name="manutencao" Relationship="MC1_DB_FEMSAModel.FK_manutencao_cliente" FromRole="cliente" ToRole="manutencao" />
+  </EntityType>
+  <EntityType Name="cliente_cluster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_cliente" Type="Int32" />
+    <Property Name="id_cluster" Type="Int32" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente_c__id_cl__6501FCD8" FromRole="cliente_cluster" ToRole="cliente" />
+    <NavigationProperty Name="cluster" Relationship="Self.FK__cliente_c__id_cl__65F62111" FromRole="cliente_cluster" ToRole="cluster" />
+  </EntityType>
+  <EntityType Name="cliente_projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_cliente" Type="Int32" />
+    <Property Name="id_projeto" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente_p__id_cl__02925FBF" FromRole="cliente_projeto" ToRole="cliente" />
+    <NavigationProperty Name="projeto" Relationship="Self.FK__cliente_p__id_pr__038683F8" FromRole="cliente_projeto" ToRole="projeto" />
+  </EntityType>
+  <EntityType Name="cluster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="grupo_canal" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="canal" Type="Int32" />
+    <Property Name="classificacao_clientes" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="nse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="foco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sigla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="canal1" Relationship="Self.FK__cluster__canal__5006DFF2" FromRole="cluster" ToRole="canal" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_clus__18B6AB08" FromRole="cluster" ToRole="cliente" />
+    <NavigationProperty Name="cliente_cluster" Relationship="Self.FK__cliente_c__id_cl__65F62111" FromRole="cluster" ToRole="cliente_cluster" />
+    <NavigationProperty Name="cluster_peca" Relationship="Self.FK__cluster_p__id_cl__7CD98669" FromRole="cluster" ToRole="cluster_peca" />
+    <NavigationProperty Name="enquete" Relationship="Self.FK__enquete__id_clus__17C286CF" FromRole="cluster" ToRole="enquete" />
+    <NavigationProperty Name="projeto" Relationship="Self.FK__projeto__id_clus__7167D3BD" FromRole="cluster" ToRole="projeto" />
+    <NavigationProperty Name="projeto_cluster" Relationship="Self.FK__projeto_c__id_cl__15A53433" FromRole="cluster" ToRole="projeto_cluster" />
+  </EntityType>
+  <EntityType Name="cluster_peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_cluster" Type="Int32" />
+    <Property Name="id_peca" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="cluster" Relationship="Self.FK__cluster_p__id_cl__7CD98669" FromRole="cluster_peca" ToRole="cluster" />
+    <NavigationProperty Name="peca" Relationship="Self.FK__cluster_p__id_pe__7DCDAAA2" FromRole="cluster_peca" ToRole="peca" />
+  </EntityType>
+  <EntityType Name="colaborador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="login" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="id_titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_territorio" Type="Int32" />
+    <Property Name="id_unidade" Type="Int32" />
+    <Property Name="numero_patrimonio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numero_serie_camera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_grupos" Type="Int32" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="funcao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="id_usuario" Type="Int32" />
+    <Property Name="id_colaborador" Type="Int32" />
+    <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="chat_mensagem" Relationship="Self.FK__chat_mens__usuar__7D0E9093" FromRole="colaborador" ToRole="chat_mensagem" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_cola__1B9317B3" FromRole="colaborador" ToRole="cliente" />
+    <NavigationProperty Name="cliente1" Relationship="Self.FK__cliente__id_cola__662B2B3B" FromRole="colaborador" ToRole="cliente" />
+    <NavigationProperty Name="grupo_de_usuario" Relationship="Self.FK__colaborad__id_gr__2739D489" FromRole="colaborador" ToRole="grupo_de_usuario" />
+    <NavigationProperty Name="territorio" Relationship="Self.FK__colaborad__id_te__25518C17" FromRole="colaborador" ToRole="territorio" />
+    <NavigationProperty Name="unidade" Relationship="Self.FK__colaborad__id_un__2645B050" FromRole="colaborador" ToRole="unidade" />
+    <NavigationProperty Name="enquete_resposta" Relationship="Self.FK__enquete_r__id_co__4E1E9780" FromRole="colaborador" ToRole="enquete_resposta" />
+    <NavigationProperty Name="mensagem" Relationship="Self.FK__mensagem__usuari__756D6ECB" FromRole="colaborador" ToRole="mensagem" />
+    <NavigationProperty Name="rota" Relationship="Self.FK__rota__id_colabor__6DEC4894" FromRole="colaborador" ToRole="rota" />
+    <NavigationProperty Name="territorio1" Relationship="Self.FK__territori__id_ap__31B762FC" FromRole="colaborador" ToRole="territorio" />
+    <NavigationProperty Name="territorio2" Relationship="Self.FK__territori__id_ce__2FCF1A8A" FromRole="colaborador" ToRole="territorio" />
+    <NavigationProperty Name="territorio3" Relationship="Self.FK__territori__id_co__30C33EC3" FromRole="colaborador" ToRole="territorio" />
+    <NavigationProperty Name="unidade1" Relationship="Self.FK__unidade__id_cola__236943A5" FromRole="colaborador" ToRole="unidade" />
+    <Property Name="idioma" Type="Byte" />
+  </EntityType>
+  <EntityType Name="contrapartida">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="obrigatorio" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="contrapartida_ativacoes" Relationship="Self.FK__contrapar__id_co__214BF109" FromRole="contrapartida" ToRole="contrapartida_ativacoes" />
+    <NavigationProperty Name="contrapartida_projeto" Relationship="Self.FK__contrapar__id_co__7814D14C" FromRole="contrapartida" ToRole="contrapartida_projeto" />
+  </EntityType>
+  <EntityType Name="contrapartida_ativacoes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_contrapartida" Type="Int32" />
+    <Property Name="id_ativacao" Type="Int32" />
+    <Property Name="etapa" Type="Int32" />
+    <NavigationProperty Name="ativacao" Relationship="Self.FK__contrapar__id_at__22401542" FromRole="contrapartida_ativacoes" ToRole="ativacao" />
+    <NavigationProperty Name="contrapartida" Relationship="Self.FK__contrapar__id_co__214BF109" FromRole="contrapartida_ativacoes" ToRole="contrapartida" />
+  </EntityType>
+  <EntityType Name="contrapartida_projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_projeto" Type="Int32" />
+    <Property Name="id_contrapartida" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="contrapartida" Relationship="Self.FK__contrapar__id_co__7814D14C" FromRole="contrapartida_projeto" ToRole="contrapartida" />
+    <NavigationProperty Name="projeto" Relationship="Self.FK__contrapar__id_pr__7720AD13" FromRole="contrapartida_projeto" ToRole="projeto" />
+  </EntityType>
+  <EntityType Name="email">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="embalagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="enquete">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="vigencia" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="data_limite" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="id_cluster" Type="Int32" />
+    <Property Name="data_inicio" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="cluster" Relationship="Self.FK__enquete__id_clus__17C286CF" FromRole="enquete" ToRole="cluster" />
+    <NavigationProperty Name="enquete_perguntas" Relationship="Self.FK__enquete_p__id_en__4D2A7347" FromRole="enquete" ToRole="enquete_perguntas" />
+    <NavigationProperty Name="enquete_resposta" Relationship="Self.FK__enquete_r__id_en__0A688BB1" FromRole="enquete" ToRole="enquete_resposta" />
+  </EntityType>
+  <EntityType Name="enquete_perguntas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="id_enquete" Type="Int32" />
+    <NavigationProperty Name="enquete" Relationship="Self.FK__enquete_p__id_en__4D2A7347" FromRole="enquete_perguntas" ToRole="enquete" />
+  </EntityType>
+  <EntityType Name="enquete_resposta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_enquete" Type="Int32" />
+    <Property Name="id_colaborador" Type="Int32" />
+    <Property Name="data_resposta" Type="DateTime" Precision="3" />
+    <Property Name="id_pergunta" Type="Int32" />
+    <Property Name="resposta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="colaborador" Relationship="Self.FK__enquete_r__id_co__4E1E9780" FromRole="enquete_resposta" ToRole="colaborador" />
+    <NavigationProperty Name="enquete" Relationship="Self.FK__enquete_r__id_en__0A688BB1" FromRole="enquete_resposta" ToRole="enquete" />
+  </EntityType>
+  <EntityType Name="executivo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_exec__7869D707" FromRole="executivo" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="familia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="marca" Relationship="Self.FK__marca__id_famili__37703C52" FromRole="familia" ToRole="marca" />
+  </EntityType>
+  <EntityType Name="foco">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="fornecedor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contato" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo_sap" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="franquia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="gec">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="grupo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="grupo_de_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="colaborador" Relationship="Self.FK__colaborad__id_gr__2739D489" FromRole="grupo_de_usuario" ToRole="colaborador" />
+    <NavigationProperty Name="mensagem" Relationship="Self.FK__mensagem__grupo___66EA454A" FromRole="grupo_de_usuario" ToRole="mensagem" />
+  </EntityType>
+  <EntityType Name="kit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_kits__2B0A656D" FromRole="kit" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="localizacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_loca__2DE6D218" FromRole="localizacao" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="manutencao_instalacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_manutencao" Type="Int32" />
+    <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="manutencao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__id_ma__6A1BB7B0" FromRole="manutencao_instalacao" ToRole="manutencao" />
+  </EntityType>
+  <EntityType Name="manutencao_peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_peca" Type="Int32" />
+    <Property Name="id_manutencao" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="peca" Relationship="Self.FK__manutenca__id_pe__65570293" FromRole="manutencao_peca" ToRole="peca" />
+    <NavigationProperty Name="manutencao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__id_ma__6462DE5A" FromRole="manutencao_peca" ToRole="manutencao" />
+  </EntityType>
+  <EntityType Name="marca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="id_familia" Type="Int32" />
+    <NavigationProperty Name="familia" Relationship="Self.FK__marca__id_famili__37703C52" FromRole="marca" ToRole="familia" />
+  </EntityType>
+  <EntityType Name="mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="usuario_id" Type="Int32" />
+    <Property Name="id_cliente" Type="Int32" />
+    <Property Name="administrador_id" Type="Int32" />
+    <Property Name="hora" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="grupo_id" Type="Int32" />
+    <Property Name="destinatario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="administrador" Relationship="Self.FK__mensagem__admini__76619304" FromRole="mensagem" ToRole="administrador" />
+    <NavigationProperty Name="ativacao" Relationship="Self.FK__mensagem__id_cli__7755B73D" FromRole="mensagem" ToRole="ativacao" />
+    <NavigationProperty Name="chat_mensagem" Relationship="Self.FK__chat_mens__mensa__336AA144" FromRole="mensagem" ToRole="chat_mensagem" />
+    <NavigationProperty Name="colaborador" Relationship="Self.FK__mensagem__usuari__756D6ECB" FromRole="mensagem" ToRole="colaborador" />
+    <NavigationProperty Name="grupo_de_usuario" Relationship="Self.FK__mensagem__grupo___66EA454A" FromRole="mensagem" ToRole="grupo_de_usuario" />
+  </EntityType>
+  <EntityType Name="mensagem_do_dia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mensagem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="timestamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="motivo_de_manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="motivo_de_recuso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="id_motivos_2" Type="Decimal" Precision="5" Scale="0" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__motivo___67DE6983" FromRole="motivo_de_recuso" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="ocasiao_de_consumo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="embalagem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alimento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ocasiao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="atributo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tamanho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="largura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="altura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="diametro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="detalhe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="texto_inserido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lona_instalada" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="foto_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ativacao_foto" Relationship="Self.FK__ativacao___id_pe__4C364F0E" FromRole="peca" ToRole="ativacao_foto" />
+    <NavigationProperty Name="ativacao_peca" Relationship="Self.FK__ativacao___id_pe__477199F1" FromRole="peca" ToRole="ativacao_peca" />
+    <NavigationProperty Name="cluster_peca" Relationship="Self.FK__cluster_p__id_pe__7DCDAAA2" FromRole="peca" ToRole="cluster_peca" />
+    <NavigationProperty Name="manutencao_peca" Relationship="Self.FK__manutenca__id_pe__65570293" FromRole="peca" ToRole="manutencao_peca" />
+    <NavigationProperty Name="peca_tipo" Relationship="Self.FK__peca__tipo__29E1370A" FromRole="peca" ToRole="peca_tipo" />
+    <NavigationProperty Name="manutencao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__peca___1F2E9E6D" FromRole="peca" ToRole="manutencao" />
+  </EntityType>
+  <EntityType Name="peca_tipo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="peca" Relationship="Self.FK__peca__tipo__29E1370A" FromRole="peca_tipo" ToRole="peca" />
+  </EntityType>
+  <EntityType Name="planilhas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="url_upload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="observacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="id_cluster" Type="Int32" />
+    <NavigationProperty Name="ativacao" Relationship="Self.FK__ativacao__id_pro__1C873BEC" FromRole="projeto" ToRole="ativacao" />
+    <NavigationProperty Name="cliente_projeto" Relationship="Self.FK__cliente_p__id_pr__038683F8" FromRole="projeto" ToRole="cliente_projeto" />
+    <NavigationProperty Name="cluster" Relationship="Self.FK__projeto__id_clus__7167D3BD" FromRole="projeto" ToRole="cluster" />
+    <NavigationProperty Name="contrapartida_projeto" Relationship="Self.FK__contrapar__id_pr__7720AD13" FromRole="projeto" ToRole="contrapartida_projeto" />
+    <NavigationProperty Name="projeto_cluster" Relationship="Self.FK__projeto_c__id_pr__14B10FFA" FromRole="projeto" ToRole="projeto_cluster" />
+  </EntityType>
+  <EntityType Name="projeto_cluster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_projeto" Type="Int32" />
+    <Property Name="id_cluster" Type="Int32" />
+    <NavigationProperty Name="cluster" Relationship="Self.FK__projeto_c__id_cl__15A53433" FromRole="projeto_cluster" ToRole="cluster" />
+    <NavigationProperty Name="projeto" Relationship="Self.FK__projeto_c__id_pr__14B10FFA" FromRole="projeto_cluster" ToRole="projeto" />
+  </EntityType>
+  <EntityType Name="prospector">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_pros__7775B2CE" FromRole="prospector" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="provedor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="razao_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnpj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="contato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_territorio" Type="Int32" />
+    <Property Name="id_sap" Type="Int32" />
+    <Property Name="valor_leitoso" Type="Decimal" Precision="4" Scale="0" />
+    <Property Name="valor_perfurado" Type="Decimal" Precision="4" Scale="0" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="territorio" Relationship="Self.FK__provedor__id_ter__245D67DE" FromRole="provedor" ToRole="territorio" />
+  </EntityType>
+  <EntityType Name="rede">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__red__318258D2" FromRole="rede" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="rota">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="executivo_venda" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="prospector" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="desenvolvedor" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="fornecedor" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="origem_mw" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="designer" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="gerente_comercial" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="gerente_regional" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="executivo_trade" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="promotor" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="consultor" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="unidade" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="id_colaborador" Type="Int32" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_rota__2BFE89A6" FromRole="rota" ToRole="cliente" />
+    <NavigationProperty Name="colaborador" Relationship="Self.FK__rota__id_colabor__6DEC4894" FromRole="rota" ToRole="colaborador" />
+  </EntityType>
+  <EntityType Name="shopping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="status_ativacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ativacao" Relationship="Self.FK__ativacao__status__345EC57D" FromRole="status_ativacao" ToRole="ativacao" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__status___6AEFE058" FromRole="status_ativacao" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="subcanal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="territorio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="uf_id" Type="Int32" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="id_centralizador" Type="Int32" />
+    <Property Name="id_coordenador_pa" Type="Int32" />
+    <Property Name="id_aprovador_canais" Type="Int32" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_terr__282DF8C2" FromRole="territorio" ToRole="cliente" />
+    <NavigationProperty Name="colaborador" Relationship="Self.FK__colaborad__id_te__25518C17" FromRole="territorio" ToRole="colaborador" />
+    <NavigationProperty Name="colaborador1" Relationship="Self.FK__territori__id_ap__31B762FC" FromRole="territorio" ToRole="colaborador" />
+    <NavigationProperty Name="colaborador2" Relationship="Self.FK__territori__id_ce__2FCF1A8A" FromRole="territorio" ToRole="colaborador" />
+    <NavigationProperty Name="colaborador3" Relationship="Self.FK__territori__id_co__30C33EC3" FromRole="territorio" ToRole="colaborador" />
+    <NavigationProperty Name="provedor" Relationship="Self.FK__provedor__id_ter__245D67DE" FromRole="territorio" ToRole="provedor" />
+    <NavigationProperty Name="uf" Relationship="Self.FK__territori__uf_id__2EDAF651" FromRole="territorio" ToRole="uf" />
+    <NavigationProperty Name="uf1" Relationship="Self.FK__territori__uf_id__32AB8735" FromRole="territorio" ToRole="uf" />
+    <NavigationProperty Name="unidade" Relationship="Self.FK__unidade__id_terr__22751F6C" FromRole="territorio" ToRole="unidade" />
+    <NavigationProperty Name="zat" Relationship="Self.FK__zat__id_territor__208CD6FA" FromRole="territorio" ToRole="zat" />
+  </EntityType>
+  <EntityType Name="tipo_de_manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="manutencao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__manut__2022C2A6" FromRole="tipo_de_manutencao" ToRole="manutencao" />
+  </EntityType>
+  <EntityType Name="uf">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uf_sigla" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="carta" Relationship="Self.FK__carta__uf_id__3864608B" FromRole="uf" ToRole="carta" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__uf_id__2CF2ADDF" FromRole="uf" ToRole="cliente" />
+    <NavigationProperty Name="territorio" Relationship="Self.FK__territori__uf_id__2EDAF651" FromRole="uf" ToRole="territorio" />
+    <NavigationProperty Name="territorio1" Relationship="Self.FK__territori__uf_id__32AB8735" FromRole="uf" ToRole="territorio" />
+  </EntityType>
+  <EntityType Name="unidade">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_territorio" Type="Int32" />
+    <Property Name="id_colaborador" Type="Int32" />
+    <Property Name="desativado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_unid__29221CFB" FromRole="unidade" ToRole="cliente" />
+    <NavigationProperty Name="colaborador" Relationship="Self.FK__colaborad__id_un__2645B050" FromRole="unidade" ToRole="colaborador" />
+    <NavigationProperty Name="colaborador1" Relationship="Self.FK__unidade__id_cola__236943A5" FromRole="unidade" ToRole="colaborador" />
+    <NavigationProperty Name="territorio" Relationship="Self.FK__unidade__id_terr__22751F6C" FromRole="unidade" ToRole="territorio" />
+    <NavigationProperty Name="zat" Relationship="Self.FK__zat__id_unidade__2180FB33" FromRole="unidade" ToRole="zat" />
+  </EntityType>
+  <EntityType Name="validacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="manutencao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__manut__26CFC035" FromRole="validacao" ToRole="manutencao" />
+  </EntityType>
+  <EntityType Name="zat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mandante" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_territorio" Type="Int32" />
+    <Property Name="id_unidade" Type="Int32" />
+    <Property Name="cidade" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="regiao" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="ano" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK__cliente__id_zat__2A164134" FromRole="zat" ToRole="cliente" />
+    <NavigationProperty Name="territorio" Relationship="Self.FK__zat__id_territor__208CD6FA" FromRole="zat" ToRole="territorio" />
+    <NavigationProperty Name="unidade" Relationship="Self.FK__zat__id_unidade__2180FB33" FromRole="zat" ToRole="unidade" />
+  </EntityType>
+  <Association Name="FK__chat_mens__remet__32767D0B">
+    <End Role="administrador" Type="Self.administrador" Multiplicity="0..1" />
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="remetente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__admini__76619304">
+    <End Role="administrador" Type="Self.administrador" Multiplicity="0..1" />
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="administrador_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_at__4865BE2A">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_peca" Type="Self.ativacao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_peca">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_at__4959E263">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_mensagem" Type="Self.ativacao_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_mensagem">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_at__4B422AD5">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_foto" Type="Self.ativacao_foto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_foto">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__id_cli__3D2915A8">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__id_pro__1C873BEC">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__status__345EC57D">
+    <End Role="status_ativacao" Type="Self.status_ativacao" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_at__22401542">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contrapartida_ativacoes" Type="Self.contrapartida_ativacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_ativacoes">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__id_cli__7755B73D">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_pe__4C364F0E">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_foto" Type="Self.ativacao_foto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_foto">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_pe__477199F1">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_peca" Type="Self.ativacao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_peca">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__canal__308E3499">
+    <End Role="canal" Type="Self.canal" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="canal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="canal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cluster__canal__5006DFF2">
+    <End Role="canal" Type="Self.canal" Multiplicity="0..1" />
+    <End Role="cluster" Type="Self.cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="canal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cluster">
+        <PropertyRef Name="canal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__carta__uf_id__3864608B">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="carta" Type="Self.carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="carta">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat_mens__mensa__336AA144">
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mensagem">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="mensagem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat_mens__usuar__7D0E9093">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_clus__18B6AB08">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_cola__1B9317B3">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_cola__662B2B3B">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_exec__7869D707">
+    <End Role="executivo" Type="Self.executivo" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="executivo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_executivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_kits__2B0A656D">
+    <End Role="kit" Type="Self.kit" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kit">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_kits" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_loca__2DE6D218">
+    <End Role="localizacao" Type="Self.localizacao" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="localizacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_localizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_pros__7775B2CE">
+    <End Role="prospector" Type="Self.prospector" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prospector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_prospector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_rota__2BFE89A6">
+    <End Role="rota" Type="Self.rota" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rota">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_rota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_terr__282DF8C2">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_unid__29221CFB">
+    <End Role="unidade" Type="Self.unidade" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_unidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_zat__2A164134">
+    <End Role="zat" Type="Self.zat" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zat">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_zat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__motivo___67DE6983">
+    <End Role="motivo_de_recuso" Type="Self.motivo_de_recuso" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="motivo_de_recuso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="motivo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__red__318258D2">
+    <End Role="rede" Type="Self.rede" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rede">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="red" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__status___6AEFE058">
+    <End Role="status_ativacao" Type="Self.status_ativacao" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="status_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__uf_id__2CF2ADDF">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_c__id_cl__6501FCD8">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="cliente_cluster" Type="Self.cliente_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_cluster">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_p__id_cl__02925FBF">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="cliente_projeto" Type="Self.cliente_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_projeto">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_c__id_cl__65F62111">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="cliente_cluster" Type="Self.cliente_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_cluster">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_p__id_pr__038683F8">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="cliente_projeto" Type="Self.cliente_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_projeto">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cluster_p__id_cl__7CD98669">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="cluster_peca" Type="Self.cluster_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cluster_peca">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete__id_clus__17C286CF">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="enquete" Type="Self.enquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto__id_clus__7167D3BD">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="projeto" Type="Self.projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_c__id_cl__15A53433">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="projeto_cluster" Type="Self.projeto_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_cluster">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cluster_p__id_pe__7DCDAAA2">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1" />
+    <End Role="cluster_peca" Type="Self.cluster_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cluster_peca">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__id_gr__2739D489">
+    <End Role="grupo_de_usuario" Type="Self.grupo_de_usuario" Multiplicity="0..1" />
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_de_usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="colaborador">
+        <PropertyRef Name="id_grupos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__id_te__25518C17">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="colaborador">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__id_un__2645B050">
+    <End Role="unidade" Type="Self.unidade" Multiplicity="0..1" />
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="colaborador">
+        <PropertyRef Name="id_unidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_r__id_co__4E1E9780">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="enquete_resposta" Type="Self.enquete_resposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete_resposta">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__usuari__756D6ECB">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rota__id_colabor__6DEC4894">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="rota" Type="Self.rota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rota">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__id_ap__31B762FC">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="id_aprovador_canais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__id_ce__2FCF1A8A">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="id_centralizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__id_co__30C33EC3">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="id_coordenador_pa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__unidade__id_cola__236943A5">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="unidade" Type="Self.unidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="unidade">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_co__214BF109">
+    <End Role="contrapartida" Type="Self.contrapartida" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contrapartida_ativacoes" Type="Self.contrapartida_ativacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contrapartida">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_ativacoes">
+        <PropertyRef Name="id_contrapartida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_co__7814D14C">
+    <End Role="contrapartida" Type="Self.contrapartida" Multiplicity="0..1" />
+    <End Role="contrapartida_projeto" Type="Self.contrapartida_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contrapartida">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_projeto">
+        <PropertyRef Name="id_contrapartida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_pr__7720AD13">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="contrapartida_projeto" Type="Self.contrapartida_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_projeto">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_p__id_en__4D2A7347">
+    <End Role="enquete" Type="Self.enquete" Multiplicity="0..1" />
+    <End Role="enquete_perguntas" Type="Self.enquete_perguntas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enquete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete_perguntas">
+        <PropertyRef Name="id_enquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_r__id_en__0A688BB1">
+    <End Role="enquete" Type="Self.enquete" Multiplicity="0..1" />
+    <End Role="enquete_resposta" Type="Self.enquete_resposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enquete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete_resposta">
+        <PropertyRef Name="id_enquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__marca__id_famili__37703C52">
+    <End Role="familia" Type="Self.familia" Multiplicity="0..1" />
+    <End Role="marca" Type="Self.marca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="familia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="marca">
+        <PropertyRef Name="id_familia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__grupo___66EA454A">
+    <End Role="grupo_de_usuario" Type="Self.grupo_de_usuario" Multiplicity="0..1" />
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_de_usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="grupo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_pe__65570293">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1" />
+    <End Role="manutencao_peca" Type="Self.manutencao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao_peca">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__peca__tipo__29E1370A">
+    <End Role="peca_tipo" Type="Self.peca_tipo" Multiplicity="0..1" />
+    <End Role="peca" Type="Self.peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca_tipo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="peca">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_c__id_pr__14B10FFA">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="projeto_cluster" Type="Self.projeto_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_cluster">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__provedor__id_ter__245D67DE">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="provedor" Type="Self.provedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="provedor">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__uf_id__2EDAF651">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__uf_id__32AB8735">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__unidade__id_terr__22751F6C">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="unidade" Type="Self.unidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="unidade">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__zat__id_territor__208CD6FA">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="zat" Type="Self.zat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zat">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__zat__id_unidade__2180FB33">
+    <End Role="unidade" Type="Self.unidade" Multiplicity="0..1" />
+    <End Role="zat" Type="Self.zat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zat">
+        <PropertyRef Name="id_unidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MC1_DB_FEMSAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="acessorio" EntityType="Self.acessorio" />
+    <EntitySet Name="administrador" EntityType="Self.administrador" />
+    <EntitySet Name="alimento" EntityType="Self.alimento" />
+    <EntitySet Name="ativacao" EntityType="Self.ativacao" />
+    <EntitySet Name="ativacao_foto" EntityType="Self.ativacao_foto" />
+    <EntitySet Name="ativacao_mensagem" EntityType="Self.ativacao_mensagem" />
+    <EntitySet Name="ativacao_peca" EntityType="Self.ativacao_peca" />
+    <EntitySet Name="book_online" EntityType="Self.book_online" />
+    <EntitySet Name="canal" EntityType="Self.canal" />
+    <EntitySet Name="cargo" EntityType="Self.cargo" />
+    <EntitySet Name="carta" EntityType="Self.carta" />
+    <EntitySet Name="chat_mensagem" EntityType="Self.chat_mensagem" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" />
+    <EntitySet Name="cliente_cluster" EntityType="Self.cliente_cluster" />
+    <EntitySet Name="cliente_projeto" EntityType="Self.cliente_projeto" />
+    <EntitySet Name="cluster" EntityType="Self.cluster" />
+    <EntitySet Name="cluster_peca" EntityType="Self.cluster_peca" />
+    <EntitySet Name="colaborador" EntityType="Self.colaborador" />
+    <EntitySet Name="contrapartida" EntityType="Self.contrapartida" />
+    <EntitySet Name="contrapartida_ativacoes" EntityType="Self.contrapartida_ativacoes" />
+    <EntitySet Name="contrapartida_projeto" EntityType="Self.contrapartida_projeto" />
+    <EntitySet Name="email" EntityType="Self.email" />
+    <EntitySet Name="embalagem" EntityType="Self.embalagem" />
+    <EntitySet Name="enquete" EntityType="Self.enquete" />
+    <EntitySet Name="enquete_perguntas" EntityType="Self.enquete_perguntas" />
+    <EntitySet Name="enquete_resposta" EntityType="Self.enquete_resposta" />
+    <EntitySet Name="executivo" EntityType="Self.executivo" />
+    <EntitySet Name="familia" EntityType="Self.familia" />
+    <EntitySet Name="foco" EntityType="Self.foco" />
+    <EntitySet Name="fornecedor" EntityType="Self.fornecedor" />
+    <EntitySet Name="franquia" EntityType="Self.franquia" />
+    <EntitySet Name="gec" EntityType="Self.gec" />
+    <EntitySet Name="grupo" EntityType="Self.grupo" />
+    <EntitySet Name="grupo_de_usuario" EntityType="Self.grupo_de_usuario" />
+    <EntitySet Name="kit" EntityType="Self.kit" />
+    <EntitySet Name="localizacao" EntityType="Self.localizacao" />
+    <EntitySet Name="manutencao_instalacao" EntityType="Self.manutencao_instalacao" />
+    <EntitySet Name="manutencao_peca" EntityType="Self.manutencao_peca" />
+    <EntitySet Name="marca" EntityType="Self.marca" />
+    <EntitySet Name="mensagem" EntityType="Self.mensagem" />
+    <EntitySet Name="mensagem_do_dia" EntityType="Self.mensagem_do_dia" />
+    <EntitySet Name="motivo_de_manutencao" EntityType="Self.motivo_de_manutencao" />
+    <EntitySet Name="motivo_de_recuso" EntityType="Self.motivo_de_recuso" />
+    <EntitySet Name="ocasiao_de_consumo" EntityType="Self.ocasiao_de_consumo" />
+    <EntitySet Name="peca" EntityType="Self.peca" />
+    <EntitySet Name="peca_tipo" EntityType="Self.peca_tipo" />
+    <EntitySet Name="planilhas" EntityType="Self.planilhas" />
+    <EntitySet Name="projeto" EntityType="Self.projeto" />
+    <EntitySet Name="projeto_cluster" EntityType="Self.projeto_cluster" />
+    <EntitySet Name="prospector" EntityType="Self.prospector" />
+    <EntitySet Name="provedor" EntityType="Self.provedor" />
+    <EntitySet Name="rede" EntityType="Self.rede" />
+    <EntitySet Name="rota" EntityType="Self.rota" />
+    <EntitySet Name="shopping" EntityType="Self.shopping" />
+    <EntitySet Name="status_ativacao" EntityType="Self.status_ativacao" />
+    <EntitySet Name="subcanal" EntityType="Self.subcanal" />
+    <EntitySet Name="territorio" EntityType="Self.territorio" />
+    <EntitySet Name="tipo_de_manutencao" EntityType="Self.tipo_de_manutencao" />
+    <EntitySet Name="uf" EntityType="Self.uf" />
+    <EntitySet Name="unidade" EntityType="Self.unidade" />
+    <EntitySet Name="validacao" EntityType="Self.validacao" />
+    <EntitySet Name="zat" EntityType="Self.zat" />
+    <AssociationSet Name="FK__chat_mens__remet__32767D0B" Association="Self.FK__chat_mens__remet__32767D0B">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__admini__76619304" Association="Self.FK__mensagem__admini__76619304">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_at__4865BE2A" Association="Self.FK__ativacao___id_at__4865BE2A">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_peca" EntitySet="ativacao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_at__4959E263" Association="Self.FK__ativacao___id_at__4959E263">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_mensagem" EntitySet="ativacao_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_at__4B422AD5" Association="Self.FK__ativacao___id_at__4B422AD5">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_foto" EntitySet="ativacao_foto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__id_cli__3D2915A8" Association="Self.FK__ativacao__id_cli__3D2915A8">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__id_pro__1C873BEC" Association="Self.FK__ativacao__id_pro__1C873BEC">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__status__345EC57D" Association="Self.FK__ativacao__status__345EC57D">
+      <End Role="status_ativacao" EntitySet="status_ativacao" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_at__22401542" Association="Self.FK__contrapar__id_at__22401542">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="contrapartida_ativacoes" EntitySet="contrapartida_ativacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__id_cli__7755B73D" Association="Self.FK__mensagem__id_cli__7755B73D">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_pe__4C364F0E" Association="Self.FK__ativacao___id_pe__4C364F0E">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="ativacao_foto" EntitySet="ativacao_foto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_pe__477199F1" Association="Self.FK__ativacao___id_pe__477199F1">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="ativacao_peca" EntitySet="ativacao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__canal__308E3499" Association="Self.FK__cliente__canal__308E3499">
+      <End Role="canal" EntitySet="canal" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cluster__canal__5006DFF2" Association="Self.FK__cluster__canal__5006DFF2">
+      <End Role="canal" EntitySet="canal" />
+      <End Role="cluster" EntitySet="cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__carta__uf_id__3864608B" Association="Self.FK__carta__uf_id__3864608B">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="carta" EntitySet="carta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat_mens__mensa__336AA144" Association="Self.FK__chat_mens__mensa__336AA144">
+      <End Role="mensagem" EntitySet="mensagem" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat_mens__usuar__7D0E9093" Association="Self.FK__chat_mens__usuar__7D0E9093">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_clus__18B6AB08" Association="Self.FK__cliente__id_clus__18B6AB08">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_cola__1B9317B3" Association="Self.FK__cliente__id_cola__1B9317B3">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_cola__662B2B3B" Association="Self.FK__cliente__id_cola__662B2B3B">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_exec__7869D707" Association="Self.FK__cliente__id_exec__7869D707">
+      <End Role="executivo" EntitySet="executivo" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_kits__2B0A656D" Association="Self.FK__cliente__id_kits__2B0A656D">
+      <End Role="kit" EntitySet="kit" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_loca__2DE6D218" Association="Self.FK__cliente__id_loca__2DE6D218">
+      <End Role="localizacao" EntitySet="localizacao" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_pros__7775B2CE" Association="Self.FK__cliente__id_pros__7775B2CE">
+      <End Role="prospector" EntitySet="prospector" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_rota__2BFE89A6" Association="Self.FK__cliente__id_rota__2BFE89A6">
+      <End Role="rota" EntitySet="rota" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_terr__282DF8C2" Association="Self.FK__cliente__id_terr__282DF8C2">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_unid__29221CFB" Association="Self.FK__cliente__id_unid__29221CFB">
+      <End Role="unidade" EntitySet="unidade" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_zat__2A164134" Association="Self.FK__cliente__id_zat__2A164134">
+      <End Role="zat" EntitySet="zat" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__motivo___67DE6983" Association="Self.FK__cliente__motivo___67DE6983">
+      <End Role="motivo_de_recuso" EntitySet="motivo_de_recuso" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__red__318258D2" Association="Self.FK__cliente__red__318258D2">
+      <End Role="rede" EntitySet="rede" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__status___6AEFE058" Association="Self.FK__cliente__status___6AEFE058">
+      <End Role="status_ativacao" EntitySet="status_ativacao" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__uf_id__2CF2ADDF" Association="Self.FK__cliente__uf_id__2CF2ADDF">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_c__id_cl__6501FCD8" Association="Self.FK__cliente_c__id_cl__6501FCD8">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="cliente_cluster" EntitySet="cliente_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_p__id_cl__02925FBF" Association="Self.FK__cliente_p__id_cl__02925FBF">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="cliente_projeto" EntitySet="cliente_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_c__id_cl__65F62111" Association="Self.FK__cliente_c__id_cl__65F62111">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="cliente_cluster" EntitySet="cliente_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_p__id_pr__038683F8" Association="Self.FK__cliente_p__id_pr__038683F8">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="cliente_projeto" EntitySet="cliente_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cluster_p__id_cl__7CD98669" Association="Self.FK__cluster_p__id_cl__7CD98669">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="cluster_peca" EntitySet="cluster_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete__id_clus__17C286CF" Association="Self.FK__enquete__id_clus__17C286CF">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="enquete" EntitySet="enquete" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto__id_clus__7167D3BD" Association="Self.FK__projeto__id_clus__7167D3BD">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="projeto" EntitySet="projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_c__id_cl__15A53433" Association="Self.FK__projeto_c__id_cl__15A53433">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="projeto_cluster" EntitySet="projeto_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cluster_p__id_pe__7DCDAAA2" Association="Self.FK__cluster_p__id_pe__7DCDAAA2">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="cluster_peca" EntitySet="cluster_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__id_gr__2739D489" Association="Self.FK__colaborad__id_gr__2739D489">
+      <End Role="grupo_de_usuario" EntitySet="grupo_de_usuario" />
+      <End Role="colaborador" EntitySet="colaborador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__id_te__25518C17" Association="Self.FK__colaborad__id_te__25518C17">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="colaborador" EntitySet="colaborador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__id_un__2645B050" Association="Self.FK__colaborad__id_un__2645B050">
+      <End Role="unidade" EntitySet="unidade" />
+      <End Role="colaborador" EntitySet="colaborador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_r__id_co__4E1E9780" Association="Self.FK__enquete_r__id_co__4E1E9780">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="enquete_resposta" EntitySet="enquete_resposta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__usuari__756D6ECB" Association="Self.FK__mensagem__usuari__756D6ECB">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rota__id_colabor__6DEC4894" Association="Self.FK__rota__id_colabor__6DEC4894">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="rota" EntitySet="rota" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__id_ap__31B762FC" Association="Self.FK__territori__id_ap__31B762FC">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__id_ce__2FCF1A8A" Association="Self.FK__territori__id_ce__2FCF1A8A">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__id_co__30C33EC3" Association="Self.FK__territori__id_co__30C33EC3">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__unidade__id_cola__236943A5" Association="Self.FK__unidade__id_cola__236943A5">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="unidade" EntitySet="unidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_co__214BF109" Association="Self.FK__contrapar__id_co__214BF109">
+      <End Role="contrapartida" EntitySet="contrapartida" />
+      <End Role="contrapartida_ativacoes" EntitySet="contrapartida_ativacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_co__7814D14C" Association="Self.FK__contrapar__id_co__7814D14C">
+      <End Role="contrapartida" EntitySet="contrapartida" />
+      <End Role="contrapartida_projeto" EntitySet="contrapartida_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_pr__7720AD13" Association="Self.FK__contrapar__id_pr__7720AD13">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="contrapartida_projeto" EntitySet="contrapartida_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_p__id_en__4D2A7347" Association="Self.FK__enquete_p__id_en__4D2A7347">
+      <End Role="enquete" EntitySet="enquete" />
+      <End Role="enquete_perguntas" EntitySet="enquete_perguntas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_r__id_en__0A688BB1" Association="Self.FK__enquete_r__id_en__0A688BB1">
+      <End Role="enquete" EntitySet="enquete" />
+      <End Role="enquete_resposta" EntitySet="enquete_resposta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__marca__id_famili__37703C52" Association="Self.FK__marca__id_famili__37703C52">
+      <End Role="familia" EntitySet="familia" />
+      <End Role="marca" EntitySet="marca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__grupo___66EA454A" Association="Self.FK__mensagem__grupo___66EA454A">
+      <End Role="grupo_de_usuario" EntitySet="grupo_de_usuario" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_pe__65570293" Association="Self.FK__manutenca__id_pe__65570293">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="manutencao_peca" EntitySet="manutencao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__peca__tipo__29E1370A" Association="Self.FK__peca__tipo__29E1370A">
+      <End Role="peca_tipo" EntitySet="peca_tipo" />
+      <End Role="peca" EntitySet="peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_c__id_pr__14B10FFA" Association="Self.FK__projeto_c__id_pr__14B10FFA">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="projeto_cluster" EntitySet="projeto_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__provedor__id_ter__245D67DE" Association="Self.FK__provedor__id_ter__245D67DE">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="provedor" EntitySet="provedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__uf_id__2EDAF651" Association="Self.FK__territori__uf_id__2EDAF651">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__uf_id__32AB8735" Association="Self.FK__territori__uf_id__32AB8735">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__unidade__id_terr__22751F6C" Association="Self.FK__unidade__id_terr__22751F6C">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="unidade" EntitySet="unidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK__zat__id_territor__208CD6FA" Association="Self.FK__zat__id_territor__208CD6FA">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="zat" EntitySet="zat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__zat__id_unidade__2180FB33" Association="Self.FK__zat__id_unidade__2180FB33">
+      <End Role="unidade" EntitySet="unidade" />
+      <End Role="zat" EntitySet="zat" />
+    </AssociationSet>
+    <EntitySet Name="manutencao" EntityType="MC1_DB_FEMSAModel.manutencao" />
+    <AssociationSet Name="FK__manutenca__id_ad__6B0FDBE9" Association="MC1_DB_FEMSAModel.FK__manutenca__id_ad__6B0FDBE9">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_manutencao_cliente" Association="MC1_DB_FEMSAModel.FK_manutencao_cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_ma__6462DE5A" Association="MC1_DB_FEMSAModel.FK__manutenca__id_ma__6462DE5A">
+      <End Role="manutencao" EntitySet="manutencao" />
+      <End Role="manutencao_peca" EntitySet="manutencao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_ma__6A1BB7B0" Association="MC1_DB_FEMSAModel.FK__manutenca__id_ma__6A1BB7B0">
+      <End Role="manutencao" EntitySet="manutencao" />
+      <End Role="manutencao_instalacao" EntitySet="manutencao_instalacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__manut__2022C2A6" Association="MC1_DB_FEMSAModel.FK__manutenca__manut__2022C2A6">
+      <End Role="tipo_de_manutencao" EntitySet="tipo_de_manutencao" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__manut__26CFC035" Association="MC1_DB_FEMSAModel.FK__manutenca__manut__26CFC035">
+      <End Role="validacao" EntitySet="validacao" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__peca___1F2E9E6D" Association="MC1_DB_FEMSAModel.FK__manutenca__peca___1F2E9E6D">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="data_manutencao" Type="DateTime" Precision="3" />
+    <Property Name="data_ativacao" Type="DateTime" Precision="3" />
+    <Property Name="meta_manutencao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observacao_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="observacao_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="numero_rc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="data_rc" Type="DateTime" Precision="3" />
+    <Property Name="url_foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="solicitante" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cliente_id" Type="Int32" />
+    <Property Name="manutencao_tipo" Type="Int32" />
+    <Property Name="manutencao_validacao" Type="Int32" />
+    <Property Name="peca_id" Type="Int32" />
+    <Property Name="codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_administrador" Type="Int32" />
+    <Property Name="substituida" Type="Byte" />
+    <NavigationProperty Name="administrador" Relationship="MC1_DB_FEMSAModel.FK__manutenca__id_ad__6B0FDBE9" FromRole="manutencao" ToRole="administrador" />
+    <NavigationProperty Name="cliente" Relationship="MC1_DB_FEMSAModel.FK_manutencao_cliente" FromRole="manutencao" ToRole="cliente" />
+    <NavigationProperty Name="manutencao_peca" Relationship="MC1_DB_FEMSAModel.FK__manutenca__id_ma__6462DE5A" FromRole="manutencao" ToRole="manutencao_peca" />
+    <NavigationProperty Name="manutencao_instalacao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__id_ma__6A1BB7B0" FromRole="manutencao" ToRole="manutencao_instalacao" />
+    <NavigationProperty Name="tipo_de_manutencao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__manut__2022C2A6" FromRole="manutencao" ToRole="tipo_de_manutencao" />
+    <NavigationProperty Name="validacao" Relationship="MC1_DB_FEMSAModel.FK__manutenca__manut__26CFC035" FromRole="manutencao" ToRole="validacao" />
+    <NavigationProperty Name="peca" Relationship="MC1_DB_FEMSAModel.FK__manutenca__peca___1F2E9E6D" FromRole="manutencao" ToRole="peca" />
+  </EntityType>
+  <Association Name="FK__manutenca__id_ad__6B0FDBE9">
+    <End Type="MC1_DB_FEMSAModel.administrador" Role="administrador" Multiplicity="0..1" />
+    <End Type="MC1_DB_FEMSAModel.manutencao" Role="manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="id_administrador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_manutencao_cliente">
+    <End Type="MC1_DB_FEMSAModel.cliente" Role="cliente" Multiplicity="0..1" />
+    <End Type="MC1_DB_FEMSAModel.manutencao" Role="manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="cliente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_ma__6462DE5A">
+    <End Type="MC1_DB_FEMSAModel.manutencao" Role="manutencao" Multiplicity="0..1" />
+    <End Type="MC1_DB_FEMSAModel.manutencao_peca" Role="manutencao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao_peca">
+        <PropertyRef Name="id_manutencao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_ma__6A1BB7B0">
+    <End Type="MC1_DB_FEMSAModel.manutencao" Role="manutencao" Multiplicity="0..1" />
+    <End Type="MC1_DB_FEMSAModel.manutencao_instalacao" Role="manutencao_instalacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao_instalacao">
+        <PropertyRef Name="id_manutencao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__manut__2022C2A6">
+    <End Type="MC1_DB_FEMSAModel.tipo_de_manutencao" Role="tipo_de_manutencao" Multiplicity="0..1" />
+    <End Type="MC1_DB_FEMSAModel.manutencao" Role="manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_de_manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="manutencao_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__manut__26CFC035">
+    <End Type="MC1_DB_FEMSAModel.validacao" Role="validacao" Multiplicity="0..1" />
+    <End Type="MC1_DB_FEMSAModel.manutencao" Role="manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="validacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="manutencao_validacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__peca___1F2E9E6D">
+    <End Type="MC1_DB_FEMSAModel.peca" Role="peca" Multiplicity="0..1" />
+    <End Type="MC1_DB_FEMSAModel.manutencao" Role="manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="peca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

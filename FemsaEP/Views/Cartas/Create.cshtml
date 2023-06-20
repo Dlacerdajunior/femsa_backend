@@ -1,0 +1,167 @@
+@model FemsaEP.Models.carta
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Cartas", FormMethod.Post, new { id = "formadicionarcarta", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    <script>
+
+        jQuery(function ($) {
+            $('#codigo').mask('00000000');
+            $('#contato').mask('(00)00000-0000');
+            $('#telefone').mask('(00)00000-0000');
+            $('#ano_cliente').mask('0000');
+            $('#ano_contrapartida').mask('0000');
+            $('#unidade').mask('00000000');
+        });
+
+    </script>
+
+    <script>
+        $(function () {
+            // your code goes here
+            $("#btadicionarcarta").click(function () {
+                codigo = $("#codigo").val()
+                razao = $("#razao").val()
+                if (codigo == "" && razao == "") {
+                    alert("É necessário preencher os campos abaixo");
+                    return false;
+                }
+                else {
+                    $("#formadicionarcarta").submit();
+                }
+
+            });
+        });
+    </script>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.codigo, "Código *", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.codigo, new { @class = "form-control", placeholder = "Código" })
+            @Html.ValidationMessageFor(model => model.codigo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.razao, "Razão *", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.razao, new { @class = "form-control", placeholder = "Razão" })
+            @Html.ValidationMessageFor(model => model.razao)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.endereco, "Endereço", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.endereco, new { @class = "form-control", placeholder = "Endereço" })
+            @Html.ValidationMessageFor(model => model.endereco)
+        </div>
+        @Html.LabelFor(model => model.bairro, "Bairro", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.bairro, new { @class = "form-control", placeholder = "Bairro" })
+            @Html.ValidationMessageFor(model => model.bairro)
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.cidade, "Cidade", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.cidade, new { @class = "form-control", placeholder = "Cidade" })
+            @Html.ValidationMessageFor(model => model.cidade)
+        </div>
+        @Html.LabelFor(model => model.uf_id, "UF", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("uf_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.uf_id)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.contato, "Contato", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.contato, new { @class = "form-control", placeholder = "Contato" })
+            @Html.ValidationMessageFor(model => model.contato)
+        </div>
+        @Html.LabelFor(model => model.telefone, "Telefone", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.telefone, new { @class = "form-control", placeholder = "Telefone" })
+            @Html.ValidationMessageFor(model => model.telefone)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.rota_vendedor, "Rota Vendedor", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.rota_vendedor, new { @class = "form-control", placeholder = "Rota Vendedor" })
+            @Html.ValidationMessageFor(model => model.rota_vendedor)
+        </div>
+        @Html.LabelFor(model => model.cluster, "Cluster", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.cluster, new { @class = "form-control", placeholder = "Cluster" })
+            @Html.ValidationMessageFor(model => model.cluster)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.unidade, "Unidade", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.unidade, new { @class = "form-control", placeholder = "Unidade" })
+            @Html.ValidationMessageFor(model => model.unidade)
+        </div>
+        @Html.LabelFor(model => model.desenvolvedor, "Desenvolvedor", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.desenvolvedor, new { @class = "form-control", placeholder = "Desenvolvedor" })
+            @Html.ValidationMessageFor(model => model.desenvolvedor)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.prospector, "Prospector", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.prospector, new { @class = "form-control", placeholder = "Prospector" })
+            @Html.ValidationMessageFor(model => model.prospector)
+        </div>
+        @Html.LabelFor(model => model.nome_zat, "Nome da ZAT", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.nome_zat, new { @class = "form-control", placeholder = "Nome da ZAT" })
+            @Html.ValidationMessageFor(model => model.nome_zat)
+        </div>
+    </div>
+
+    <div class="form-group">        
+        @Html.LabelFor(model => model.zat, "ZAT", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("zatzat", String.Empty)
+            @Html.ValidationMessageFor(model => model.zat)
+        </div>
+        @Html.LabelFor(model => model.ano_cliente, "Ano Cliente", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ano_cliente, new { @class = "form-control", placeholder = "Ano Cliente" })
+            @Html.ValidationMessageFor(model => model.ano_cliente)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Upload PDF</label>
+        <div class="col-md-4">
+            <div class="file">
+                @Html.TextBox("file", "", new { type = "file", @class = "form-control" })
+            </div>
+        </div>
+        @Html.LabelFor(model => model.ano_contrapartida, "Ano Contrapartida", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ano_contrapartida, new { @class = "form-control", placeholder = "Ano Contrapartida" })
+            @Html.ValidationMessageFor(model => model.ano_contrapartida)
+        </div>
+    </div>
+
+
+}

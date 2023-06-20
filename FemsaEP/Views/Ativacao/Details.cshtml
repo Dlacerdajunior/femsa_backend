@@ -1,0 +1,75 @@
+﻿@model FemsaEP.Models.ativacao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ativacao</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custo_valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custo_valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.situacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.situacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.mandante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.mandante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projeto.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projeto.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_ativacao.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_ativacao.nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

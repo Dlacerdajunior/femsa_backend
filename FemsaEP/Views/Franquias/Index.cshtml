@@ -1,0 +1,186 @@
+﻿@model PagedList.IPagedList<FemsaEP.Models.franquia>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+    $(function () {
+        // your code goes here
+
+        $(".btadicionarfranquia").click(function () {
+
+            $("#modaladicionarfranquia").load($(this).attr('href'));
+
+            $("#modaladicionarfranquialink").trigger("click");
+
+            return false;
+        });
+
+        $(".bteditarfranquia").click(function () {
+
+            $("#modaleditarfranquia").load($(this).attr('href'));
+
+            $("#modaleditarfranquialink").trigger("click");
+
+            return false;
+        });
+
+        $(".btdeletarfranquialink").click(function () {
+
+            $("#modaldeletarfranquia").load($(this).attr('href'));
+
+            $("#modaldeletarlink").trigger("click");
+
+            return false;
+        });
+
+
+        $("#btdeletarfranquia").click(function () {
+
+            $("#formdeletarfranquia").submit();
+        });
+    });
+
+</script>
+
+<header class="page-header">
+    <h2>Franquias</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="franquias.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Franquias</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                    <a href="@Url.Content("~/Franquias/Create")" class="btadicionarfranquia panel-action"><i class="fa fa-plus"></i></a>
+                    <a href="#modalAnim" id="modaladicionarfranquialink" class="panel-action fa fa-plus modal-with-zoom-anim" style="display:none;"><i class="fa fa-plus"></i></a>
+                </div>
+
+                <h2 class="panel-title">Franquias</h2>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+
+                    <table class="table mb-none">
+                        <thead>
+                            <tr>
+                                <th width="10%">Código</th>
+                                <th width="80%">Descrição</th>
+                                <th width="10%">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td> @Html.DisplayFor(modelItem => item.codigo) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.descricao) </td>
+
+                                    <td class="actions">
+
+                                        <a href="@Url.Content("~/Franquias/edit/"+item.id)" class="bteditarfranquia panel-action"><i class="fa fa-pencil"></i></a>
+
+                                        <a href="#modalAdd" id="modaleditarfranquialink" class="panel-action modal-with-zoom-anim" style="display:none;"><i class="fa fa-pencil"></i></a>
+
+                                        <a href="@Url.Content("~/Franquias/delete/"+item.id)" class="btdeletarfranquialink "><i class="fa fa-trash-o"></i></a>
+
+                                        <a href="#modalRemover" id="modaldeletarlink" class="delete-row modal-with-zoom-anim" style="display:none;"><i class="fa fa-trash-o"></i></a>
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            Página @Model.PageNumber de @Model.PageCount
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page }))
+        </section>
+    </div>
+</div>
+
+<!-- Modal atualizar -->
+<div id="modalAdd" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Atualizar</h2>
+        </header>
+        <div class="panel-body" id="modaleditarfranquia">
+
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-atualizar" id="bteditarfranquia">Atualizar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Adicionar -->
+<div id="modalAnim" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Adicionar</h2>
+        </header>
+        <div class="panel-body" id="modaladicionarfranquia">
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-confirm" id=btadicionarfranquia>Adicionar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Remover -->
+<div id="modalRemover" class="zoom-anim-dialog modal-block modal-block-danger mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Deletar</h2>
+        </header>
+        <div class="panel-body" id=modaldeletarfranquia>
+
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-danger modal-delete" id="btdeletarfranquia">Confirmar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>

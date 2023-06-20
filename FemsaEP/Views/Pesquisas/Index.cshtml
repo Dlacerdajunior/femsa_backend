@@ -1,0 +1,223 @@
+﻿@model PagedList.IPagedList<FemsaEP.Models.enquete>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+    $(function () {
+        // your code goes here
+
+        $(".btadicionarpesquisa").click(function () {
+
+            $("#modaladicionarpesquisa").load($(this).attr('href'));
+
+            $("#modaladicionarpesquisalink").trigger("click");
+
+            return false;
+
+        });
+
+        $(".bteditarpesquisa").click(function () {
+
+            $("#modaleditarpesquisa").load($(this).attr('href'));
+
+            $("#modaleditarpesquisalink").trigger("click");
+
+            return false;
+
+        });
+
+        $(".btdeletarpesquisalink").click(function () {
+
+            $("#modaldeletarpesquisa").load($(this).attr('href'));
+
+            $("#modaldeletarlink").trigger("click");
+
+            return false;
+
+        });
+
+
+        $("#btdeletarpesquisa").click(function () {
+
+            $("#formdeletarpesquisa").submit();
+
+        });
+
+    });
+
+</script>
+
+<header class="page-header">
+    <h2>Pesquisas</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="home.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Pesquisas</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                    <a href="@Url.Content("~/Pesquisas/Create")" class="btadicionarpesquisa panel-action"><i class="fa fa-plus"></i></a>
+                    <a href="#modalAnim" id="modaladicionarpesquisalink" class="panel-action fa fa-plus modal-with-zoom-anim" style="display:none;"><i class="fa fa-plus"></i></a>
+
+                </div>
+
+                <h2 class="panel-title">Pesquisas</h2>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table mb-none">
+                        <thead>
+                            <tr>
+                                <th width="30%">Título</th> <!-- varchar -->
+                                <th width="10%">Vigência</th> <!-- char -->
+                                <th width="10%">Data Início</th> <!-- datetime -->
+                                <th width="10%">Data Limite</th> <!-- datetime -->
+                                <th width="10%">Status</th> <!-- char -->
+                                <th width="10%">Cluster</th> <!-- FK -->
+                                <th width="10%">Perguntas</th>
+                                <th width="20%">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.titulo)</td>
+                                    <td>
+                                        @if (item.vigencia == "1")
+                                        {
+                                            <p>Sim</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Não</p>
+                                        }
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.data_inicio)</td>
+                                <td>@Html.DisplayFor(modelItem => item.data_limite)</td>
+                                <td>
+                                    @if (item.status == "1")
+                                    {
+                                        <p>Sim</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Não</p>
+                                    }
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.cluster_SAP.ZNOMBRE)</td>
+                                <td class="actions">
+                                    <a href="@Url.Content("~/Perguntas/?id="+item.id)" class="btpergunta panel-action"><i class="fa fa-reply"></i></a>
+
+                                    <a href="#modalPerg" id="modalperguntalink" class="panel-action modal-with-zoom-anim" style="display:none;"><i class="fa fa-reply"></i></a>
+                                </td>
+                                <td class="actions">
+                                    <a href="@Url.Content("~/Pesquisas/edit/"+item.id)" class="bteditarpesquisa panel-action"><i class="fa fa-pencil"></i></a>
+
+                                    <a href="#modalAdd" id="modaleditarpesquisalink" class="panel-action modal-with-zoom-anim" style="display:none;"><i class="fa fa-pencil"></i></a>
+
+                                    <a href="@Url.Content("~/Pesquisas/delete/"+item.id)" class="btdeletarpesquisalink "><i class="fa fa-trash-o"></i></a>
+
+                                    <a href="#modalRemover" id="modaldeletarlink" class="delete-row modal-with-zoom-anim" style="display:none;"><i class="fa fa-trash-o"></i></a>
+
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            Página @Model.PageNumber de @Model.PageCount
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page }))
+        </section>
+    </div>
+</div>
+
+
+<!-- Modal atualizar -->
+<div id="modalAdd" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Atualizar</h2>
+        </header>
+        <div class="panel-body" id="modaleditarpesquisa">
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-atualizar" id="bteditarpesquisa">Atualizar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Adicionar -->
+<div id="modalAnim" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Adicionar</h2>
+        </header>
+        <div class="panel-body" id="modaladicionarpesquisa">
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-confirm" id=btadicionarpesquisa>Adicionar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Remover -->
+<div id="modalRemover" class="zoom-anim-dialog modal-block modal-block-danger mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Deletar</h2>
+        </header>
+        <div class="panel-body" id="modaldeletarpesquisa">
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-danger modal-delete" id="btdeletarpesquisa">Confirmar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+

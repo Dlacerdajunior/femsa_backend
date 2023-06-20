@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="page-header">
+    <h2>Dashboard</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="home.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Dashboard</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle"></a>
+    </div>
+</header>
+
+
+<div class="row">
+    <div class="col-md-6 col-lg-12 col-xl-6">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="chart-data-selector ready" id="salesSelectorWrapper">
+                            <h2>
+                                Ativações:
+                                <!--<strong>
+                                    <select class="form-control" id="salesSelector">
+                                        <option value="Porto Admin" selected>Porto Admin</option>
+                                        <option value="Porto Drupal" >Porto Drupal</option>
+                                        <option value="Porto Wordpress" >Porto Wordpress</option>
+                                    </select>
+                                </strong>
+                                -->
+                            </h2>
+
+                            <div id="salesSelectorItems" class="chart-data-selector-items mt-sm">
+                                <!-- Flot: Sales Porto Admin -->
+                                <div class="chart chart-sm" data-sales-rel="Porto Admin" id="flotDashSales1" style="padding: 0px; position: relative;"><canvas class="flot-base" width="1001" height="184" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 1001px; height: 184px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 125px; top: 161px; left: 27px; text-align: center;">Jan</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 125px; top: 161px; left: 162px; text-align: center;">Feb</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 125px; top: 161px; left: 298px; text-align: center;">Mar</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 125px; top: 161px; left: 435px; text-align: center;">Apr</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 125px; top: 161px; left: 570px; text-align: center;">May</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 125px; top: 161px; left: 709px; text-align: center;">Jun</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 125px; top: 161px; left: 848px; text-align: center;">Jul</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 125px; top: 161px; left: 980px; text-align: center;">Aug</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 135px; left: 14px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 101px; left: 1px; text-align: right;">100</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 68px; left: 1px; text-align: right;">200</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 34px; left: 1px; text-align: right;">300</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">400</div></div></div><canvas class="flot-overlay" width="1001" height="184" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 1001px; height: 184px;"></canvas></div>
+                                <script>
+
+                                    var flotDashSales1Data = [{
+                                        data: [
+                                            ["Jan", 140],
+                                            ["Feb", 240],
+                                            ["Mar", 190],
+                                            ["Apr", 140],
+                                            ["May", 180],
+                                            ["Jun", 320],
+                                            ["Jul", 270],
+                                            ["Aug", 180]
+                                        ],
+                                        color: "#0088cc"
+                                    }];
+
+                                    // See: assets/javascripts/dashboard/examples.dashboard.js for more settings.
+
+                                </script>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-6 col-lg-12 col-xl-6">
+        <div class="row">
+            <div class="col-md-12 col-lg-6 col-xl-6">
+                <section class="panel panel-featured-left panel-featured-secondary">
+                    <div class="panel-body">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-secondary">
+                                    <i class="fa fa-usd"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Custo das ativações de hoje</h4>
+                                    <div class="info">
+                                        <strong class="amount">R$ 27958,90</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-muted text-uppercase">(27/02/2016)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-12 col-lg-6 col-xl-6">
+                <section class="panel panel-featured-left panel-featured-secondary">
+                    <div class="panel-body">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-secondary">
+                                    <i class="fa fa-usd"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Custo total das ativações</h4>
+                                    <div class="info">
+                                        <strong class="amount">R$ 144.890.30</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-muted text-uppercase">(desde 01/01/2016)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-12 col-lg-6 col-xl-6">
+                <section class="panel panel-featured-left panel-featured-tertiary">
+                    <div class="panel-body">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-tertiary">
+                                    <i class="fa fa-usd"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Custo das ativações de hoje</h4>
+                                    <div class="info">
+                                        <strong class="amount">3</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-muted text-uppercase">(report)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-12 col-lg-6 col-xl-6">
+                <section class="panel panel-featured-left panel-featured-quartenary">
+                    <div class="panel-body">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-quartenary">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Total de clientes ativados</h4>
+                                    <div class="info">
+                                        <strong class="amount">375</strong>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-muted text-uppercase">(report)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

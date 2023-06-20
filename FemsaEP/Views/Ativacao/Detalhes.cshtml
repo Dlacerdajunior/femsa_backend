@@ -1,0 +1,324 @@
+﻿@model FemsaEP.Models.cliente_SAP
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+    $(function () {
+
+            $.ajax({
+                url: 'http://10.137.64.116/Mobile/listaContrapartidasBackoffice?id_cliente=@Model.ZCLIENTE&&id_ativacao=@ViewBag.idativacao',
+                type: 'GET',
+                dataType: 'html',
+                data: {},
+            })
+            .done(function(data) {
+                $('.tablecontrapatidaativacao').html(data)
+            })
+        
+        $.getJSON('http://10.137.64.116/Mobile/listaProjetoClienteMobile?id_cliente=@Model.ZCLIENTE', function (json) {
+
+        console.log(json.projeto_cliente_lista)
+        if (json.projeto_cliente_lista.length > 0) {
+
+            console.log(json.projeto_cliente_lista);
+            for (var i = 0; i < json.projeto_cliente_lista.length; i++) {
+
+                if($('#projeto'+json.projeto_cliente_lista[i].id).val() != 1){
+
+                    var htmlprint = '';
+
+                    htmlprint += '<div class="radio">';
+                    htmlprint += '<label>';
+                    htmlprint += ' <input type="hidden" id="projeto'+json.projeto_cliente_lista[i].id + '"  value="1">';
+
+                    htmlprint += '<input disabled="disabled"  type="checkbox" name="optionsRadios"  value="' + json.projeto_cliente_lista[i].id + '" checked>';
+                    htmlprint += json.projeto_cliente_lista[i].nome;
+                    htmlprint += '</label>';
+                    htmlprint += '</div>';
+
+                    $(".projetosativacao").append(htmlprint);
+                }
+            }
+
+        } else {
+
+            htmlprint = '<span><center>Nenhum resultado</center></span>';
+            $(".projetosativacao").html(htmlprint);
+        }
+    });
+
+    for (var i = 1; i <= 12; i++) {
+
+        $.getJSON('http://10.137.64.116/Mobile/fotosAtivacaoMobile/', {id_ativacao:@ViewBag.idativacao, etapa:i}, function (json) {
+
+            var json = json.serv;
+
+            if (json.length > 0) {
+
+                var mostrafoto = 1;
+
+                var htmlprint = '';
+
+                for (var i = 0; i < json.length; i++) {
+                    if(json[i].foto == ""){
+                        mostrafoto = 0;
+                    }
+                }
+
+                if(mostrafoto == 1){
+
+                    htmlprint += '<tr style="background-color:#d9d9d9" class="fotoativacao">';
+                    htmlprint += '<td style="color:black">Etapa '+json[0].etapa+'</td>';
+                    htmlprint += '<td></td>';
+                    htmlprint += '<td></td>';
+                    htmlprint += '<td></td>';
+                    htmlprint += '<td></td>';
+                    htmlprint += '</tr>';
+
+                    htmlprint += ' <tr class="fotoativacao">';
+                    htmlprint += '<td>Id</td>';
+                    htmlprint += '<td>Codigo</td>';
+                    htmlprint += '<td>Nome</td>';
+                    htmlprint += '<td>Valor</td>';
+                    htmlprint += '<td>Foto</td>';
+                    htmlprint += '</tr>';
+
+                    for (var i = 0; i < json.length; i++) {
+
+                        htmlprint += ' <tr>';
+                        htmlprint += '<td>'+json[i].peca_id+'</td>';
+                        htmlprint += '<td>'+json[i].peca_codigo+'</td>';
+                        htmlprint += '<td>'+json[i].peca_nome+'</td>';
+                        htmlprint += '<td>R$'+json[i].peca_valor+',00</td>';
+                        htmlprint += '<td><img src="'+json[i].foto+'"/></td>';
+                        htmlprint += '</tr>';
+                    }
+
+                    $(".tablepecasativacao").append(htmlprint);
+                }
+
+            } else {
+                htmlprint = '<span><center>Nenhum resultado</center></span>';
+                $(".tablepecasativacao").html(htmlprint);
+            }
+        });
+    }
+});
+</script>
+
+<header class="page-header">
+    <h2>Ativação</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="home.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Ativação</span></li>
+        </ol>
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel form-wizard" id="w2">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                    <!-- <a href="#" class="panel-action fa fa-plus" ></a> --><!-- <a href="#modalAnim" class="panel-action fa fa-plus modal-with-zoom-anim" ></a> -->
+                </div>
+
+                <h2 class="panel-title">Ativação</h2>
+
+            </header>
+            <div class="panel-body">
+                <div class="tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#cliente" data-toggle="tab">Cliente</a>
+                        </li>
+                        <li>
+                            <a href="#projeto" data-toggle="tab">Projeto</a>
+                        </li>
+                        <li>
+                            <a href="#contrapartidas" data-toggle="tab">Contrapartidas</a>
+                        </li>
+                        <li>
+                            <a href="#pecas" data-toggle="tab">Peças</a>
+                        </li>
+                    </ul>
+
+                    <form class="form-horizontal" novalidate="novalidate">
+                        <div class="tab-content">
+                            <div id="cliente" class="tab-pane active">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="nomeFantasia">Razão Social</label>
+                                    <div class="col-md-10">
+                                        <input disabled="" class="form-control input-sm" id="nomeFantasia" name="nomeFantasia" value="@Model.ZNOMBRE">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="cep">CEP</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="cep" id="cep" value="@Model.ZCEP">
+                                    </div>
+                                    <label class="col-sm-2 control-label" for="endereco">Endereço</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="endereco" id="endereco" value="@Model.ZDIRECCIO">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="bairro">Bairro</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="bairro" id="bairro" value="@Model.ZBARRIO">
+                                    </div>
+                                    <label class="col-sm-2 control-label" for="cidade">Cidade</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="cidade" id="cidade" value="@Model.ZCIUDAD">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                  @{
+                                      
+                                      if (Model.ZUF != null)
+                                      {
+                                          
+                                    <label class="col-sm-2 control-label" for="cep">UF</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="uf" id="uf" value="@Model.ZUF">
+                                    </div>                                                                                
+                                          
+                                      }
+                                  }
+                                    
+                                    
+                                    @{
+
+                                        if (Model.ZZAT != null)
+                                        {
+    
+                                        <label class="col-sm-2 control-label" for="zat">ZAT</label>
+                                        <div class="col-sm-4">
+                                            <input disabled="" type="text" class="form-control input-sm" name="zat" id="zat" value="@Model.zat_SAP.ZNOMBRE">
+                                        </div>                                        
+
+                                        }
+                                    }
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="ponto">Ponto referência</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="ponto" id="ponto" value="@Model.ZPUNTOREF">
+                                    </div>
+                                    <label class="col-sm-2 control-label" for="tel1">Telefone</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="tel1" id="tel1" value="@Model.ZTELEFONO">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    @{
+                                         
+                                        if (Model.ZUNIDAD != null)
+                                        {
+                                            
+                                    <label class="col-sm-2 control-label" for="unidade">Unidade</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="unidade" id="unidade" value="@Model.unidade_SAP.ZNOMBRE">
+                                    </div>                                        
+
+                                        }
+                                    }
+
+
+
+                                    @{
+
+                                        if (Model.ZRUTA != null)
+                                        {
+                                         
+                                    <label class="col-sm-2 control-label" for="rota">Rota</label>
+                                    <div class="col-sm-4">
+                                        <input disabled="" type="text" class="form-control input-sm" name="rota" id="rota" value="@Model.ZRUTA">
+                                    </div>
+
+                                        }
+                                    }
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="prospector">Prospector</label>
+                                    <div class="col-sm-10">
+                                        <input disabled="" type="text" class="form-control input-sm" name="prospector" id="prospector" value="@Model.prospector">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="projeto" class="tab-pane">
+                                <div class="form-group">
+                                    <div class="col-sm-10 projetosativacao">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="contrapartidas" class="tab-pane">
+                                <div class="form-group">
+                                            <div class="col-sm-10 contrapatidaativacao">
+
+                                                <table class="table mb-none">
+                                                    <thead>
+
+                                                    </thead>
+                                                    <tbody class="tablecontrapatidaativacao"></tbody>
+                                                </table>                                                
+                                            <!--<div class="radio">
+                                                    <label>
+                                                        <input disabled="" type="checkbox" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                                    </label>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="pecas" class="tab-pane">
+                                        <div class="form-group">
+                                            <div class="col-sm-10 pecasativacao">
+                                                <table class="table mb-none">
+                                                    <thead>
+
+                                                    </thead>
+                                                    <tbody class="tablepecasativacao"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                    </form>
+
+                    <div id="briefing" class="tab-pane">
+<!-- CONTEUDO AQUI -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

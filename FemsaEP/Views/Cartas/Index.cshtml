@@ -1,0 +1,219 @@
+﻿@model PagedList.IPagedList<FemsaEP.Models.carta>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+    $(function () {
+        // your code goes here
+
+        $(".btadicionarcarta").click(function () {
+
+            $("#modaladicionarcarta").load($(this).attr('href'));
+
+            $("#modaladicionarcartalink").trigger("click");
+
+            return false;
+
+        });
+
+        $(".bteditarcarta").click(function () {
+
+            $("#modaleditarcarta").load($(this).attr('href'));
+
+            $("#modaleditarcartalink").trigger("click");
+
+            return false;
+
+        });
+
+        $(".btdeletarcartalink").click(function () {
+
+            $("#modaldeletarcarta").load($(this).attr('href'));
+
+            $("#modaldeletarlink").trigger("click");
+
+            return false;
+
+        });
+
+
+        $("#btdeletarcarta").click(function () {
+
+            $("#formdeletarcarta").submit();
+
+        });
+
+    });
+
+</script>
+
+<header class="page-header">
+    <h2>Cartas</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="cartas.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Cartas</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                    <a href="@Url.Content("~/Cartas/Create")" class="btadicionarcarta panel-action"><i class="fa fa-plus"></i></a>
+                    <a href="#modalAnim" id="modaladicionarcartalink" class="panel-action fa fa-plus modal-with-zoom-anim" style="display:none;"><i class="fa fa-plus"></i></a>
+                </div>
+
+                <h2 class="panel-title">Cartas</h2>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table mb-none table-lg">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Razão</th>
+                                <th>Endereço</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>UF</th>
+                                <th>Contato</th>
+                                <th>Telefone</th>
+                                <th>Rota Vendedor</th>
+                                <th>Cluster</th>
+                                <th>Unidade</th>
+                                <th>Desenvolvedor</th>
+                                <th>Prospector</th>
+                                <th>Nome da ZAT</th>
+                                <th>ZAT</th>
+                                <th>Ano Cliente</th>
+                                <th>Ano Contrapartida</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td> @Html.DisplayFor(modelItem => item.codigo) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.razao) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.endereco) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.bairro) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.cidade) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.uf.uf_sigla) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.contato) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.telefone) </td>
+                                    <td> @Html.DisplayFor(modelItem => item.rota_vendedor)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.cluster)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.unidade)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.desenvolvedor)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.prospector) </td>
+                                    <td>@Html.DisplayFor(modelItem => item.nome_zat)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.zat)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ano_cliente)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ano_contrapartida)</td>
+
+                                    <td class="actions">
+
+                                        <a href="@Url.Content("~/Cartas/edit/"+item.id)" class="bteditarcarta panel-action"><i class="fa fa-pencil"></i></a>
+
+                                        <a href="#modalAdd" id="modaleditarcartalink" class="panel-action modal-with-zoom-anim" style="display:none;"><i class="fa fa-pencil"></i></a>
+
+                                        <a href="@Url.Content("~/Cartas/delete/"+item.id)" class="btdeletarcartalink "><i class="fa fa-trash-o"></i></a>
+
+                                        <a href="#modalRemover" id="modaldeletarlink" class="delete-row modal-with-zoom-anim" style="display:none;"><i class="fa fa-trash-o"></i></a>
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            Página @Model.PageNumber de @Model.PageCount
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page }))
+        </section>
+    </div>
+</div>
+
+
+<!-- Modal atualizar -->
+<div id="modalAdd" class="zoom-anim-dialog modal-block modal-block-lg modal-block-primary mfp-hide modal-mob-lg">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Atualizar</h2>
+        </header>
+        <div class="panel-body" id="modaleditarcarta">
+
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-atualizar" id="bteditarcarta">Atualizar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Adicionar -->
+<div id="modalAnim" class="zoom-anim-dialog modal-block modal-block-lg modal-block-primary mfp-hide modal-mob-lg">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Adicionar</h2>
+        </header>
+        <div class="panel-body" id="modaladicionarcarta">
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-confirm" id=btadicionarcarta>Adicionar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Remover -->
+<div id="modalRemover" class="zoom-anim-dialog modal-block modal-block-danger mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Deletar</h2>
+        </header>
+        <div class="panel-body" id=modaldeletarcarta>
+        </div>
+
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-danger modal-delete" id="btdeletarcarta">Confirmar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>

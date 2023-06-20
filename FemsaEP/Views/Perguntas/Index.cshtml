@@ -1,0 +1,233 @@
+﻿@model IEnumerable<FemsaEP.Models.enquete_perguntas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+    $(function () {
+        // your code goes here
+        $("#btenviarpergunta").click(function () {
+            nome = $("#nome").val()
+            if (nome == "") {
+                alert("É necessário preencher uma pergunta.");
+                return false;
+            }
+            else {
+                $("#btenviarpergunta").submit();
+            }
+
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+
+        // your code goes here
+        
+        $(".btadicionarpergunta").click(function () {
+
+            $("#modaladicionarpergunta").load($(this).attr('href'));
+
+            $("#modaladicionarperguntalink").trigger("click");
+
+            return false;
+
+        });
+
+        $(".bteditarpergunta").click(function () {
+
+            $("#modaleditarpergunta").load($(this).attr('href'));
+
+            $("#modaleditarperguntalink").trigger("click");
+
+            return false;
+
+        });
+
+        $(".btdeletarperguntalink").click(function () {
+
+            $("#modaldeletarpergunta").load($(this).attr('href'));
+
+            $("#modaldeletarlink").trigger("click");
+
+            return false;
+
+        });
+
+
+        $("#btdeletarpergunta").click(function () {
+
+            $("#formdeletarpergunta").submit();
+
+        });
+
+    });
+
+</script>
+
+
+<header class="page-header">
+    <h2>Perguntas</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="home.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Perguntas</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                    <!--  <a href="@Url.Content("~/Perguntas/Create")" class="btadicionarpergunta panel-action"><i class="fa fa-plus"></i></a>
+                      <a href="#modalAnim" id="modaladicionarperguntalink" class="panel-action fa fa-plus modal-with-zoom-anim" style="display:none;"><i class="fa fa-plus"></i></a> -->
+
+                </div>
+
+                <h2 class="panel-title">Perguntas</h2>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table mb-none">
+                        <thead>
+                            <tr>
+                                <th width="10%">Pesquisa</th>
+                                <th width="80%">Nome</th>
+                                <th width="10%">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.enquete.titulo)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.nome)</td>
+                                    <td class="actions">
+
+                                        <a href="@Url.Content("~/Perguntas/edit/"+item.id)" class="bteditarpergunta panel-action"><i class="fa fa-pencil"></i></a>
+
+                                        <a href="#modalAdd" id="modaleditarperguntalink" class="panel-action modal-with-zoom-anim" style="display:none;"><i class="fa fa-pencil"></i></a>
+
+                                        <a href="@Url.Content("~/Perguntas/delete/"+item.id)" class="btdeletarperguntalink "><i class="fa fa-trash-o"></i></a>
+
+                                        <a href="#modalRemover" id="modaldeletarlink" class="delete-row modal-with-zoom-anim" style="display:none;"><i class="fa fa-trash-o"></i></a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- start: second page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <!--    <div class="panel-actions">
+                       <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                   </div> -->
+
+                <h2 class="panel-title">Inserir Pergunta</h2>
+            </header>
+        </section>
+        <div class="panel-body">
+            <form method="post" action="@Url.Content("~/Perguntas/CreateInsert")">
+                <div class="table-responsive">
+                    <input type="hidden" name="id_enquete" value="@Request.Params["id"]" />
+                    <div class="col-md-10">
+
+                        <textarea class="form-control" cols="20" id="nome" name="nome" placeholder="Pergunta" rows="2"></textarea>
+                        <span class="field-validation-valid" data-valmsg-for="enquete" data-valmsg-replace="true"></span>
+                    </div>
+                    <button class="btn btn-primary" id="btenviarpergunta">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal atualizar -->
+<div id="modalAdd" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Atualizar</h2>
+        </header>
+        <div class="panel-body" id="modaleditarpergunta">
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-atualizar" id="bteditarpergunta">Atualizar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Adicionar -->
+<div id="modalAnim" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Adicionar</h2>
+        </header>
+        <div class="panel-body" id="modaladicionarpergunta">
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-confirm" id=btadicionarpergunta>Adicionar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Remover -->
+<div id="modalRemover" class="zoom-anim-dialog modal-block modal-block-danger mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Deletar</h2>
+        </header>
+        <div class="panel-body" id="modaldeletarpergunta">
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-danger modal-delete" id="btdeletarpergunta">Confirmar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+

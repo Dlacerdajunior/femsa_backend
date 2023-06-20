@@ -1,0 +1,241 @@
+﻿@model IEnumerable<FemsaEP.Models.chat_mensagem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+    $(function () {
+
+        $('#btenviar').click(function(event) {
+            text = $('#texto').val()
+
+            if (text == "") {
+                alert('Mensagem não pode ser vazia.');
+                return false;
+            }
+        });
+
+        // your code goes here
+
+        $(".btadicionarchat").click(function () {
+
+            $("#modaladicionarchat").load($(this).attr('href'));
+
+            $("#modaladicionarchatlink").trigger("click");
+
+            return false;
+
+        });
+
+
+        $(".bteditarchat").click(function () {
+
+            $("#modaleditarchat").load($(this).attr('href'));
+
+            $("#modaleditarchatlink").trigger("click");
+
+            return false;
+
+        });
+
+
+        $(".btdeletarchatlink").click(function () {
+
+            $("#modaldeletarchat").load($(this).attr('href'));
+
+            $("#modaldeletarlink").trigger("click");
+
+            return false;
+
+        });
+
+
+        $("#btdeletarchat").click(function () {
+
+            $("#formdeletarchat").submit();
+
+        });
+
+    });
+
+</script>
+
+<header class="page-header">
+    <h2>Chat</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="home.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Chat</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+
+                </div>
+
+                <h2 class="panel-title">Chat</h2>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table mb-none">
+                        <thead>
+                            <tr>
+
+                                <th width="10%">Hora</th>
+                                <th width="55%">Texto</th>
+                                <th width="10%">Administrador</th>
+                                <th width="10%">Colaborador</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            @foreach (var item in Model)
+                            {
+                            
+                                
+                                    if (item.tipo == "1")
+                                    {
+                                         <tr class="danger">
+                                                <td>@Html.DisplayFor(modelItem => item.hora)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.texto)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.administrador.login)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.colaborador.nome)</td>
+                                            </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.hora)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.texto)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.administrador.login)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.colaborador.nome)</td>
+                                        </tr>
+                                    }
+                                    
+                                //@item.administrador.id;
+
+                                //@item.colaborador.id;
+
+                                //@item.mensagem_id;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- start: second page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+             <!--    <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                </div> -->
+
+                <h2 class="panel-title">Responder</h2>
+            </header>
+        </section>
+        <div class="panel-body">
+            <form method="post" action="@Url.Content("~/Chat/CreateInsert")">
+                <div class="table-responsive">       
+                    <input type="hidden" name="mensagem_id" value="@Request.Params["idmesagem"]" />                  
+                    <input type="hidden" name="usuario_id" value="@Request.Params["colaborador"]" />
+                    <input type="hidden" name="remetente_id" value="@Request.Params["adm"]" />    
+                    <div class="col-md-10">
+                            
+                        <textarea class="form-control" cols="20" id="texto" name="texto" placeholder="Mensagem" rows="2"></textarea>
+                        <span class="field-validation-valid" data-valmsg-for="mensagem" data-valmsg-replace="true"></span>
+                    </div>
+                    <button class="btn btn-primary" id="btenviar">Enviar</button>
+                </div>
+            </form>         
+        </div>
+    </div>
+</div>
+
+<!-- Modal atualizar -->
+<div id="modalAdd" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Atualizar</h2>
+        </header>
+        <div class="panel-body" id="modaleditarchat">
+
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-atualizar" id="bteditarchat">Atualizar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Adicionar -->
+<div id="modalAnim" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Adicionar</h2>
+        </header>
+        <div class="panel-body" id="modaladicionarchat">
+
+            <!-- conteudo aqui -->
+
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-confirm" id="btadicionarchat">Adicionar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Remover -->
+<div id="modalRemover" class="zoom-anim-dialog modal-block modal-block-danger mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Deletar</h2>
+        </header>
+        <div class="panel-body" id="modaldeletarchat"> </div>
+
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-danger modal-delete" id="btdeletarchat">Confirmar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+

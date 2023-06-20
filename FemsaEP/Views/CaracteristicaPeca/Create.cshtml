@@ -1,0 +1,181 @@
+﻿@model FemsaEP.Models.caracteristica_de_peca_SAP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>caracteristica_de_peca_SAP</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MANDT, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MANDT)
+                @Html.ValidationMessageFor(model => model.MANDT)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODPIEZA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZCODPIEZA)
+                @Html.ValidationMessageFor(model => model.ZCODPIEZA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODIPECA, "ZCODIPECA", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ZCODIPECA", String.Empty)
+                @Html.ValidationMessageFor(model => model.ZCODIPECA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODMARCA, "ZCODMARCA", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ZCODMARCA", String.Empty)
+                @Html.ValidationMessageFor(model => model.ZCODMARCA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODEMBAL, "ZCODEMBAL", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ZCODEMBAL", String.Empty)
+                @Html.ValidationMessageFor(model => model.ZCODEMBAL)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODALIME, "ZCODALIME", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ZCODALIME", String.Empty)
+                @Html.ValidationMessageFor(model => model.ZCODALIME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODIMAGEN, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZCODIMAGEN)
+                @Html.ValidationMessageFor(model => model.ZCODIMAGEN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZDETALLE, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZDETALLE)
+                @Html.ValidationMessageFor(model => model.ZDETALLE)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODKITS, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZCODKITS)
+                @Html.ValidationMessageFor(model => model.ZCODKITS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZFORMCUS, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZFORMCUS)
+                @Html.ValidationMessageFor(model => model.ZFORMCUS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCOSTOM2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZCOSTOM2)
+                @Html.ValidationMessageFor(model => model.ZCOSTOM2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZANCHO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZANCHO)
+                @Html.ValidationMessageFor(model => model.ZANCHO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZALTURA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZALTURA)
+                @Html.ValidationMessageFor(model => model.ZALTURA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZDIAMETRO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZDIAMETRO)
+                @Html.ValidationMessageFor(model => model.ZDIAMETRO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZPROVEEDO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZPROVEEDO)
+                @Html.ValidationMessageFor(model => model.ZPROVEEDO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZVALORPZA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZVALORPZA)
+                @Html.ValidationMessageFor(model => model.ZVALORPZA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZDESACTIV, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZDESACTIV)
+                @Html.ValidationMessageFor(model => model.ZDESACTIV)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.valor, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.valor)
+                @Html.ValidationMessageFor(model => model.valor)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.foto_url, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.foto_url)
+                @Html.ValidationMessageFor(model => model.foto_url)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

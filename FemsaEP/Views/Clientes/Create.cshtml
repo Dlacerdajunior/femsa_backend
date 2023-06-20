@@ -1,0 +1,392 @@
+﻿@model FemsaEP.Models.cliente_SAP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formadicionarcliente" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<script>
+    jQuery(function ($) {        
+        $('#ZMARCAGDM').mask('00');
+        $('#ZNOMSHOPP').mask('000');
+        $('#ZCEP').mask('00000');
+        $('#custo_budget').mask('000000,00', { reverse: true });
+        $('#ZPUNTOREF').mask('00000000000000000000000000000000000000');
+    });
+
+    $(function () {
+        // your code goes here
+        $("#btadicionarcliente").click(function (data) {
+            codigo = $("#ZCLIENTE").val()
+            id_cluster = $("#id_cluster").val()
+            if (codigo == "") {
+                alert("É necessário preenchero campo Matrícula.");
+                return false;
+            }
+            if (id_cluster == null) {
+                alert("É necessário selecionar pelo menos 1 (um) Cluster");
+                return false;
+            }
+            else {
+                if (true) {
+                    $.post('/Clientes/verificaigual', { ZCLIENTE: codigo }, function (data) {
+                        if (data == "False") {
+                            alert("Código já existente no sistema.");
+                            return false;
+                        }
+                        else {
+                            $("#formadicionarcliente").submit();
+                            return false;
+                        }
+                    });
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+
+@Html.HiddenFor(model => model.ZNSE)
+@Html.HiddenFor(model => model.MANDT)
+@Html.HiddenFor(model => model.cidade_limpa)
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZNOMBRE, "Razão Social", new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(model => model.ZNOMBRE, new { @class = "form-control", placeholder = "Razão Social", MaxLength = "35" })
+        @Html.ValidationMessageFor(model => model.ZNOMBRE)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZCLIENTE, "Matrícula", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZCLIENTE, new { @class = "form-control", placeholder = "Matrícula", MaxLength = "10" })
+        @Html.ValidationMessageFor(model => model.ZCLIENTE)
+    </div>
+    @Html.LabelFor(model => model.descricao, "Descrição", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextAreaFor(model => model.descricao, new { @class = "form-control", placeholder = "Descrição", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.descricao)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.id_cluster, "Cluster", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.ListBox("id_cluster", (MultiSelectList)ViewBag.Categories, new { size = 8, id = "id_cluster" })
+    </div>
+    @Html.LabelFor(model => model.ZNOMFANTA, "Nome Fantasia", new { @class = "col-md-2 control-label", MaxLength = "20" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZNOMFANTA, new { @class = "form-control", placeholder = "Nome Fantasia" })
+        @Html.ValidationMessageFor(model => model.ZNOMFANTA)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.id_novo, "Código Novo", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.id_novo, new { @class = "form-control", placeholder = "Código Novo", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.id_novo)
+    </div>
+    @Html.LabelFor(model => model.id_antigo, "Código Antigo", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.id_antigo, new { @class = "form-control", placeholder = "Código Antigo", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.id_antigo)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.id_executivo, "Executivo", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("id_executivo", String.Empty)
+        @Html.ValidationMessageFor(model => model.id_executivo)
+    </div>
+    @Html.LabelFor(model => model.id_prospector, "Prospector", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("id_prospector", String.Empty)
+        @Html.ValidationMessageFor(model => model.id_prospector)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZCNPJCPFI, "C.N.P.J.", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZCNPJCPFI, new { @class = "form-control", placeholder = "C.N.P.J.", MaxLength = "16" })
+        @Html.ValidationMessageFor(model => model.ZCNPJCPFI)
+    </div>
+    @Html.LabelFor(model => model.ZMARCAGDM, "Marca GDM", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZMARCAGDM, new { @class = "form-control", placeholder = "Marca GDM" })
+        @Html.ValidationMessageFor(model => model.ZMARCAGDM)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZDIRECCIO, "Rua", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZDIRECCIO, new { @class = "form-control", placeholder = "Rua", MaxLength = "60" })
+        @Html.ValidationMessageFor(model => model.ZDIRECCIO)
+    </div>
+    @Html.LabelFor(model => model.ZBARRIO, "Bairro", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZBARRIO, new { @class = "form-control", placeholder = "Bairro", MaxLength = "40" })
+        @Html.ValidationMessageFor(model => model.ZBARRIO)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZPUNTOREF, "Ponto de Referência", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZPUNTOREF, new { @class = "form-control", placeholder = "Ponto de Referência" })
+        @Html.ValidationMessageFor(model => model.ZPUNTOREF)
+    </div>
+    @Html.LabelFor(model => model.ZCEP, "CEP", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZCEP, new { @class = "form-control", placeholder = "CEP" })
+        @Html.ValidationMessageFor(model => model.ZCEP)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZCIUDAD, "Cidade", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZCIUDAD, new { @class = "form-control", placeholder = "Cidade", MaxLength = "40" })
+        @Html.ValidationMessageFor(model => model.ZCIUDAD)
+    </div>
+    @Html.LabelFor(model => model.ZUF, "UF", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        <select id="ZUF" name="ZUF">
+            <option value=""></option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AM">AM</option>
+            <option value="AP">AP</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="DF">DF</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MG">MG</option>
+            <option value="MS">MS</option>
+            <option value="MT">MT</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="PR">PR</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="RS">RS</option>
+            <option value="SC">SC</option>
+            <option value="SE">SE</option>
+            <option value="SP">SP</option>
+            <option value="TO">TO</option>
+        </select>
+    </div>
+</div>
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZTERRITOR, "Território", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("ZTERRITOR", String.Empty)
+        @Html.ValidationMessageFor(model => model.ZTERRITOR)
+    </div>
+    @Html.LabelFor(model => model.ZUNIDAD, "Unidade", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("ZUNIDAD", String.Empty)
+        @Html.ValidationMessageFor(model => model.ZUNIDAD)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZTELEFONO, "Telefone", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZTELEFONO, new { @class = "form-control", placeholder = "Telefone", MaxLength = "30" })
+        @Html.ValidationMessageFor(model => model.ZTELEFONO)
+    </div>
+    @Html.LabelFor(model => model.segundo_telefone, "Segundo Telefone", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.segundo_telefone, new { @class = "form-control", placeholder = "Segundo Telefone", MaxLength = "30" })
+        @Html.ValidationMessageFor(model => model.segundo_telefone)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZCANAL, "Canal", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("ZCANAL", String.Empty)
+        @Html.ValidationMessageFor(model => model.ZCANAL)
+    </div>
+    @Html.LabelFor(model => model.ZGEC, "GEC", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.RadioButtonFor(model => model.ZGEC, "Ouro", new { @Id = "ouro" })
+        <label for="ouro">Ouro</label>
+        @Html.RadioButtonFor(model => model.ZGEC, "Prata", new { @Id = "prata" })
+        <label for="prata">Prata</label>
+        @Html.ValidationMessageFor(model => model.ZGEC)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZLOCALIZA, "Localização", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("ZLOCALIZA", String.Empty)
+        @Html.ValidationMessageFor(model => model.ZLOCALIZA)
+    </div>
+    @Html.LabelFor(model => model.ZRUTA, "Zona", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZRUTA, new { @class = "form-control", placeholder = "Zona", MaxLength = "10" })
+        @Html.ValidationMessageFor(model => model.ZRUTA)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZZAT, "ZAT", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("ZZAT", String.Empty)
+        @Html.ValidationMessageFor(model => model.ZZAT)
+    </div>
+    @Html.LabelFor(model => model.ZKIT, "KIT", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("ZKIT", String.Empty)
+        @Html.ValidationMessageFor(model => model.ZKIT)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZNOMSHOPP, "Nome Shopping", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZNOMSHOPP, new { @class = "form-control", placeholder = "Nome Shopping" })
+        @Html.ValidationMessageFor(model => model.ZNOMSHOPP)
+    </div>
+    @Html.LabelFor(model => model.ZHABSHOPP, "Habilitar Shopping", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.RadioButtonFor(model => model.ZHABSHOPP, "X", new { @Id = "habshoppingsim" })
+        <label for="habshoppingsim">Sim</label>
+        @Html.RadioButtonFor(model => model.ZHABSHOPP, "", new { @Id = "habshoppingnao" })
+        <label for="habshoppingnao">Não</label>
+        @Html.ValidationMessageFor(model => model.ZHABSHOPP)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZRED, "RED", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZRED, new { @class = "form-control", placeholder = "RED", MaxLength = "1" })
+        @Html.ValidationMessageFor(model => model.ZRED)
+    </div>
+    @Html.LabelFor(model => model.ZNOMBRERE, "Nome RED", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.ZNOMBRERE, new { @class = "form-control", placeholder = "Nome RED", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.ZNOMBRERE)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZHABACTIV, "Habilitar Ativação", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.RadioButtonFor(model => model.ZHABACTIV, "X", new { @Id = "habativacaosim" })
+        <label for="habativacaosim">Sim</label>
+        @Html.RadioButtonFor(model => model.ZHABACTIV, "", new { @Id = "habativacaonao" })
+        <label for="habativacaonao">Não</label>
+        @Html.ValidationMessageFor(model => model.ZHABACTIV)
+    </div>
+    @Html.LabelFor(model => model.ZHABRMANT, "Habilitar Manutenção", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.RadioButtonFor(model => model.ZHABRMANT, "X", new { @Id = "habmanutencaosim" })
+        <label for="habmanutencaosim">Sim</label>
+        @Html.RadioButtonFor(model => model.ZHABRMANT, "", new { @Id = "habmanutencaonao" })
+        <label for="habmanutencaonao">Não</label>
+        @Html.ValidationMessageFor(model => model.ZHABRMANT)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.desenvolvedor, "Desenvolvedor", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.desenvolvedor, new { @class = "form-control", placeholder = "Desenvolvedor", MaxLength = "30" })
+        @Html.ValidationMessageFor(model => model.desenvolvedor)
+    </div>
+    @Html.LabelFor(model => model.design, "Design", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.design, new { @class = "form-control", placeholder = "Design", MaxLength = "30" })
+        @Html.ValidationMessageFor(model => model.design)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.fornecedor, "Fornecedor", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.fornecedor, new { @class = "form-control", placeholder = "Fornecedor", MaxLength = "30" })
+        @Html.ValidationMessageFor(model => model.fornecedor)
+    </div>
+    @Html.LabelFor(model => model.zona_transporte, "Zona Transporte", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.zona_transporte, new { @class = "form-control", placeholder = "Zona Transporte", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.zona_transporte)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.regional, "Regional", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.regional, new { @class = "form-control", placeholder = "Regional", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.regional)
+    </div>
+    @Html.LabelFor(model => model.numero, "Número", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.numero, new { @class = "form-control", placeholder = "Número", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.numero)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.lattext, "Latitude", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.lattext, new { @class = "form-control", placeholder = "Latitude", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.lattext)
+    </div>
+    @Html.LabelFor(model => model.longtext, "Longitude", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.longtext, new { @class = "form-control", placeholder = "Longitude", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.longtext)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.id_colaborador, "Colaborador", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.DropDownList("id_colaborador", String.Empty)
+        @Html.ValidationMessageFor(model => model.id_colaborador)
+    </div>
+    @Html.LabelFor(model => model.custo_budget, "Custo Budget", new { @class = "col-md-2 control-label" })
+    <div class="col-md-4">
+        @Html.TextBoxFor(model => model.custo_budget, new { @class = "form-control", placeholder = "Custo Budget" })
+        @Html.ValidationMessageFor(model => model.custo_budget)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.id_franquia, "Franquia", new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.DropDownList("id_franquia", String.Empty)
+        @Html.ValidationMessageFor(model => model.id_franquia)
+    </div>
+    @Html.LabelFor(model => model.observacao, "Observação", new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.TextAreaFor(model => model.observacao, new { @class = "form-control", placeholder = "Observação" })
+        @Html.ValidationMessageFor(model => model.observacao)
+    </div>
+</div>
+    
+}

@@ -1,0 +1,253 @@
+﻿@model PagedList.IPagedList<FemsaEP.Models.contrapartida_SAP>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+    $(function () {
+        // your code goes here
+
+        $(".btadicionarcontrapartida").click(function () {
+
+            $("#modaladicionarcontrapartida").load($(this).attr('href'));
+
+            $("#modaladicionarcontrapartidalink").trigger("click");
+
+            return false;
+
+        });
+
+        $(".btadicionarcontrapartida-projeto").click(function () {
+
+            $("#modaladicionarcontrapartida-projeto").load($(this).attr('href'));
+
+            $("#modaladicionarcontrapartida-projetolink").trigger("click");
+
+            return false;
+
+        });
+
+        $(".bteditarcontrapartida").click(function () {
+
+            $("#modaleditarcontrapartida").load($(this).attr('href'));
+
+            $("#modaleditarcontrapartidalink").trigger("click");
+
+            return false;
+
+        });
+
+
+        $(".btdeletarcontrapartidalink").click(function () {
+
+            $("#modaldeletarcontrapartida").load($(this).attr('href'));
+
+            $("#modaldeletarlink").trigger("click");
+
+            return false;
+
+        });
+        
+
+        $("#btadicionarcontrapartida-projeto").click(function () {
+
+            $("#formadicionarcontrapartida-projeto").submit();
+
+        });
+
+
+        $("#btdeletarcontrapartida").click(function () {
+
+            $("#formdeletarcontrapartida").submit();
+
+        });
+
+    });
+
+</script>
+
+<header class="page-header">
+    <h2>Contrapartidas</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="contrapartidas.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Contrapartidas</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+
+                    <a href="@Url.Content("~/Contrapartidas/Create")" class="btadicionarcontrapartida panel-action"><i class="fa fa-plus"></i></a>
+
+                    <a href="#modalAnim" id="modaladicionarcontrapartidalink" class="panel-action modal-with-zoom-anim" style="display:none;"><i class="fa fa-plus"></i></a>
+                </div>
+
+                <h2 class="panel-title">Contrapartidas</h2>
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+
+                    <table class="table mb-none">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Obrigatório</th>
+                             <!--<th>Vincular</th>--> 
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+@foreach (var item in Model)
+{
+
+    <tr>
+        <td> @Html.DisplayFor(modelItem => item.ZCODCONPA).ToString().Replace(",00", "") </td>
+        <td> @Html.DisplayFor(modelItem => item.ZNOMCONPA) </td>
+        <td> @Html.DisplayFor(modelItem => item.descricao) </td>
+        <td>
+            @if (item.obrigatorio == "X")
+            {
+                <p>Sim</p>
+            }
+            else
+            {
+                <p>Não</p>
+            }
+        </td>
+     <!--<td class="actions">
+            <a href="@Url.Content("~/ContrapartidaProjeto/Create/" + item.ZCODCONPA)" class="btadicionarcontrapartida-projeto panel-action"><i class="fa fa-link"></i></a>
+
+            <a href="#modalAnim2" id="modaladicionarcontrapartida-projetolink" class="panel-action modal-with-zoom-anim" style="display:none;"><i class="fa fa-link"></i></a>
+        </td> --> 
+        <td class="actions">
+            <a href="@Url.Content("~/Contrapartidas/edit/" + item.ZCODCONPA)" class="bteditarcontrapartida panel-action"><i class="fa fa-pencil"></i></a>
+
+            <a href="#modalAdd" id="modaleditarcontrapartidalink" class="panel-action modal-with-zoom-anim" style="display:none;"><i class="fa fa-pencil"></i></a>
+
+            <a href="@Url.Content("~/Contrapartidas/delete/" + item.ZCODCONPA)" class="btdeletarcontrapartidalink "><i class="fa fa-trash-o"></i></a>
+
+            <a href="#modalRemover" id="modaldeletarlink" class="delete-row modal-with-zoom-anim" style="display:none;"><i class="fa fa-trash-o"></i></a>
+        </td>
+    </tr>
+}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            Página @Model.PageNumber de @Model.PageCount
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page }))
+        </section>
+    </div>
+</div>
+
+<!-- Modal atualizar -->
+<div id="modalAdd" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Atualizar</h2>
+        </header>
+        <div class="panel-body" id="modaleditarcontrapartida">
+
+            <!-- conteudo aqui -->
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-atualizar" id="bteditarcontrapartida">Atualizar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Adicionar -->
+<div id="modalAnim" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Adicionar</h2>
+        </header>
+        <div class="panel-body" id="modaladicionarcontrapartida">
+
+            <!-- conteudo aqui -->
+
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-confirm" id="btadicionarcontrapartida">Adicionar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Adicionar ContrapartidaProjeto -->
+<div id="modalAnim2" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Vincular Projeto</h2>
+        </header>
+      <!--   <div class="panel-body">--> 
+            <div class="panel-body" id="modaladicionarcontrapartida-projeto"> 
+
+                <!-- conteudo aqui -->
+
+            </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                <!--     <button class="btn btn-success modal-confirm" id="btadicionarcontrapartida-projeto">Adicionar</button> -->
+                    <button class="btn btn-success modal-confirm" type="submit">Adicionar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Remover -->
+<div id="modalRemover" class="zoom-anim-dialog modal-block modal-block-danger mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Deletar</h2>
+        </header>
+        <div class="panel-body" id=modaldeletarcontrapartida>
+
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-danger modal-delete" id="btdeletarcontrapartida">Confirmar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>

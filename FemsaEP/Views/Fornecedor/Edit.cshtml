@@ -1,0 +1,127 @@
+﻿@model FemsaEP.Models.provedor_SAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditarfornecedor" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+
+    <script>
+
+        jQuery(function ($) {
+            $('#ZCODSAP').mask('0000000000');
+            $('#ZVALLEITO').mask('0000');
+            $('#ZVALORPER').mask('0000');
+            $('#VALORM2').mask('0000000000');
+        });
+
+    </script>
+
+    <script>
+        $(function () {
+            // your code goes here
+            $("#bteditarfornecedor").click(function () {
+                nome = $("#ZNOMBRE").val()
+                if (nome == "") {
+                    alert("É necessário preencher o campo Nome.");
+                    return false;
+                }
+                else {
+                    $("#formeditarfornecedor").submit();
+                }
+
+            });
+        });
+    </script>
+
+    @Html.HiddenFor(model => model.MANDT)
+    @Html.HiddenFor(model => model.ZCODPROVE)
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZCODSAP, "Código SAP", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZCODSAP, new { @class = "form-control", placeholder = "Código SAP" })
+            @Html.ValidationMessageFor(model => model.ZCODSAP)
+        </div>
+        @Html.LabelFor(model => model.ZNOMBRE, "Nome", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZNOMBRE, new { @class = "form-control", placeholder = "Nome", MaxLength = "50"})
+            @Html.ValidationMessageFor(model => model.ZNOMBRE)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZRAZONSOC, "Razão Social", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZRAZONSOC, new { @class = "form-control", placeholder = "Razão Social", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.ZRAZONSOC)
+        </div>
+        @Html.LabelFor(model => model.ZCNPJ, "CNPJ", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZCNPJ, new { @class = "form-control", placeholder = "CNPJ", MaxLength = "20" })
+            @Html.ValidationMessageFor(model => model.ZCNPJ)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZCONTRATO, "Contato", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZCONTRATO, new { @class = "form-control", placeholder = "Contato", MaxLength = "20" })
+            @Html.ValidationMessageFor(model => model.ZCONTRATO)
+        </div>
+        @Html.LabelFor(model => model.ZTELEFONO, "Telefone", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZTELEFONO, new { @class = "form-control", placeholder = "Telefone", MaxLength = "11" })
+            @Html.ValidationMessageFor(model => model.ZTELEFONO)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZEMAIL, "E-mail", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZEMAIL, new { @class = "form-control", placeholder = "E-mail", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.ZEMAIL)
+        </div>
+        @Html.LabelFor(model => model.ZTERRITOR, "Território", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("ZTERRITOR", String.Empty)
+            @Html.ValidationMessageFor(model => model.ZTERRITOR)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.VALORM2, "Valor M2", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.VALORM2, new { @class = "form-control", placeholder = "Valor M2" })
+            @Html.ValidationMessageFor(model => model.VALORM2)
+        </div>
+        @Html.LabelFor(model => model.ZDESACTIV, "Desativado", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.RadioButtonFor(model => model.ZDESACTIV, "X", new { @Id = "desativadosim" })
+            <label for="desativadosim">Sim</label>
+            @Html.RadioButtonFor(model => model.ZDESACTIV, "", new { @Id = "desativadonao" })
+            <label for="desativadonao">Não</label>
+            @Html.ValidationMessageFor(model => model.ZDESACTIV)
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZVALLEITO, "Valor Leitoso", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZVALLEITO, new { @class = "form-control", placeholder = "Valor Leitoso" })
+            @Html.ValidationMessageFor(model => model.ZVALLEITO)
+        </div>
+        @Html.LabelFor(model => model.ZVALORPER, "Valor Perfurado", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZVALORPER, new { @class = "form-control", placeholder = "Valor Leitoso" })
+            @Html.ValidationMessageFor(model => model.ZVALORPER)
+        </div>
+    </div>
+}
+

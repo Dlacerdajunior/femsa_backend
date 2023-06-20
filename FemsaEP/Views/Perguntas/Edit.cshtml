@@ -1,0 +1,50 @@
+﻿@model FemsaEP.Models.enquete_perguntas
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditarpergunta" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    <script>
+        $(function () {
+            // your code goes here
+            $("#bteditarpergunta").click(function () {
+                nome = $("#nome").val()
+                id_enquete = $("#id_enquete").val()
+                if (nome == "" && id_enquete == "") {
+                    alert("É necessário preencher os campos abaixo");
+                    return false;
+                }
+                else {
+                    $("#formeditarpergunta").submit();
+                }
+
+            });
+        });
+
+    </script>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nome, "Nome", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.nome, new { @class = "form-control", placeholder = "Nome" })
+            @Html.ValidationMessageFor(model => model.nome)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_enquete, "ID Pesquisa", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("id_enquete", String.Empty)
+            @Html.ValidationMessageFor(model => model.id_enquete)
+        </div>
+    </div>
+
+
+}

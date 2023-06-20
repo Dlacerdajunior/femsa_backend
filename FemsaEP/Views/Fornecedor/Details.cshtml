@@ -1,0 +1,115 @@
+﻿@model FemsaEP.Models.provedor_SAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>provedor_SAP</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MANDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZRAZONSOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZRAZONSOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCNPJ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCNPJ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCONTRATO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCONTRATO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZTELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZTELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZEMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZEMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCODSAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCODSAP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZVALLEITO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZVALLEITO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZVALORPER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZVALORPER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZDESACTIV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZDESACTIV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.territorio_SAP.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.territorio_SAP.ZNOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ZCODPROVE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,179 @@
+﻿@model FemsaEP.Models.colaborador_SAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>colaborador_SAP</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MANDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZTELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZTELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZEMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZEMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZFUNCARGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZFUNCARGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNUMPATRI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNUMPATRI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNUMSERIE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNUMSERIE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCONTRASE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCONTRASE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZLOGIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZLOGIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZDESACTIV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZDESACTIV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_colaborador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_colaborador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idioma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idioma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.acessoffline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.acessoffline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ultimosinc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ultimosinc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grupo_SAP.ZNOMGRUPO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grupo_SAP.ZNOMGRUPO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.territorio_SAP.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.territorio_SAP.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unidade_SAP.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unidade_SAP.ZNOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ZCODCOLAB }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

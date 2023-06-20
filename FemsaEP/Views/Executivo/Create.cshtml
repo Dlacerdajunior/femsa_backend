@@ -1,0 +1,56 @@
+﻿@model FemsaEP.Models.executivo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formadicionarexecutivo" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    <script>
+
+        jQuery(function ($) {
+            $('#codigo').mask('00000000');
+        });
+
+    </script>
+
+    <script>
+        $(function () {
+            // your code goes here
+            $("#btadicionarexecutivo").click(function () {
+                codigo = $("#codigo").val()
+                nome = $("#nome").val()
+                if (codigo == "" && nome == "") {
+                    alert("É necessário preencher os campos abaixo");
+                    return false;
+                }
+                else {
+                    $("#formadicionarexecutivo").submit();
+                }
+
+            });
+        });
+    </script>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.codigo, new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.TextBoxFor(model => model.codigo, new { @class = "form-control", placeholder = "Código" })
+            @Html.ValidationMessageFor(model => model.codigo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nome, new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.TextBoxFor(model => model.nome, new { @class = "form-control", placeholder = "Nome" })
+            @Html.ValidationMessageFor(model => model.nome)
+        </div>
+    </div>
+
+}

@@ -1,0 +1,35 @@
+﻿@model FemsaEP.Models.contrapartida_projeto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>contrapartida_projeto</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contrapartida.mandante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrapartida.mandante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projeto.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projeto.codigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

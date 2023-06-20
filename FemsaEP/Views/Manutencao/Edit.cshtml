@@ -1,0 +1,697 @@
+﻿@model FemsaEP.Models.manutencao
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+
+    function alerarstatus(iditem,idmanutencao, idpeca){
+
+        var substituidovalor = 0;
+
+        if($('.' + iditem).is(":checked")){
+            substituidovalor = 1;
+        }else{
+            substituidovalor = 0;
+        }
+
+        $.getJSON("http://10.137.64.116/manutencao/editarpecar/", { id: iditem, id_peca: idpeca, id_manutencao: idmanutencao, substituido: substituidovalor })
+        .done(function( data ) {
+        });
+    }
+
+    $(function () {
+
+        $('#data_manutencao').mask('00/00/0000');
+        $('#data_ativacao').mask('00/00/0000');
+        $('#numero_rc').mask('00000000');
+        $('#data_rc').mask('00/00/0000');
+
+        $('a[href=#@Request.Params["show"]]').trigger('click');
+
+        $('select').select2();
+
+        $("#btadicionarpeca").click(function () {
+
+            $("#formadiconarpeca").submit();
+        });
+
+        $("#cliente_id").change(function (event) {
+            if (event.val >= 1) {
+                $("#formcliente").submit();
+            }
+        });
+
+
+        var files = [];
+        $("#inpuploadfoto").change(function (event) {
+
+            $.each(event.target.files, function (index, file) {
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    object = {};
+                    //object.filename = file.name;
+                    $(".fotobase64 ").val(event.target.result);
+                    $("#formadicionarfoto").submit();
+                    //object.data = event.target.result;
+                    //files.push(object);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        $(".btdeletarpecalink").click(function () {
+
+            $("#modaldeletarpeca").load($(this).attr('href'));
+
+            $("#modaldeletarlink1").trigger("click");
+
+            return false;
+
+        });
+
+
+        $("#btdeletarpeca").click(function () {
+
+            $("#formdeletarpeca").submit();
+
+        });
+
+        $(".btdeletarinstalacaolink").click(function () {
+
+            $("#modaldeletarinstalacao").load($(this).attr('href'));
+
+            $("#modaldeletarlink2").trigger("click");
+
+            return false;
+
+        });
+
+
+        $("#btdeletarinstalacao").click(function () {
+
+            $("#formdeletarinstalacao").submit();
+
+        });
+
+    });
+
+</script>
+
+<style>
+    .select2-container {
+        width: 200px;
+        min-width: 200px;
+    }
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+</style>
+
+<input type="hidden" name="item.id" value="@Request.Params["item.id"]" />
+
+<header class="page-header">
+    <h2>Manutenção</h2>
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="home.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Manutenção</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel form-wizard" id="w2">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+                    <a href="@Url.Content("~/Manutencao")" class="panel-action"><i class="fa fa-reply"></i></a>
+                </div>
+                <h2 class="panel-title">Manutenção</h2>
+            </header>
+            <div class="panel-body">
+                <div class="tabs">
+                    <ul class="nav nav-tabs">
+
+                        <li class="active">
+                            <a href="#cliente" data-toggle="tab">Cliente</a>
+                        </li>
+                        <li>
+                            <a href="#peca" data-toggle="tab">Peças</a>
+                        </li>
+                        <li>
+                            <a href="#validacao" data-toggle="tab">Validação</a>
+                        </li>
+                        <li>
+                            <a href="#instalacao" data-toggle="tab">Instalação</a>
+                        </li>
+                    <!--<li>
+                            <a href="#colaboradores" data-toggle="tab">Colaboradores</a>
+                        </li> -->  
+                    </ul>
+
+                    <div class="tab-content">
+
+                        <div id="cliente" class="tab-pane active">
+                            <form class="form-horizontal" id="formcliente" novalidate="novalidate" method="post">
+
+                                <input type="hidden" name="url_foto" value="cliente">
+
+                                <input type="hidden" name="manutencao_tipo" value="@Model.manutencao_tipo" />
+
+                                <input type="hidden" name="data_manutencao" value="@Model.data_manutencao" />
+                                <input type="hidden" name="data_ativacao" value="@Model.data_ativacao" />
+                                <input type="hidden" name="manutencao_validacao" value="@Model.manutencao_validacao" />
+                                <input type="hidden" name="observacao_2" value="@Model.observacao_2" />
+
+                                <input type="hidden" name="numero_rc" value="@Model.numero_rc" />
+                                <input type="hidden" name="data_rc" value="@Model.data_rc" />
+                                <input type="hidden" name="observacao_1" value="@Model.observacao_1" />
+
+                                <input type="hidden" name="executivo_vendas" value="@Model.executivo_vendas" />
+                                <input type="hidden" name="executivo_trade" value="@Model.executivo_trade" />
+                                <input type="hidden" name="prospector" value="@Model.prospector" />
+                                <input type="hidden" name="pos_venda" value="@Model.pos_venda" />
+
+                                <!-- conteudo aqui -->
+                                @{
+                                    var rsclientes = ViewBag.rsclientes;
+                                    var rsclientescmonstrar = ViewBag.rsclientesmostrar;
+                                                                        
+                                    if (rsclientescmonstrar == 1)
+                                    {
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="cliente_id">Cliente</label>
+                                            <div class="col-md-6">
+                                                <select id="cliente_id" name="cliente_id" tabindex="-1" title="Cliente" class="select2-offscreen">
+                                                    <option value=""></option>
+
+                                                    @{
+                                                        foreach (var item in rsclientes)
+                                                        {
+
+                                                            if (Model.ZCLIENTE == item.ZCLIENTE)
+                                                            {
+                                                                <option value="@item.ZCLIENTE" selected>@item.ZNOMBRE</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="@item.ZCLIENTE">@item.ZNOMBRE</option>
+                                                            }
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        }
+                                        else
+                                        {
+                                            <h4 style="text-align:center">Não há clientes finalizados no sistema.</h4>
+                                        }
+                                    }
+
+                                    @if (ViewBag.mostrarbloco == 1)
+                                    {
+                                        <p></p>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="cep">CEP</label>
+                                            <div class="col-sm-2">
+                                                <input disabled="" type="text" class="form-control input-sm" name="cep" id="cep" value="@Model.cliente_SAP.ZCEP">
+                                            </div>
+                                            <label class="col-sm-2 control-label" for="endereco">Endereço</label>
+                                            <div class="col-sm-6">
+                                                <input disabled="" type="text" class="form-control input-sm" name="endereco" id="endereco" value="@Model.cliente_SAP.ZDIRECCIO">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="bairro">Bairro</label>
+                                            <div class="col-sm-4">
+                                                <input disabled="" type="text" class="form-control input-sm" name="bairro" id="bairro" value="@Model.cliente_SAP.ZBARRIO">
+                                            </div>
+                                            <label class="col-sm-2 control-label" for="cidade">Cidade</label>
+                                            <div class="col-sm-4">
+                                                <input disabled="" type="text" class="form-control input-sm" name="cidade" id="cidade" value="@Model.cliente_SAP.ZCIUDAD">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="cep">UF</label>
+                                            <div class="col-sm-4">
+                                                <input disabled="" type="text" class="form-control input-sm" name="uf" id="uf" value="@Model.cliente_SAP.ZUF">             
+                                            </div>
+                                            <label class="col-sm-2 control-label" for="cluster">Cluster</label>
+                                            <div class="col-sm-4">
+                                                @if (@Model.cliente_SAP.id_cluster != null)
+                                                {
+                                                <input disabled="" type="text" class="form-control input-sm" name="cluster" id="cluster" value="@Model.cliente_SAP.cluster_SAP.ZNOMBRE">                                                    
+                                                }
+                                                else
+	                                            {
+                                                <input disabled="" type="text" class="form-control input-sm" name="cluster" id="cluster" value="Sem Cluster Relacionado">   
+	                                            }
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="tel1">Telefone 1</label>
+                                            <div class="col-sm-4">
+                                                <input disabled="" type="text" class="form-control input-sm" name="ponto" id="tel1" value="@Model.cliente_SAP.ZTELEFONO">
+                                            </div>
+                                            <label class="col-sm-2 control-label" for="tel2">Telefone 2</label>
+                                            <div class="col-sm-4">
+                                                <input disabled="" type="text" class="form-control input-sm" name="tel1" id="tel2" value="@Model.cliente_SAP.segundo_telefone">
+                                            </div>
+                                        </div>
+                                    }
+                            </form>
+                        </div>
+                        <div id="peca" class="tab-pane">
+                            <form class="form-horizontal" novalidate="novalidate" method="post">
+
+                                <input type="hidden" name="url_foto" value="peca">
+
+                                <input type="hidden" name="cliente_id" value="@Model.ZCLIENTE" />
+
+                                <input type="hidden" name="data_manutencao" value="@Model.data_manutencao" />
+                                <input type="hidden" name="data_ativacao" value="@Model.data_ativacao" />
+                                <input type="hidden" name="manutencao_validacao" value="@Model.manutencao_validacao" />
+                                <input type="hidden" name="observacao_2" value="@Model.observacao_2" />
+
+                                <input type="hidden" name="numero_rc" value="@Model.numero_rc" />
+                                <input type="hidden" name="data_rc" value="@Model.data_rc" />
+                                <input type="hidden" name="observacao_1" value="@Model.observacao_1" />
+
+                                <input type="hidden" name="executivo_vendas" value="@Model.executivo_vendas" />
+                                <input type="hidden" name="executivo_trade" value="@Model.executivo_trade" />
+                                <input type="hidden" name="prospector" value="@Model.prospector" />
+                                <input type="hidden" name="pos_venda" value="@Model.pos_venda" />
+
+                                <!-- conteudo aqui -->
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.manutencao_tipo, "Tipo de Manutenção", new { @class = " col-sm-2 control-label" })
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("manutencao_tipo", String.Empty)
+                                        @Html.ValidationMessageFor(model => model.manutencao_tipo)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-md">
+                                            <a href="#modalAnim" class="btn btn-primary modal-with-zoom-anim">Inserir peça <i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table">
+                                    <table class="table mb-none dataTable no-footer" id="table-scroll" role="grid" aria-describedby="table-scroll_info">
+                                        <!--  <table class="table mb-none" id="table-scroll"> -->
+
+                                        <thead>
+                                            <tr>
+                                                <th width="20%">Codigo</th>
+                                                <th width="50%">Nome</th>
+                                                <th width="10%">Substituida</th>
+                                                <th width="20%">Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var rsmanutemcaopecao = ViewBag.pecasmantencao;
+                                                var pecasmantencaomotrar = ViewBag.pecasmantencaomotrar;
+
+                                                if (pecasmantencaomotrar == 1)
+                                                {
+                                                    foreach (var item in rsmanutemcaopecao)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.ZCODPECA</td>
+                                                            <td>@item.peca_SAP.ZNOMPECA </td>
+
+                                                            @if (item.substituido == 1)
+                                                            {
+
+                                                                <td><input onclick="alerarstatus(@item.id, @item.id_manutencao, @item.ZCODPECA)" checked class="@item.id" type="checkbox" value="1" /> </td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td><input onclick="alerarstatus(@item.id, @item.id_manutencao, @item.ZCODPECA)" class="@item.id" type="checkbox" value="0" /> </td>
+                                                            }
+
+                                                            <td class="actions">
+                                                                <a href="@Url.Content("~/Manutencao/DeletarPeca/"+item.id)" class="btdeletarpecalink "><i class="fa fa-trash-o"></i></a>
+
+                                                                <a href="#modalRemoverPeca" id="modaldeletarlink1" class="delete-row modal-with-zoom-anim" style="display:none;"><i class="fa fa-trash-o"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="form-group" style="margin-left:900px">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Salvar" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="validacao" class="tab-pane">
+                            <form class="form-horizontal" novalidate="novalidate" method="post">
+                                <input type="hidden" name="url_foto" value="validacao">
+
+                                <input type="hidden" name="cliente_id" value="@Model.ZCLIENTE" />
+
+                                <input type="hidden" name="manutencao_tipo" value="@Model.manutencao_tipo" />
+
+                                <input type="hidden" name="numero_rc" value="@Model.numero_rc" />
+                                <input type="hidden" name="data_rc" value="@Model.data_rc" />
+                                <input type="hidden" name="observacao_1" value="@Model.observacao_1" />
+
+                                <input type="hidden" name="executivo_vendas" value="@Model.executivo_vendas" />
+                                <input type="hidden" name="executivo_trade" value="@Model.executivo_trade" />
+                                <input type="hidden" name="prospector" value="@Model.prospector" />
+                                <input type="hidden" name="pos_venda" value="@Model.pos_venda" />
+                                <!-- conteudo aqui -->
+                                <div class="form-group">
+
+                                    <label class="col-sm-2 control-label" for="nomeFantasia">Data Manutenção</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            @Html.TextBoxFor(model => model.data_manutencao, new { @Id = "data_manutencao", @class = "form-control", placeholder = "00/00/0000" })
+                                            @Html.ValidationMessageFor(model => model.data_manutencao)
+                                        </div>
+                                    </div>
+
+                                    <label class="col-sm-2 control-label" for="nomeFantasia">Data de Ativação</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            @Html.TextBoxFor(model => model.data_ativacao, new { @Id = "data_ativacao", @class = "form-control", placeholder = "00/00/0000" })
+                                            @Html.ValidationMessageFor(model => model.data_ativacao)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.manutencao_validacao, "Validação", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("manutencao_validacao", String.Empty)
+                                        @Html.ValidationMessageFor(model => model.manutencao_validacao)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.observacao_2, "Observações", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.observacao_2, new { @class = "form-control", placeholder = "Observações" })
+                                        @Html.ValidationMessageFor(model => model.observacao_2)
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-left:900px">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Salvar" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="instalacao" class="tab-pane">
+                            <form class="form-horizontal" novalidate="novalidate" method="post">
+                                <input type="hidden" name="url_foto" value="instalacao">
+
+                                <input type="hidden" name="cliente_id" value="@Model.ZCLIENTE" />
+
+                                <input type="hidden" name="manutencao_tipo" value="@Model.manutencao_tipo" />
+
+                                <input type="hidden" name="data_manutencao" value="@Model.data_manutencao" />
+                                <input type="hidden" name="data_ativacao" value="@Model.data_ativacao" />
+                                <input type="hidden" name="manutencao_validacao" value="@Model.manutencao_validacao" />
+                                <input type="hidden" name="observacao_2" value="@Model.observacao_2" />
+
+                                <input type="hidden" name="executivo_vendas" value="@Model.executivo_vendas" />
+                                <input type="hidden" name="executivo_trade" value="@Model.executivo_trade" />
+                                <input type="hidden" name="prospector" value="@Model.prospector" />
+                                <input type="hidden" name="pos_venda" value="@Model.pos_venda" />
+
+                                <!-- conteudo aqui -->
+                                <div class="form-group" style="margin-left:40px">
+                                    Data de instalação
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.numero_rc, "Nº Pedido da RC", new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-4">
+                                        @Html.TextBoxFor(model => model.numero_rc, new { @Id = "numero_rc", @class = "form-control", placeholder = "Nº Pedido da RC" })
+                                        @Html.ValidationMessageFor(model => model.numero_rc)
+                                    </div>
+                                    <label class="col-sm-2 control-label" for="nomeFantasia">Data de criação da RC</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            @Html.TextBoxFor(model => model.data_rc, new { @class = "form-control", placeholder = "00/00/0000" })
+                                            @Html.ValidationMessageFor(model => model.data_rc)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.observacao_1, "Observações", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.observacao_1, new { @class = "form-control", placeholder = "Observações" })
+                                        @Html.ValidationMessageFor(model => model.observacao_1)
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-left:900px">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Salvar" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </form>
+                            @using (Html.BeginForm("adicionarfoto", null, FormMethod.Post, new { id = "formadicionarfoto" }))
+                            {
+                                <div class="form-group">
+                                    <label for="" class="col-md-2 control-label">Enviar Foto</label>
+                                    <input type="hidden" name="id_manutencao" value="@Model.id" />
+                                    <div class="col-md-4">
+                                        <span class="btn btn-default btn-file">
+                                            Selecionar arquivo<input id="inpuploadfoto" type='file'>
+                                        </span>
+                                        <input id="fotobase64" class="fotobase64" name="foto" type='hidden'>
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="table">
+                                <table class="table mb-none dataTable no-footer" id="table-scroll" role="grid" aria-describedby="table-scroll_info">
+                                    <thead>
+                                        <tr>
+                                            <th width="40%">Foto</th>
+                                            <th width="60%">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            var rsmanutencaofoto = ViewBag.fotosmanutencao;
+                                            var fotosmanutencaomostrar = ViewBag.fotosmanutencaomostrar;
+
+                                            if (fotosmanutencaomostrar == 1)
+                                            {
+                                                foreach (var item in rsmanutencaofoto)
+                                                {
+                                                    <tr>
+                                                        <td><img src="@item.foto" /></td>
+
+                                                        <td class="actions">
+                                                            <a href="@Url.Content("~/Manutencao/DeletarInstalacao/"+item.id)" class="btdeletarinstalacaolink "><i class="fa fa-trash-o"></i></a>
+
+                                                            <a href="#modalRemoverInstalacao" id="modaldeletarlink2" class="delete-row modal-with-zoom-anim" style="display:none;"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    <!--<div id="colaboradores" class="tab-pane">
+                            <form class="form-horizontal" novalidate="novalidate" method="post">
+
+                                <input type="hidden" name="url_foto" value="colaboradores">
+
+                                <input type="hidden" name="cliente_id" value="@Model.ZCLIENTE" />
+
+                                <input type="hidden" name="manutencao_tipo" value="@Model.manutencao_tipo" />
+
+                                <input type="hidden" name="data_manutencao" value="@Model.data_manutencao" />
+                                <input type="hidden" name="data_ativacao" value="@Model.data_ativacao" />
+                                <input type="hidden" name="manutencao_validacao" value="@Model.manutencao_validacao" />
+                                <input type="hidden" name="observacao_2" value="@Model.observacao_2" />
+
+                                <input type="hidden" name="numero_rc" value="@Model.numero_rc" />
+                                <input type="hidden" name="data_rc" value="@Model.data_rc" />
+                                <input type="hidden" name="observacao_1" value="@Model.observacao_1" />
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Solicitante </label>
+                                    <div class="col-md-4">
+                                        @Html.TextBoxFor(model => model.solicitante, new { @class = "form-control", placeholder = "Solicitante" })
+                                        @Html.ValidationMessageFor(model => model.solicitante)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Executivo de vendas </label>
+                                    <div class="col-md-4">
+                                        @Html.TextBoxFor(model => model.executivo_vendas, new { @class = "form-control", placeholder = "Executivo de vendas" })
+                                        @Html.ValidationMessageFor(model => model.executivo_vendas)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Executivo de trade </label>
+                                    <div class="col-md-4">
+                                        @Html.TextBoxFor(model => model.executivo_trade, new { @class = "form-control", placeholder = "Executivo de trade" })
+                                        @Html.ValidationMessageFor(model => model.executivo_trade)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Prospector </label>
+                                    <div class="col-md-4">
+                                        @Html.TextBoxFor(model => model.prospector, new { @class = "form-control", placeholder = "Prospector" })
+                                        @Html.ValidationMessageFor(model => model.prospector)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Pós-Venda </label>
+                                    <div class="col-md-4">
+                                        @Html.TextBoxFor(model => model.pos_venda, new { @class = "form-control", placeholder = "Pós-Venda" })
+                                        @Html.ValidationMessageFor(model => model.pos_venda)
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-left:900px">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Salvar" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Modal Adicionar -->
+<div id="modalAnim" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Adicionar</h2>
+        </header>
+        <div class="panel-body" id="modaladicionarpeca">
+            <div class="modal-wrapper">
+                @using (Html.BeginForm("adicionarpecar", null, FormMethod.Post, new { id = "formadiconarpeca" }))
+                {
+                <!--conteudo aqui -->
+                    <div class="form-group">
+
+                        @Html.LabelFor(model => model.ZCODPECA, "Inserir peça", new { @class = "col-sm-6 control-label " })
+
+                        <input type="hidden" name="id_manutencao" value="@Model.id" />
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("id_peca", String.Empty)
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success modal-confirm" id="btadicionarpeca">Adicionar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<!-- Modal Remover PECA -->
+<div id="modalRemoverPeca" class="zoom-anim-dialog modal-block modal-block-danger mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Deletar</h2>
+        </header>
+        <div class="panel-body" id="modaldeletarpeca">
+
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-danger modal-delete" id="btdeletarpeca">Confirmar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+
+<!-- Modal Remover INSTALACAO -->
+<div id="modalRemoverInstalacao" class="zoom-anim-dialog modal-block modal-block-danger mfp-hide">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Deletar</h2>
+        </header>
+        <div class="panel-body" id="modaldeletarinstalacao">
+
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-danger modal-delete" id="btdeletarinstalacao">Confirmar</button>
+                    <button class="btn btn-default modal-dismiss">Cancelar</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>

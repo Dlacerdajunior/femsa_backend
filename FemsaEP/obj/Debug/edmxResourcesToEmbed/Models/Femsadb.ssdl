@@ -1,0 +1,2032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MC1_DB_FEMSAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="acessorio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="administrador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="login" Type="varchar" MaxLength="15" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="senha" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="alimento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ativacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="custo_valor" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="id_projeto" Type="int" />
+    <Property Name="situacao" Type="char" MaxLength="1" />
+    <Property Name="executivo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ativacao_foto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ativacao" Type="int" />
+    <Property Name="url_foto" Type="text" />
+    <Property Name="etapa" Type="int" />
+    <Property Name="id_peca" Type="int" />
+    <Property Name="executivo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ativacao_mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ativacao" Type="int" />
+    <Property Name="mensagem" Type="text" />
+  </EntityType>
+  <EntityType Name="ativacao_peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_peca" Type="int" />
+    <Property Name="id_ativacao" Type="int" />
+    <Property Name="quantidade" Type="int" />
+  </EntityType>
+  <EntityType Name="book_online">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="url_upload" Type="text" />
+    <Property Name="titulo" Type="varchar" MaxLength="255" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="canal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="40" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="carta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="razao" Type="varchar" MaxLength="255" />
+    <Property Name="cidade" Type="varchar" MaxLength="255" />
+    <Property Name="uf_id" Type="int" />
+    <Property Name="bairro" Type="varchar" MaxLength="255" />
+    <Property Name="endereco" Type="varchar" MaxLength="255" />
+    <Property Name="contato" Type="varchar" MaxLength="255" />
+    <Property Name="telefone" Type="varchar" MaxLength="255" />
+    <Property Name="rota_vendedor" Type="varchar" MaxLength="255" />
+    <Property Name="cluster" Type="varchar" MaxLength="255" />
+    <Property Name="unidade" Type="int" />
+    <Property Name="desenvolvedor" Type="varchar" MaxLength="255" />
+    <Property Name="prospector" Type="varchar" MaxLength="255" />
+    <Property Name="zat" Type="int" />
+    <Property Name="nome_zat" Type="varchar" MaxLength="255" />
+    <Property Name="ano_cliente" Type="int" />
+    <Property Name="ano_contrapartida" Type="int" />
+  </EntityType>
+  <EntityType Name="chat_mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mensagem_id" Type="int" />
+    <Property Name="usuario_id" Type="int" />
+    <Property Name="remetente_id" Type="int" />
+    <Property Name="texto" Type="text" />
+    <Property Name="hora" Type="datetime" />
+    <Property Name="tipo" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="numero_cliente" Type="char" MaxLength="10" />
+    <Property Name="id_territorio" Type="int" />
+    <Property Name="id_unidade" Type="int" />
+    <Property Name="id_novo" Type="varchar" MaxLength="50" />
+    <Property Name="id_antigo" Type="varchar" MaxLength="50" />
+    <Property Name="id_cluster" Type="int" />
+    <Property Name="executivo" Type="varchar" MaxLength="30" />
+    <Property Name="prospector" Type="varchar" MaxLength="30" />
+    <Property Name="razao_social" Type="varchar" MaxLength="50" />
+    <Property Name="cidade" Type="varchar" MaxLength="50" />
+    <Property Name="uf_id" Type="int" />
+    <Property Name="id_rota" Type="int" />
+    <Property Name="desenvolvedor" Type="varchar" MaxLength="30" />
+    <Property Name="fornecedor" Type="varchar" MaxLength="30" />
+    <Property Name="design" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="35" />
+    <Property Name="termo_de_pesquisa" Type="varchar" MaxLength="20" />
+    <Property Name="cnpj" Type="varchar" MaxLength="50" />
+    <Property Name="cep" Type="varchar" MaxLength="18" />
+    <Property Name="endereco" Type="varchar" MaxLength="60" />
+    <Property Name="bairro" Type="varchar" MaxLength="40" />
+    <Property Name="local" Type="varchar" MaxLength="10" />
+    <Property Name="regiao" Type="varchar" MaxLength="50" />
+    <Property Name="ponto_referencia" Type="varchar" MaxLength="100" />
+    <Property Name="primeiro_telefone" Type="varchar" MaxLength="20" />
+    <Property Name="canal" Type="int" />
+    <Property Name="classificacao_clientes" Type="char" MaxLength="2" />
+    <Property Name="zona_transporte" Type="varchar" MaxLength="50" />
+    <Property Name="id_zat" Type="int" />
+    <Property Name="id_kits" Type="int" />
+    <Property Name="id_localizacao" Type="int" />
+    <Property Name="marca_gdm" Type="varchar" MaxLength="50" />
+    <Property Name="localizacao" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="nome_shopping" Type="varchar" MaxLength="50" />
+    <Property Name="red" Type="int" />
+    <Property Name="nome_red" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="habilitar_ativacao" Type="char" MaxLength="1" />
+    <Property Name="habilitar_manutencao" Type="char" MaxLength="1" />
+    <Property Name="habilitar_shopping" Type="char" MaxLength="1" />
+    <Property Name="regional" Type="varchar" MaxLength="50" />
+    <Property Name="numero" Type="varchar" MaxLength="255" />
+    <Property Name="lattext" Type="varchar" MaxLength="50" />
+    <Property Name="longtext" Type="varchar" MaxLength="50" />
+    <Property Name="status_ativacao" Type="int" />
+    <Property Name="id_colaborador" Type="int" />
+    <Property Name="custo_budget" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="motivo_id" Type="int" />
+    <Property Name="motivotxt" Type="text" />
+    <Property Name="cidade_limpa" Type="char" MaxLength="1" />
+    <Property Name="segundo_telefone" Type="varchar" MaxLength="255" />
+    <Property Name="id_executivo" Type="int" />
+    <Property Name="id_prospector" Type="int" />
+  </EntityType>
+  <EntityType Name="cliente_cluster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="id_cluster" Type="int" />
+  </EntityType>
+  <EntityType Name="cliente_projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="id_projeto" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cluster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="grupo_canal" Type="char" MaxLength="2" />
+    <Property Name="canal" Type="int" />
+    <Property Name="classificacao_clientes" Type="char" MaxLength="2" />
+    <Property Name="nse" Type="varchar" MaxLength="50" />
+    <Property Name="foco" Type="varchar" MaxLength="50" />
+    <Property Name="sigla" Type="varchar" MaxLength="50" />
+    <Property Name="gec" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cluster_peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_cluster" Type="int" />
+    <Property Name="id_peca" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="colaborador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="login" Type="varchar" MaxLength="15" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="senha" Type="varchar" MaxLength="255" />
+    <Property Name="telefone" Type="varchar" MaxLength="15" />
+    <Property Name="id_titulo" Type="varchar" MaxLength="50" />
+    <Property Name="id_territorio" Type="int" />
+    <Property Name="id_unidade" Type="int" />
+    <Property Name="numero_patrimonio" Type="varchar" MaxLength="50" />
+    <Property Name="numero_serie_camera" Type="varchar" MaxLength="50" />
+    <Property Name="id_grupos" Type="int" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+    <Property Name="funcao" Type="varchar" MaxLength="30" />
+    <Property Name="id_usuario" Type="int" />
+    <Property Name="id_colaborador" Type="int" />
+    <Property Name="foto" Type="text" />
+    <Property Name="idioma" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="contrapartida">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="100" />
+    <Property Name="obrigatorio" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="contrapartida_ativacoes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_contrapartida" Type="int" />
+    <Property Name="id_ativacao" Type="int" />
+    <Property Name="etapa" Type="int" />
+  </EntityType>
+  <EntityType Name="contrapartida_projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_projeto" Type="int" />
+    <Property Name="id_contrapartida" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="email">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fase" Type="varchar" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="embalagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="20" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="enquete">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="255" />
+    <Property Name="vigencia" Type="char" MaxLength="1" />
+    <Property Name="data_limite" Type="date" />
+    <Property Name="status" Type="char" MaxLength="1" />
+    <Property Name="id_cluster" Type="int" />
+    <Property Name="data_inicio" Type="date" />
+  </EntityType>
+  <EntityType Name="enquete_perguntas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="text" />
+    <Property Name="id_enquete" Type="int" />
+  </EntityType>
+  <EntityType Name="enquete_resposta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_enquete" Type="int" />
+    <Property Name="id_colaborador" Type="int" />
+    <Property Name="data_resposta" Type="datetime" />
+    <Property Name="id_pergunta" Type="int" />
+    <Property Name="resposta" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="executivo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="familia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="foco">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="fornecedor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" />
+    <Property Name="nome" Type="varchar" MaxLength="255" />
+    <Property Name="contato" Type="varchar" MaxLength="255" />
+    <Property Name="telefone" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="codigo_sap" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="franquia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="gec">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="grupo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="grupo_de_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="kit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="localizacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="data_manutencao" Type="datetime" />
+    <Property Name="data_ativacao" Type="datetime" />
+    <Property Name="meta_manutencao" Type="varchar" MaxLength="255" />
+    <Property Name="observacao_1" Type="text" />
+    <Property Name="observacao_2" Type="text" />
+    <Property Name="numero_rc" Type="varchar" MaxLength="255" />
+    <Property Name="data_rc" Type="datetime" />
+    <Property Name="url_foto" Type="text" />
+    <Property Name="solicitante" Type="varchar" MaxLength="255" />
+    <Property Name="cliente_id" Type="int" />
+    <Property Name="manutencao_tipo" Type="int" />
+    <Property Name="manutencao_validacao" Type="int" />
+    <Property Name="peca_id" Type="int" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_administrador" Type="int" />
+    <Property Name="substituida" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="manutencao_instalacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_manutencao" Type="int" />
+    <Property Name="foto" Type="text" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="manutencao_peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_peca" Type="int" />
+    <Property Name="id_manutencao" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="marca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="20" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+    <Property Name="id_familia" Type="int" />
+  </EntityType>
+  <EntityType Name="mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="texto" Type="text" />
+    <Property Name="usuario_id" Type="int" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="administrador_id" Type="int" />
+    <Property Name="hora" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="status" Type="char" MaxLength="1" />
+    <Property Name="titulo" Type="varchar" MaxLength="50" />
+    <Property Name="grupo_id" Type="int" />
+    <Property Name="destinatario" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="mensagem_do_dia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mensagem" Type="text" />
+    <Property Name="status" Type="varchar" MaxLength="1" />
+    <Property Name="timestamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="motivo_de_manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="motivo_de_recuso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+    <Property Name="id_motivos_2" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="ocasiao_de_consumo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="30" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+    <Property Name="embalagem" Type="varchar" MaxLength="50" />
+    <Property Name="alimento" Type="varchar" MaxLength="50" />
+    <Property Name="ocasiao" Type="varchar" MaxLength="50" />
+    <Property Name="atributo" Type="varchar" MaxLength="50" />
+    <Property Name="tamanho" Type="varchar" MaxLength="50" />
+    <Property Name="largura" Type="varchar" MaxLength="50" />
+    <Property Name="altura" Type="varchar" MaxLength="50" />
+    <Property Name="diametro" Type="varchar" MaxLength="50" />
+    <Property Name="valor" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="detalhe" Type="varchar" MaxLength="50" />
+    <Property Name="texto_inserido" Type="varchar" MaxLength="50" />
+    <Property Name="lona_instalada" Type="char" MaxLength="1" />
+    <Property Name="foto_url" Type="text" />
+    <Property Name="tipo" Type="int" />
+    <Property Name="marca" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="peca_tipo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="planilhas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="url_upload" Type="text" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="titulo" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="observacao" Type="varchar" MaxLength="255" />
+    <Property Name="id_cluster" Type="int" />
+  </EntityType>
+  <EntityType Name="projeto_cluster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_projeto" Type="int" />
+    <Property Name="id_cluster" Type="int" />
+  </EntityType>
+  <EntityType Name="prospector">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="provedor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="razao_social" Type="varchar" MaxLength="50" />
+    <Property Name="cnpj" Type="varchar" MaxLength="20" />
+    <Property Name="contato" Type="varchar" MaxLength="20" />
+    <Property Name="telefone" Type="varchar" MaxLength="11" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="id_territorio" Type="int" />
+    <Property Name="id_sap" Type="int" />
+    <Property Name="valor_leitoso" Type="decimal" Precision="4" Scale="0" />
+    <Property Name="valor_perfurado" Type="decimal" Precision="4" Scale="0" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="rede">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="rota">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="executivo_venda" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="prospector" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="desenvolvedor" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="fornecedor" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="origem_mw" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="designer" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="gerente_comercial" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="gerente_regional" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="executivo_trade" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="promotor" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="consultor" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="unidade" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+    <Property Name="id_colaborador" Type="int" />
+  </EntityType>
+  <EntityType Name="shopping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="status_ativacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="subcanal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="territorio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="cep" Type="varchar" MaxLength="9" />
+    <Property Name="endereco" Type="varchar" MaxLength="100" />
+    <Property Name="bairro" Type="varchar" MaxLength="50" />
+    <Property Name="cidade" Type="varchar" MaxLength="50" />
+    <Property Name="uf_id" Type="int" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+    <Property Name="id_centralizador" Type="int" />
+    <Property Name="id_coordenador_pa" Type="int" />
+    <Property Name="id_aprovador_canais" Type="int" />
+  </EntityType>
+  <EntityType Name="tipo_de_manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="uf">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uf_sigla" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="unidade">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="id_territorio" Type="int" />
+    <Property Name="id_colaborador" Type="int" />
+    <Property Name="desativado" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="validacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="nome" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="zat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="1" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="id_territorio" Type="int" />
+    <Property Name="id_unidade" Type="int" />
+    <Property Name="cidade" Type="varchar" MaxLength="30" />
+    <Property Name="regiao" Type="varchar" MaxLength="3" />
+    <Property Name="ano" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <Association Name="FK__ativacao___id_at__4865BE2A">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_peca" Type="Self.ativacao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_peca">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_at__4959E263">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_mensagem" Type="Self.ativacao_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_mensagem">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_at__4B422AD5">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_foto" Type="Self.ativacao_foto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_foto">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_pe__477199F1">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_peca" Type="Self.ativacao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_peca">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_pe__4C364F0E">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_foto" Type="Self.ativacao_foto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_foto">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__id_cli__3D2915A8">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__id_pro__1C873BEC">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__status__345EC57D">
+    <End Role="status_ativacao" Type="Self.status_ativacao" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__carta__uf_id__3864608B">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="carta" Type="Self.carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="carta">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat_mens__mensa__336AA144">
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mensagem">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="mensagem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat_mens__remet__32767D0B">
+    <End Role="administrador" Type="Self.administrador" Multiplicity="0..1" />
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="remetente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat_mens__usuar__7D0E9093">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__canal__308E3499">
+    <End Role="canal" Type="Self.canal" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="canal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="canal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_clus__18B6AB08">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_cola__1B9317B3">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_cola__662B2B3B">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_exec__7869D707">
+    <End Role="executivo" Type="Self.executivo" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="executivo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_executivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_kits__2B0A656D">
+    <End Role="kit" Type="Self.kit" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kit">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_kits" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_loca__2DE6D218">
+    <End Role="localizacao" Type="Self.localizacao" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="localizacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_localizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_pros__7775B2CE">
+    <End Role="prospector" Type="Self.prospector" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prospector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_prospector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_rota__2BFE89A6">
+    <End Role="rota" Type="Self.rota" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rota">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_rota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_terr__282DF8C2">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_unid__29221CFB">
+    <End Role="unidade" Type="Self.unidade" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_unidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__id_zat__2A164134">
+    <End Role="zat" Type="Self.zat" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zat">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="id_zat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__motivo___67DE6983">
+    <End Role="motivo_de_recuso" Type="Self.motivo_de_recuso" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="motivo_de_recuso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="motivo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__red__318258D2">
+    <End Role="rede" Type="Self.rede" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rede">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="red" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__status___6AEFE058">
+    <End Role="status_ativacao" Type="Self.status_ativacao" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="status_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__uf_id__2CF2ADDF">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_c__id_cl__6501FCD8">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="cliente_cluster" Type="Self.cliente_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_cluster">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_c__id_cl__65F62111">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="cliente_cluster" Type="Self.cliente_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_cluster">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_p__id_cl__02925FBF">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="cliente_projeto" Type="Self.cliente_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_projeto">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_p__id_pr__038683F8">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="cliente_projeto" Type="Self.cliente_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_projeto">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cluster__canal__5006DFF2">
+    <End Role="canal" Type="Self.canal" Multiplicity="0..1" />
+    <End Role="cluster" Type="Self.cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="canal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cluster">
+        <PropertyRef Name="canal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cluster_p__id_cl__7CD98669">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="cluster_peca" Type="Self.cluster_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cluster_peca">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cluster_p__id_pe__7DCDAAA2">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1" />
+    <End Role="cluster_peca" Type="Self.cluster_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cluster_peca">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__id_gr__2739D489">
+    <End Role="grupo_de_usuario" Type="Self.grupo_de_usuario" Multiplicity="0..1" />
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_de_usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="colaborador">
+        <PropertyRef Name="id_grupos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__id_te__25518C17">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="colaborador">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__id_un__2645B050">
+    <End Role="unidade" Type="Self.unidade" Multiplicity="0..1" />
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="colaborador">
+        <PropertyRef Name="id_unidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_at__22401542">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contrapartida_ativacoes" Type="Self.contrapartida_ativacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_ativacoes">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_co__214BF109">
+    <End Role="contrapartida" Type="Self.contrapartida" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contrapartida_ativacoes" Type="Self.contrapartida_ativacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contrapartida">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_ativacoes">
+        <PropertyRef Name="id_contrapartida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_co__7814D14C">
+    <End Role="contrapartida" Type="Self.contrapartida" Multiplicity="0..1" />
+    <End Role="contrapartida_projeto" Type="Self.contrapartida_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contrapartida">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_projeto">
+        <PropertyRef Name="id_contrapartida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_pr__7720AD13">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="contrapartida_projeto" Type="Self.contrapartida_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_projeto">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete__id_clus__17C286CF">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="enquete" Type="Self.enquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_p__id_en__4D2A7347">
+    <End Role="enquete" Type="Self.enquete" Multiplicity="0..1" />
+    <End Role="enquete_perguntas" Type="Self.enquete_perguntas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enquete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete_perguntas">
+        <PropertyRef Name="id_enquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_r__id_co__4E1E9780">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="enquete_resposta" Type="Self.enquete_resposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete_resposta">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_r__id_en__0A688BB1">
+    <End Role="enquete" Type="Self.enquete" Multiplicity="0..1" />
+    <End Role="enquete_resposta" Type="Self.enquete_resposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enquete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete_resposta">
+        <PropertyRef Name="id_enquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_ad__6B0FDBE9">
+    <End Role="administrador" Type="Self.administrador" Multiplicity="0..1" />
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="id_administrador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_ma__6462DE5A">
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="0..1" />
+    <End Role="manutencao_peca" Type="Self.manutencao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao_peca">
+        <PropertyRef Name="id_manutencao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_ma__6A1BB7B0">
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="0..1" />
+    <End Role="manutencao_instalacao" Type="Self.manutencao_instalacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao_instalacao">
+        <PropertyRef Name="id_manutencao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_pe__65570293">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1" />
+    <End Role="manutencao_peca" Type="Self.manutencao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao_peca">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__manut__2022C2A6">
+    <End Role="tipo_de_manutencao" Type="Self.tipo_de_manutencao" Multiplicity="0..1" />
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_de_manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="manutencao_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__manut__26CFC035">
+    <End Role="validacao" Type="Self.validacao" Multiplicity="0..1" />
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="validacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="manutencao_validacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__peca___1F2E9E6D">
+    <End Role="peca" Type="Self.peca" Multiplicity="0..1" />
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="peca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__marca__id_famili__37703C52">
+    <End Role="familia" Type="Self.familia" Multiplicity="0..1" />
+    <End Role="marca" Type="Self.marca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="familia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="marca">
+        <PropertyRef Name="id_familia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__admini__76619304">
+    <End Role="administrador" Type="Self.administrador" Multiplicity="0..1" />
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="administrador_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__grupo___66EA454A">
+    <End Role="grupo_de_usuario" Type="Self.grupo_de_usuario" Multiplicity="0..1" />
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_de_usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="grupo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__id_cli__7755B73D">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__usuari__756D6ECB">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__peca__tipo__29E1370A">
+    <End Role="peca_tipo" Type="Self.peca_tipo" Multiplicity="0..1" />
+    <End Role="peca" Type="Self.peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca_tipo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="peca">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto__id_clus__7167D3BD">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="projeto" Type="Self.projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_c__id_cl__15A53433">
+    <End Role="cluster" Type="Self.cluster" Multiplicity="0..1" />
+    <End Role="projeto_cluster" Type="Self.projeto_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_cluster">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_c__id_pr__14B10FFA">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="projeto_cluster" Type="Self.projeto_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_cluster">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__provedor__id_ter__245D67DE">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="provedor" Type="Self.provedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="provedor">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rota__id_colabor__6DEC4894">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="rota" Type="Self.rota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rota">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__id_ap__31B762FC">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="id_aprovador_canais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__id_ce__2FCF1A8A">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="id_centralizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__id_co__30C33EC3">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="id_coordenador_pa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__uf_id__2EDAF651">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__territori__uf_id__32AB8735">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="territorio" Type="Self.territorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="territorio">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__unidade__id_cola__236943A5">
+    <End Role="colaborador" Type="Self.colaborador" Multiplicity="0..1" />
+    <End Role="unidade" Type="Self.unidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="unidade">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__unidade__id_terr__22751F6C">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="unidade" Type="Self.unidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="unidade">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__zat__id_territor__208CD6FA">
+    <End Role="territorio" Type="Self.territorio" Multiplicity="0..1" />
+    <End Role="zat" Type="Self.zat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zat">
+        <PropertyRef Name="id_territorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__zat__id_unidade__2180FB33">
+    <End Role="unidade" Type="Self.unidade" Multiplicity="0..1" />
+    <End Role="zat" Type="Self.zat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zat">
+        <PropertyRef Name="id_unidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_manutencao_cliente">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="cliente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MC1_DB_FEMSAModelStoreContainer">
+    <EntitySet Name="acessorio" EntityType="Self.acessorio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="administrador" EntityType="Self.administrador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="alimento" EntityType="Self.alimento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ativacao" EntityType="Self.ativacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ativacao_foto" EntityType="Self.ativacao_foto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ativacao_mensagem" EntityType="Self.ativacao_mensagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ativacao_peca" EntityType="Self.ativacao_peca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="book_online" EntityType="Self.book_online" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="canal" EntityType="Self.canal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cargo" EntityType="Self.cargo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="carta" EntityType="Self.carta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chat_mensagem" EntityType="Self.chat_mensagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente_cluster" EntityType="Self.cliente_cluster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente_projeto" EntityType="Self.cliente_projeto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cluster" EntityType="Self.cluster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cluster_peca" EntityType="Self.cluster_peca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="colaborador" EntityType="Self.colaborador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contrapartida" EntityType="Self.contrapartida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contrapartida_ativacoes" EntityType="Self.contrapartida_ativacoes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contrapartida_projeto" EntityType="Self.contrapartida_projeto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="email" EntityType="Self.email" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="embalagem" EntityType="Self.embalagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enquete" EntityType="Self.enquete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enquete_perguntas" EntityType="Self.enquete_perguntas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enquete_resposta" EntityType="Self.enquete_resposta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="executivo" EntityType="Self.executivo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="familia" EntityType="Self.familia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="foco" EntityType="Self.foco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fornecedor" EntityType="Self.fornecedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="franquia" EntityType="Self.franquia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gec" EntityType="Self.gec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grupo" EntityType="Self.grupo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grupo_de_usuario" EntityType="Self.grupo_de_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kit" EntityType="Self.kit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="localizacao" EntityType="Self.localizacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manutencao" EntityType="Self.manutencao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manutencao_instalacao" EntityType="Self.manutencao_instalacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manutencao_peca" EntityType="Self.manutencao_peca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="marca" EntityType="Self.marca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mensagem" EntityType="Self.mensagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mensagem_do_dia" EntityType="Self.mensagem_do_dia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="motivo_de_manutencao" EntityType="Self.motivo_de_manutencao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="motivo_de_recuso" EntityType="Self.motivo_de_recuso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ocasiao_de_consumo" EntityType="Self.ocasiao_de_consumo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="peca" EntityType="Self.peca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="peca_tipo" EntityType="Self.peca_tipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="planilhas" EntityType="Self.planilhas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projeto" EntityType="Self.projeto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projeto_cluster" EntityType="Self.projeto_cluster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="prospector" EntityType="Self.prospector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="provedor" EntityType="Self.provedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rede" EntityType="Self.rede" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rota" EntityType="Self.rota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shopping" EntityType="Self.shopping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="status_ativacao" EntityType="Self.status_ativacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subcanal" EntityType="Self.subcanal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="territorio" EntityType="Self.territorio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_de_manutencao" EntityType="Self.tipo_de_manutencao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uf" EntityType="Self.uf" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="unidade" EntityType="Self.unidade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="validacao" EntityType="Self.validacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="zat" EntityType="Self.zat" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ativacao___id_at__4865BE2A" Association="Self.FK__ativacao___id_at__4865BE2A">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_peca" EntitySet="ativacao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_at__4959E263" Association="Self.FK__ativacao___id_at__4959E263">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_mensagem" EntitySet="ativacao_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_at__4B422AD5" Association="Self.FK__ativacao___id_at__4B422AD5">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_foto" EntitySet="ativacao_foto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_pe__477199F1" Association="Self.FK__ativacao___id_pe__477199F1">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="ativacao_peca" EntitySet="ativacao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_pe__4C364F0E" Association="Self.FK__ativacao___id_pe__4C364F0E">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="ativacao_foto" EntitySet="ativacao_foto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__id_cli__3D2915A8" Association="Self.FK__ativacao__id_cli__3D2915A8">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__id_pro__1C873BEC" Association="Self.FK__ativacao__id_pro__1C873BEC">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__status__345EC57D" Association="Self.FK__ativacao__status__345EC57D">
+      <End Role="status_ativacao" EntitySet="status_ativacao" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__carta__uf_id__3864608B" Association="Self.FK__carta__uf_id__3864608B">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="carta" EntitySet="carta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat_mens__mensa__336AA144" Association="Self.FK__chat_mens__mensa__336AA144">
+      <End Role="mensagem" EntitySet="mensagem" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat_mens__remet__32767D0B" Association="Self.FK__chat_mens__remet__32767D0B">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat_mens__usuar__7D0E9093" Association="Self.FK__chat_mens__usuar__7D0E9093">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__canal__308E3499" Association="Self.FK__cliente__canal__308E3499">
+      <End Role="canal" EntitySet="canal" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_clus__18B6AB08" Association="Self.FK__cliente__id_clus__18B6AB08">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_cola__1B9317B3" Association="Self.FK__cliente__id_cola__1B9317B3">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_cola__662B2B3B" Association="Self.FK__cliente__id_cola__662B2B3B">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_exec__7869D707" Association="Self.FK__cliente__id_exec__7869D707">
+      <End Role="executivo" EntitySet="executivo" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_kits__2B0A656D" Association="Self.FK__cliente__id_kits__2B0A656D">
+      <End Role="kit" EntitySet="kit" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_loca__2DE6D218" Association="Self.FK__cliente__id_loca__2DE6D218">
+      <End Role="localizacao" EntitySet="localizacao" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_pros__7775B2CE" Association="Self.FK__cliente__id_pros__7775B2CE">
+      <End Role="prospector" EntitySet="prospector" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_rota__2BFE89A6" Association="Self.FK__cliente__id_rota__2BFE89A6">
+      <End Role="rota" EntitySet="rota" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_terr__282DF8C2" Association="Self.FK__cliente__id_terr__282DF8C2">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_unid__29221CFB" Association="Self.FK__cliente__id_unid__29221CFB">
+      <End Role="unidade" EntitySet="unidade" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__id_zat__2A164134" Association="Self.FK__cliente__id_zat__2A164134">
+      <End Role="zat" EntitySet="zat" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__motivo___67DE6983" Association="Self.FK__cliente__motivo___67DE6983">
+      <End Role="motivo_de_recuso" EntitySet="motivo_de_recuso" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__red__318258D2" Association="Self.FK__cliente__red__318258D2">
+      <End Role="rede" EntitySet="rede" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__status___6AEFE058" Association="Self.FK__cliente__status___6AEFE058">
+      <End Role="status_ativacao" EntitySet="status_ativacao" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__uf_id__2CF2ADDF" Association="Self.FK__cliente__uf_id__2CF2ADDF">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_c__id_cl__6501FCD8" Association="Self.FK__cliente_c__id_cl__6501FCD8">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="cliente_cluster" EntitySet="cliente_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_c__id_cl__65F62111" Association="Self.FK__cliente_c__id_cl__65F62111">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="cliente_cluster" EntitySet="cliente_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_p__id_cl__02925FBF" Association="Self.FK__cliente_p__id_cl__02925FBF">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="cliente_projeto" EntitySet="cliente_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_p__id_pr__038683F8" Association="Self.FK__cliente_p__id_pr__038683F8">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="cliente_projeto" EntitySet="cliente_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cluster__canal__5006DFF2" Association="Self.FK__cluster__canal__5006DFF2">
+      <End Role="canal" EntitySet="canal" />
+      <End Role="cluster" EntitySet="cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cluster_p__id_cl__7CD98669" Association="Self.FK__cluster_p__id_cl__7CD98669">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="cluster_peca" EntitySet="cluster_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cluster_p__id_pe__7DCDAAA2" Association="Self.FK__cluster_p__id_pe__7DCDAAA2">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="cluster_peca" EntitySet="cluster_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__id_gr__2739D489" Association="Self.FK__colaborad__id_gr__2739D489">
+      <End Role="grupo_de_usuario" EntitySet="grupo_de_usuario" />
+      <End Role="colaborador" EntitySet="colaborador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__id_te__25518C17" Association="Self.FK__colaborad__id_te__25518C17">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="colaborador" EntitySet="colaborador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__id_un__2645B050" Association="Self.FK__colaborad__id_un__2645B050">
+      <End Role="unidade" EntitySet="unidade" />
+      <End Role="colaborador" EntitySet="colaborador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_at__22401542" Association="Self.FK__contrapar__id_at__22401542">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="contrapartida_ativacoes" EntitySet="contrapartida_ativacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_co__214BF109" Association="Self.FK__contrapar__id_co__214BF109">
+      <End Role="contrapartida" EntitySet="contrapartida" />
+      <End Role="contrapartida_ativacoes" EntitySet="contrapartida_ativacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_co__7814D14C" Association="Self.FK__contrapar__id_co__7814D14C">
+      <End Role="contrapartida" EntitySet="contrapartida" />
+      <End Role="contrapartida_projeto" EntitySet="contrapartida_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_pr__7720AD13" Association="Self.FK__contrapar__id_pr__7720AD13">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="contrapartida_projeto" EntitySet="contrapartida_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete__id_clus__17C286CF" Association="Self.FK__enquete__id_clus__17C286CF">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="enquete" EntitySet="enquete" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_p__id_en__4D2A7347" Association="Self.FK__enquete_p__id_en__4D2A7347">
+      <End Role="enquete" EntitySet="enquete" />
+      <End Role="enquete_perguntas" EntitySet="enquete_perguntas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_r__id_co__4E1E9780" Association="Self.FK__enquete_r__id_co__4E1E9780">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="enquete_resposta" EntitySet="enquete_resposta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_r__id_en__0A688BB1" Association="Self.FK__enquete_r__id_en__0A688BB1">
+      <End Role="enquete" EntitySet="enquete" />
+      <End Role="enquete_resposta" EntitySet="enquete_resposta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_ad__6B0FDBE9" Association="Self.FK__manutenca__id_ad__6B0FDBE9">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_ma__6462DE5A" Association="Self.FK__manutenca__id_ma__6462DE5A">
+      <End Role="manutencao" EntitySet="manutencao" />
+      <End Role="manutencao_peca" EntitySet="manutencao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_ma__6A1BB7B0" Association="Self.FK__manutenca__id_ma__6A1BB7B0">
+      <End Role="manutencao" EntitySet="manutencao" />
+      <End Role="manutencao_instalacao" EntitySet="manutencao_instalacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_pe__65570293" Association="Self.FK__manutenca__id_pe__65570293">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="manutencao_peca" EntitySet="manutencao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__manut__2022C2A6" Association="Self.FK__manutenca__manut__2022C2A6">
+      <End Role="tipo_de_manutencao" EntitySet="tipo_de_manutencao" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__manut__26CFC035" Association="Self.FK__manutenca__manut__26CFC035">
+      <End Role="validacao" EntitySet="validacao" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__peca___1F2E9E6D" Association="Self.FK__manutenca__peca___1F2E9E6D">
+      <End Role="peca" EntitySet="peca" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__marca__id_famili__37703C52" Association="Self.FK__marca__id_famili__37703C52">
+      <End Role="familia" EntitySet="familia" />
+      <End Role="marca" EntitySet="marca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__admini__76619304" Association="Self.FK__mensagem__admini__76619304">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__grupo___66EA454A" Association="Self.FK__mensagem__grupo___66EA454A">
+      <End Role="grupo_de_usuario" EntitySet="grupo_de_usuario" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__id_cli__7755B73D" Association="Self.FK__mensagem__id_cli__7755B73D">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__usuari__756D6ECB" Association="Self.FK__mensagem__usuari__756D6ECB">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__peca__tipo__29E1370A" Association="Self.FK__peca__tipo__29E1370A">
+      <End Role="peca_tipo" EntitySet="peca_tipo" />
+      <End Role="peca" EntitySet="peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto__id_clus__7167D3BD" Association="Self.FK__projeto__id_clus__7167D3BD">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="projeto" EntitySet="projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_c__id_cl__15A53433" Association="Self.FK__projeto_c__id_cl__15A53433">
+      <End Role="cluster" EntitySet="cluster" />
+      <End Role="projeto_cluster" EntitySet="projeto_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_c__id_pr__14B10FFA" Association="Self.FK__projeto_c__id_pr__14B10FFA">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="projeto_cluster" EntitySet="projeto_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__provedor__id_ter__245D67DE" Association="Self.FK__provedor__id_ter__245D67DE">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="provedor" EntitySet="provedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rota__id_colabor__6DEC4894" Association="Self.FK__rota__id_colabor__6DEC4894">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="rota" EntitySet="rota" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__id_ap__31B762FC" Association="Self.FK__territori__id_ap__31B762FC">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__id_ce__2FCF1A8A" Association="Self.FK__territori__id_ce__2FCF1A8A">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__id_co__30C33EC3" Association="Self.FK__territori__id_co__30C33EC3">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__uf_id__2EDAF651" Association="Self.FK__territori__uf_id__2EDAF651">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__territori__uf_id__32AB8735" Association="Self.FK__territori__uf_id__32AB8735">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="territorio" EntitySet="territorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__unidade__id_cola__236943A5" Association="Self.FK__unidade__id_cola__236943A5">
+      <End Role="colaborador" EntitySet="colaborador" />
+      <End Role="unidade" EntitySet="unidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK__unidade__id_terr__22751F6C" Association="Self.FK__unidade__id_terr__22751F6C">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="unidade" EntitySet="unidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK__zat__id_territor__208CD6FA" Association="Self.FK__zat__id_territor__208CD6FA">
+      <End Role="territorio" EntitySet="territorio" />
+      <End Role="zat" EntitySet="zat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__zat__id_unidade__2180FB33" Association="Self.FK__zat__id_unidade__2180FB33">
+      <End Role="unidade" EntitySet="unidade" />
+      <End Role="zat" EntitySet="zat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_manutencao_cliente" Association="Self.FK_manutencao_cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

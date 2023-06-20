@@ -1,0 +1,163 @@
+﻿@model FemsaEP.Models.caracteristica_de_peca_SAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>caracteristica_de_peca_SAP</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MANDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCODIMAGEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCODIMAGEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZDETALLE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZDETALLE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCODKITS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCODKITS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZFORMCUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZFORMCUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCOSTOM2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCOSTOM2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZANCHO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZANCHO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZALTURA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZALTURA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZDIAMETRO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZDIAMETRO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZPROVEEDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZPROVEEDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZVALORPZA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZVALORPZA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZDESACTIV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZDESACTIV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.alimento_SAP.MANDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alimento_SAP.MANDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.embalagem_SAP.ZNOMEMBAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.embalagem_SAP.ZNOMEMBAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.peca_SAP.ZNOMPECA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.peca_SAP.ZNOMPECA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marca_SAP.ZNOMMARCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca_SAP.ZNOMMARCA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ZCODPIEZA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

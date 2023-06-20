@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c059173c521a4e3caa0c5c1ce3d6641d" Name="Diagram1">
+        <EntityTypeShape EntityType="FemsadbModel.acessorio_SAP" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.administrador" Width="1.5" PointX="18.75" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.alimento_SAP" Width="1.5" PointX="15.75" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.ativacao" Width="1.5" PointX="12.75" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.ativacao_foto" Width="1.5" PointX="18" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.ativacao_mensagem" Width="1.5" PointX="15" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.ativacao_peca" Width="1.5" PointX="18" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.book_online" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.canal_SAP" Width="1.5" PointX="5.25" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.caracteristica_de_peca_SAP" Width="1.5" PointX="18" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.cargo_SAP" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.carta" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.chat_mensagem" Width="1.5" PointX="23.25" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.cliente_cluster_SAP" Width="1.5" PointX="9.75" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.cliente_projeto" Width="1.5" PointX="9.75" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.cliente_SAP" Width="1.5" PointX="7.5" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.cluster_peca_SAP" Width="1.5" PointX="21" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.cluster_SAP" Width="1.5" PointX="5.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.colaborador_SAP" Width="1.5" PointX="5.25" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.contrapartida_ativacoes" Width="1.5" PointX="15" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.contrapartida_projeto" Width="1.5" PointX="21" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.contrapartida_SAP" Width="1.5" PointX="12.75" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.coordenador" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.email" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.embalagem_SAP" Width="1.5" PointX="15.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.enquete" Width="1.5" PointX="10.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.enquete_perguntas" Width="1.5" PointX="12.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.enquete_resposta" Width="1.5" PointX="12.5" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.executivo" Width="1.5" PointX="5.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.familia" Width="1.5" PointX="13.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.foco" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.fornecedor" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.franquia" Width="1.5" PointX="5.25" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.grupo_de_usuario" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.grupo_SAP" Width="1.5" PointX="3" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.kit_SAP" Width="1.5" PointX="5.25" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.localizacao_SAP" Width="1.5" PointX="5.25" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.manutencao" Width="1.5" PointX="15.75" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.manutencao_instalacao" Width="1.5" PointX="18" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.manutencao_peca" Width="1.5" PointX="21" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.marca_SAP" Width="1.5" PointX="15.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.mensagem" Width="1.5" PointX="21" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.mensagem_do_dia" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.motivo_de_manutencao" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.motivo_de_recuso_SAP" Width="1.5" PointX="5.25" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.nse_SAP" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.ocasiao_de_consumo" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.peca_SAP" Width="1.5" PointX="15.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.peca_tipo" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.planilhas" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.projeto" Width="1.5" PointX="10.5" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.projeto_cluster" Width="1.5" PointX="12.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.prospector" Width="1.5" PointX="5.25" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.provedor_SAP" Width="1.5" PointX="3" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.rede_SAP" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.rota_colaborador" Width="1.5" PointX="7.5" PointY="48.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.rota_SAP" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.shopping_SAP" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.status_ativacao" Width="1.5" PointX="5.25" PointY="58" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.subcanal_SAP" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.territorio_SAP" Width="1.5" PointX="0.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.tipo_de_manutencao" Width="1.5" PointX="13.5" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.uf" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.unidade_SAP" Width="1.5" PointX="3" PointY="51" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.validacao" Width="1.5" PointX="13.5" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FemsadbModel.zat_SAP" Width="1.5" PointX="10.25" PointY="37.375" IsExpanded="true" />
+        <AssociationConnector Association="FemsadbModel.FK__chat_mens__remet__2A5703AD" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__manutenca__id_ad__48DB8ACD" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__mensagem__admini__5170D0CE" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__caracteri__ZCODA__249E2A57" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__ativacao___id_at__1FD9753A" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__ativacao___id_at__21C1BDAC" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__ativacao___id_at__22B5E1E5" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__ativacao__id_pro__1CFD088F" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__ativacao__status__1DF12CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__ativacao__ZCLIEN__1EE55101" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__contrapar__id_at__413A6905" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__mensagem__id_cli__5264F507" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__ativacao___id_pe__20CD9973" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__ativacao___ZCODP__23AA061E" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__ZCANA__36BCDA92" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__caracteri__ZCODE__25924E90" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__caracteri__ZCODI__268672C9" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__caracteri__ZCODM__277A9702" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__carta__uf_id__286EBB3B" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__chat_mens__mensa__2962DF74" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__chat_mens__ZCODC__2B4B27E6" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_c__ZCLIE__2C3F4C1F" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_c__ZCODC__2D337058" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_p__id_pr__2E279491" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_p__ZCLIE__2F1BB8CA" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__id_cl__300FDD03" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__id_co__3104013C" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__id_ex__31F82575" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__id_fr__32EC49AE" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__id_pr__33E06DE7" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__motiv__34D49220" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__statu__35C8B659" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__ZLOCA__37B0FECB" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__ZTERR__38A52304" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_S__ZUNID__3999473D" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_SA__ZKIT__3A8D6B76" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cliente_SA__ZZAT__3B818FAF" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__manutenca__ZCLIE__4BB7F778" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cluster_p__ZCODC__3C75B3E8" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__cluster_p__ZCODP__3D69D821" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__enquete__ZCODCLU__450AF9E9" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__projeto_c__ZCODC__563585EB" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__colaborad__ZGRUP__3E5DFC5A" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__colaborad__ZTERR__3F522093" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__colaborad__ZUNID__404644CC" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__enquete_r__ZCODC__47E76694" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__mensagem__ZCODCO__53591940" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__rota_cola__id_co__61A73897" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__contrapar__ZCODC__422E8D3E" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__contrapar__id_pr__4322B177" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__contrapar__ZCODC__4416D5B0" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__enquete_p__id_en__45FF1E22" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__enquete_r__id_en__46F3425B" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__marca_SAP__id_fa__507CAC95" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__mensagem__ZCODGR__544D3D79" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__manutenca__id_ma__4DA03FEA" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__manutenca__id_ma__4E946423" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__manutenca__manut__49CFAF06" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__manutenca__manut__4AC3D33F" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__manutenca__ZCODP__4CAC1BB1" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__manutenca__ZCODP__4F88885C" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__projeto_c__id_pr__554161B2" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__provedor___ZTERR__5729AA24" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__unidade_S__ZTERR__581DCE5D" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__zat_SAP__ZTERRIT__5911F296" ManuallyRouted="false" />
+        <AssociationConnector Association="FemsadbModel.FK__zat_SAP__ZUNIDAD__5A0616CF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "RelatorioAcessorios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="page-header">
+    <h2>Relatório de Estoque de Acessórios</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="home.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Relatório de Estoque de Acessórios</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                    <!-- <a href="#modalAnim" class="panel-action fa fa-plus modal-with-zoom-anim" ></a> -->
+                    <!-- <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a> -->
+                </div>
+
+                <h2 class="panel-title">Relatório de Estoque de Acessórios</h2>
+            </header>
+            <div class="panel-body">
+                <form action="" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Unidade</label>
+                        <div class="col-sm-4">
+                            <select name="" class="form-control">
+                                <option value="">Escolha uma opção...</option>
+                                <option value="">Unidade 01</option>
+                                <option value="">Unidade 02</option>
+                                <option value="">Unidade 03</option>
+                                <option value="">Unidade 04</option>
+                            </select>
+
+                        </div>
+                        <label class="col-sm-2 control-label">Fornecedor</label>
+                        <div class="col-sm-4">
+                            <select name="" class="form-control">
+                                <option value="">Escolha uma opção...</option>
+                                <option value="">Fornecedor 01</option>
+                                <option value="">Fornecedor 02</option>
+                                <option value="">Fornecedor 03</option>
+                                <option value="">Fornecedor 04</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="endereco">Cluster</label>
+                        <div class="col-sm-4">
+                            <select name="" class="form-control">
+                                <option value="">Escolha uma opção...</option>
+                                <option value="">Cluster 01</option>
+                                <option value="">Cluster 02</option>
+                                <option value="">Cluster 03</option>
+                                <option value="">Cluster 04</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="panel-footer">
+                <input value="Excel" type="submit" class="btn btn-success" />
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- end: page -->

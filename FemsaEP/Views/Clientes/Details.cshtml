@@ -1,0 +1,475 @@
+﻿@model FemsaEP.Models.cliente_SAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cliente_SAP</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MANDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNOMFANTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNOMFANTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCNPJCPFI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCNPJCPFI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZDIRECCIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZDIRECCIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZBARRIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZBARRIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCIUDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCIUDAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZUF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZUF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZPUNTOREF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZPUNTOREF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZTELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZTELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZGEC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZGEC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNSE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNSE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZRUTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZRUTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZMARCAGDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZMARCAGDM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNOMSHOPP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNOMSHOPP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZRED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZRED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNOMBRERE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNOMBRERE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZHABACTIV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZHABACTIV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZHABRMANT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZHABRMANT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZHABSHOPP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZHABSHOPP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_novo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_novo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_antigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_antigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.executivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.executivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prospector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prospector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desenvolvedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desenvolvedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fornecedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fornecedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.design)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.design)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zona_transporte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zona_transporte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.regional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lattext)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lattext)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longtext)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longtext)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.custo_budget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custo_budget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.motivotxt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.motivotxt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cidade_limpa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cidade_limpa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.segundo_telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.segundo_telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ano_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ano_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.acessooffline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.acessooffline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recusa_foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recusa_foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ativacao_ultima_atualizacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ativacao_ultima_atualizacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ativacao1.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ativacao1.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.canal_SAP.ZNOMCANAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.canal_SAP.ZNOMCANAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cluster_SAP.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cluster_SAP.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colaborador_SAP.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colaborador_SAP.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.executivo1.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.executivo1.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.franquia.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.franquia.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prospector1.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prospector1.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.motivo_de_recuso_SAP.ZNOMMOTIV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.motivo_de_recuso_SAP.ZNOMMOTIV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_ativacao1.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_ativacao1.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.localizacao_SAP.ZNOMLOCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.localizacao_SAP.ZNOMLOCA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.territorio_SAP.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.territorio_SAP.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kit_SAP.ZNOMKITS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kit_SAP.ZNOMKITS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zat_SAP.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zat_SAP.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unidade_SAP.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unidade_SAP.ZNOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ZCLIENTE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

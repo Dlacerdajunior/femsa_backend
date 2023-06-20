@@ -1,0 +1,65 @@
+﻿@model FemsaEP.Models.peca_SAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditarcadpeca" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+    
+    <script>
+        $(function () {
+            // your code goes here
+            $("#bteditarcadpeca").click(function () {
+                nome = $("#ZNOMPECA").val()
+                pecacluster = $("#pecacluster").val()
+                if (nome == "") {
+                    alert("É necessário preencher os campos abaixo");
+                    return false;
+                }
+                if (pecacluster == null) {
+                    alert("É necessário selecionar pelo menos 1 (um) Cluster");
+                    return false;
+                }
+                else {
+                    $("#formeditarcadpeca").submit();
+                }
+            });
+        });
+    </script>
+
+    @Html.HiddenFor(model => model.MANDT)
+    @Html.HiddenFor(model => model.ZCODPECA)
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZNOMPECA, "Nome*", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.TextBoxFor(model => model.ZNOMPECA, new { @class = "form-control", placeholder = "Nome", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.ZNOMPECA)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZDESACTIV, "Desativado", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.RadioButtonFor(model => model.ZDESACTIV, "X", new { @Id = "desativadosim" })
+            <label for="desativadosim">Sim</label>
+            @Html.RadioButtonFor(model => model.ZDESACTIV, "", new { @Id = "desativadonao" })
+            <label for="desativadonao">Não</label>
+            @Html.ValidationMessageFor(model => model.ZDESACTIV)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZDESACTIV, "Cluster *", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.ListBox("pecacluster", (MultiSelectList)ViewBag.Categories, new { size = 8, id = "pecacluster" })
+        </div>
+    </div>
+
+}

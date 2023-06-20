@@ -1,0 +1,50 @@
+﻿@model FemsaEP.Models.subcanal_SAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditarsubcanal" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+    
+    <script>
+        $(function () {
+            // your code goes here
+            $("#bteditarsubcanal").click(function () {
+                codigo = $("#ZNOMSUBCA").val()
+                if (codigo == "") {
+                    alert("É necessário preencher o campo Nome.");
+                    return false;
+                }
+                else {
+                    $("#formeditarsubcanal").submit();
+                }
+
+            });
+        });
+    </script>
+
+        @Html.HiddenFor(model => model.MANDT)
+        @Html.HiddenFor(model => model.ZCODSUBCA)
+        
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZNOMSUBCA, "Nome", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.TextBoxFor(model => model.ZNOMSUBCA, new { @class = "form-control", placeholder = "Nome", MaxLength = "20" })
+            @Html.ValidationMessageFor(model => model.ZNOMSUBCA)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.descricao, "Descrição", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.TextAreaFor(model => model.descricao, new { @class = "form-control", placeholder = "Descrição", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.descricao)
+        </div>
+    </div>
+
+}

@@ -1,0 +1,136 @@
+﻿@model IEnumerable<FemsaEP.Models.caracteristica_de_peca_SAP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MANDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZCODIMAGEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZDETALLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZCODKITS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZFORMCUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZCOSTOM2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZANCHO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZALTURA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZDIAMETRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZPROVEEDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZVALORPZA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZDESACTIV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.foto_url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alimento_SAP.MANDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.embalagem_SAP.ZNOMEMBAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.peca_SAP.ZNOMPECA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marca_SAP.ZNOMMARCA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MANDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZCODIMAGEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZDETALLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZCODKITS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZFORMCUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZCOSTOM2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZANCHO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZALTURA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZDIAMETRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZPROVEEDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZVALORPZA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZDESACTIV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.foto_url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alimento_SAP.MANDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.embalagem_SAP.ZNOMEMBAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.peca_SAP.ZNOMPECA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca_SAP.ZNOMMARCA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ZCODPIEZA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ZCODPIEZA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ZCODPIEZA })
+        </td>
+    </tr>
+}
+
+</table>

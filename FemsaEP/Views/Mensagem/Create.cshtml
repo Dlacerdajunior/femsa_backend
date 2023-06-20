@@ -1,0 +1,112 @@
+﻿@model FemsaEP.Models.mensagem
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formadicionarmensagem" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <script>
+
+        $('#blocogrupo').hide()
+        $('#blococliente').hide()
+        $('#blocousuario').hide()
+
+        $(function () {
+            // your code goes here
+            $("#btadicionarmensagem").click(function () {
+                texto = $("#texto").val()
+                titulo = $("#titulo").val()
+                if (texto == "" || titulo == "") {
+                    alert("É necessário preencher os campos abaixo");
+                    return false;
+                }
+           /*     if (!$('#usuario_id').val()) {               
+                    alert("É necessário selecionar um usuário");
+                    return false;
+                } */
+                else {
+                    $("#formadicionarmensagem").submit();
+                }
+            });
+
+            $('#destinatario').change(function () {
+                if ($(this).val() == 2) {
+                    $('#blocogrupo').show()
+                    $('#blococliente').hide()
+                    $('#blocousuario').hide()
+                } else if ($(this).val() == 3) {
+                    $('#blococliente').show()
+                    $('#blocogrupo').hide()
+                    $('#blocousuario').hide()
+                }  else if ($(this).val() == 4) {
+                    $('#blocousuario').show()
+                    $('#blococliente').hide()
+                    $('#blocogrupo').hide()
+                }else {
+                    $('#blocogrupo').hide()
+                    $('#blococliente').hide()
+                    $('#blocousuario').hide()
+            }
+            }); 
+        });
+    </script>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.titulo, "Título", new { @class = "col-md-2 control-labels" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.titulo, new { @class = "form-control", placeholder = "Título" })
+            @Html.ValidationMessageFor(model => model.titulo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.texto, "Texto", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.texto, new { @class = "form-control", placeholder = "Texto" })
+            @Html.ValidationMessageFor(model => model.texto)
+        </div>
+    </div>
+ 
+    <div class="form-group">
+        @Html.LabelFor(model => model.destinatario, "Destinatário", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            <select id="destinatario" name="destinatario">
+                <option value="1">Todos</option>
+                <option value="2">Funções</option>
+                <option value="3">Clientes</option>
+                <option value="4">Colaboradores</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.destinatario)
+        </div>
+    </div>
+
+    <div class="form-group" id="blocogrupo">
+        @Html.LabelFor(model => model.ZCODGRUPO, "Funções", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("grupocert_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.ZCODGRUPO)
+        </div>
+    </div>
+
+    <div class="form-group" id="blococliente">
+        @Html.LabelFor(model => model.id_cliente, "Clientes", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("id_cliente", String.Empty)
+            @Html.ValidationMessageFor(model => model.id_cliente)
+        </div>
+    </div>
+
+    <div class="form-group" id="blocousuario">
+        @Html.LabelFor(model => model.ZCODCOLAB, "Usuários", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("colab_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.ZCODCOLAB)
+        </div>
+    </div>
+
+}

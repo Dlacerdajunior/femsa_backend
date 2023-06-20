@@ -1,0 +1,23 @@
+﻿@model FemsaEP.Models.contrapartida_projeto
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formadicionarcontrapartida-projeto" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    foreach (var item in ViewBag.projetos)
+    {        
+            <div class="form-group">
+                <input type="hidden" name="id_projeto[]" value="" />
+
+                <input type="checkbox" style="box-shadow: none; width:20px;" class="countclass" name="id_projeto[]" value="@item.id" />
+
+                @item.descricao
+            </div>  
+    }    
+}

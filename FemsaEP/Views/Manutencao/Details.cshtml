@@ -1,0 +1,131 @@
+﻿@model FemsaEP.Models.manutencao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>manutencao</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data_manutencao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_manutencao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_ativacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_ativacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.meta_manutencao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.meta_manutencao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacao_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacao_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacao_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacao_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numero_rc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero_rc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_rc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_rc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.url_foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.url_foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.solicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.mandante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.mandante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_de_manutencao.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_de_manutencao.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.validacao.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.validacao.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.peca.mandante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.peca.mandante)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,146 @@
+﻿@model FemsaEP.Models.manutencao
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>manutencao</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.data_manutencao, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.data_manutencao)
+                @Html.ValidationMessageFor(model => model.data_manutencao)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.data_ativacao, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.data_ativacao)
+                @Html.ValidationMessageFor(model => model.data_ativacao)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.meta_manutencao, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.meta_manutencao)
+                @Html.ValidationMessageFor(model => model.meta_manutencao)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.observacao_1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.observacao_1)
+                @Html.ValidationMessageFor(model => model.observacao_1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.observacao_2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.observacao_2)
+                @Html.ValidationMessageFor(model => model.observacao_2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.numero_rc, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numero_rc)
+                @Html.ValidationMessageFor(model => model.numero_rc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.data_rc, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.data_rc)
+                @Html.ValidationMessageFor(model => model.data_rc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.url_foto, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.url_foto)
+                @Html.ValidationMessageFor(model => model.url_foto)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.solicitante, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.solicitante)
+                @Html.ValidationMessageFor(model => model.solicitante)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCLIENTE, "cliente_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("cliente_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.ZCLIENTE)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.manutencao_tipo, "manutencao_tipo", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("manutencao_tipo", String.Empty)
+                @Html.ValidationMessageFor(model => model.manutencao_tipo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.manutencao_validacao, "manutencao_validacao", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("manutencao_validacao", String.Empty)
+                @Html.ValidationMessageFor(model => model.manutencao_validacao)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODPECA, "peca_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("peca_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.ZCODPECA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.codigo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.codigo)
+                @Html.ValidationMessageFor(model => model.codigo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

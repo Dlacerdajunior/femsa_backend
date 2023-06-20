@@ -1,0 +1,93 @@
+﻿@model FemsaEP.Models.marca_SAP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formadicionarmarca" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    
+    <script>
+        jQuery(function ($) {
+            $('#ZCODMARCA').mask('00000');
+        });
+
+        $(function () {
+            // your code goes here
+            $("#btadicionarmarca").click(function (data) {
+                codigo = $("#ZCODMARCA").val()
+                if (codigo == "") {
+                    alert("É necessário preencher um código.");
+                    return false;
+                }
+                else {
+                    if (true) {
+                        $.post('/Marcas/verificaigual', { ZCODMARCA: codigo }, function (data) {
+                            if (data == "False") {
+                                alert("Código já existente no sistema.");
+                                return false;
+                            }
+                            else {
+                                $("#formadicionarmarca").submit();
+                                return false;
+                            }
+                        });
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+    
+
+        @Html.HiddenFor(model => model.MANDT)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZCODMARCA, "Código", new { @class = "col-md-3 control-label" })
+            <div class="col-md-7">
+                @Html.TextBoxFor(model => model.ZCODMARCA, new { @class = "form-control", placeholder = "Código"})
+                @Html.ValidationMessageFor(model => model.ZCODMARCA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZNOMMARCA,"Nome", new { @class = "col-md-3 control-label" })
+            <div class="col-md-7">
+                @Html.TextBoxFor(model => model.ZNOMMARCA, new { @class = "form-control", placeholder = "Nome", MaxLength = "20" })
+                @Html.ValidationMessageFor(model => model.ZNOMMARCA)
+            </div>
+        </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZDESACTIV, "Desativado", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.RadioButtonFor(model => model.ZDESACTIV, "X", new { @Id = "desativadosim" })
+            <label for="desativadosim">Sim</label>
+            @Html.RadioButtonFor(model => model.ZDESACTIV, "", new { @Id = "desativadonao" })
+            <label for="desativadonao">Não</label>
+            @Html.ValidationMessageFor(model => model.ZDESACTIV)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_familia, "Família", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.DropDownList("id_familia", String.Empty)
+            @Html.ValidationMessageFor(model => model.id_familia)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.descricao, "Descrição", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.TextAreaFor(model => model.descricao, new { @class = "form-control", placeholder = "Descrição", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.descricao)
+        </div>
+    </div>
+
+}

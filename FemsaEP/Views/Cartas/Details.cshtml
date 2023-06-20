@@ -1,0 +1,155 @@
+﻿@model FemsaEP.Models.carta
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>carta</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.razao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.razao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rota_vendedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rota_vendedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cluster)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cluster)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desenvolvedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desenvolvedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prospector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prospector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_zat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_zat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ano_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ano_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ano_contrapartida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ano_contrapartida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uf.uf_sigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uf.uf_sigla)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

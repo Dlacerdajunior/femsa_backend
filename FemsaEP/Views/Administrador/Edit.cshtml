@@ -1,0 +1,91 @@
+﻿@model FemsaEP.Models.administrador
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditaradm" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.id)
+
+    <script>
+
+        jQuery(function ($) {
+            $('#codigo').mask('00000000');
+        });
+
+    </script>
+
+    <script>
+        $(function () {
+            // your code goes here
+            $("#bteditaradm").click(function () {
+                codigo = $("#codigo").val()
+                nome = $("#nome").val()
+                login = $("#login").val()
+                if (codigo == "" && nome == "" && login == "") {
+                    alert("É necessário preencher os campos abaixo");
+                    return false;
+                }
+                senha = $("#senha").val()
+                confsenha = $("#confsenha").val()
+                if (senha == "" && confsenha == "") {
+                    alert("Campo Senha não pode ser vazio");
+                    return false;
+                }
+                if (senha != confsenha) {
+                    alert("Senha não confere");
+                    return false;
+                } else {
+                    $("#formeditaradm").submit();
+                }
+
+            });
+        });
+
+    </script>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nome, "Nome *", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.nome, new { @class = "form-control", placeholder = "Nome" })
+            @Html.ValidationMessageFor(model => model.nome)
+        </div>
+        @Html.LabelFor(model => model.codigo, "Código *", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.codigo, new { @class = "form-control", placeholder = "Código" })
+            @Html.ValidationMessageFor(model => model.codigo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.login, "Login *", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.login, new { @class = "form-control", placeholder = "Login" })
+            @Html.ValidationMessageFor(model => model.login)
+        </div>
+        @Html.LabelFor(model => model.email, "E-mail", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.email, new { @class = "form-control", placeholder = "E-mail" })
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.senha, "Senha *", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(model => model.senha, new { @class = "form-control", placeholder = "Senha" })
+            @Html.ValidationMessageFor(model => model.senha)
+        </div>
+        <label for="" class="col-md-2 control-label">Confirmar Senha *</label>
+        <div class="col-md-4">
+            <input type="password" class="form-control" id="confsenha" required="" placeholder="Confirmar Senha">
+        </div>
+    </div>
+
+}
+

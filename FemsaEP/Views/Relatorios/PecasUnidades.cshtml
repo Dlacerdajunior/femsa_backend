@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "PecasUnidades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="page-header">
+    <h2>Relatório de Peças por Unidades</h2>
+
+    <div class="right-wrapper pull-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="home.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li><span>Relatório de Peças por Unidades</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+    </div>
+</header>
+
+
+
+<script src="@Url.Content("~/Content/assets/vendor/jquery/jquery.js")"></script>
+
+<script>
+    $(function () {
+
+        $("#btsubmit").click(function () {
+            datainicial = $("#datainicial").val()
+            datafinal = $("#datafinal").val()
+            if (datainicial == "" || datafinal == "") {
+                alert("É necessário preencher Data inicial e Data final");
+                return false;
+            }
+            else {
+                $("form").submit();
+            }
+
+        });
+
+        $('#anocliente').mask('0000');
+        $('select').select2();
+    });
+
+</script>
+
+<style>
+    .select2-container {
+        width: 230px;
+        min-width: 230px;
+    }
+</style>
+
+<!-- start: page -->
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                    <!-- <a href="#modalAnim" class="panel-action fa fa-plus modal-with-zoom-anim" ></a> -->
+                    <!-- <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a> -->
+                </div>
+
+                <h2 class="panel-title">Relatório de Peças por Unidades</h2>
+            </header>
+            <div class="panel-body">
+                <form action="" method="post" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="cep">Data inicial</label>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                                <input id="datainicial" name="datainicial" type="text" data-plugin-datepicker="" data-date-format="dd/mm/yyyy" class="form-control valid">
+                            </div>
+                        </div>
+
+                        <label class="col-sm-2 col-sm-offset-1 control-label" for="cep">Data final</label>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                                <input id="datafinal" name="datafinal" type="text" data-plugin-datepicker="" data-date-format="dd/mm/yyyy" class="form-control valid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="endereco">Ano do Cliente</label>
+                        <div class="col-sm-3">
+                            <input type="number" class="form-control input-sm" name="anocliente" id="anocliente">
+                        </div>
+                        <label class="col-sm-3 control-label">Peça</label>
+                        <div class="col-sm-4">
+                            @Html.DropDownList("id_peca", String.Empty)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Unidade</label>
+                        <div class="col-sm-4">
+                            @Html.DropDownList("id_unidade", String.Empty)
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <input value="Excel" id="btsubmit" type="submit" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

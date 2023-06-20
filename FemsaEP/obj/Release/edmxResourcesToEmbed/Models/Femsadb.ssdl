@@ -1,0 +1,2007 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FemsadbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="acessorio_SAP">
+    <Key>
+      <PropertyRef Name="ZCODIGOACCESORIOS" />
+    </Key>
+    <Property Name="MANDT" Type="char" MaxLength="3" />
+    <Property Name="ZCODIGOACCESORIOS" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="ZNOMBREACCESORIOS" Type="char" MaxLength="50" />
+    <Property Name="ZDESACTIVADO" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="administrador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="login" Type="varchar" MaxLength="15" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="senha" Type="varchar" MaxLength="255" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="alimento_SAP">
+    <Key>
+      <PropertyRef Name="ZCODIGOALIMENTO" />
+    </Key>
+    <Property Name="MANDT" Type="char" MaxLength="3" />
+    <Property Name="ZCODIGOALIMENTO" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="ZNOMBREALIMENTO" Type="char" MaxLength="20" />
+    <Property Name="ZDESACTIVADO" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ativacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="custo_valor" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="id_projeto" Type="int" />
+    <Property Name="situacao" Type="char" MaxLength="1" />
+    <Property Name="executivo" Type="tinyint" />
+    <Property Name="criacao" Type="date" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="data_finalizacao" Type="datetime" />
+    <Property Name="ZCLIENTE" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ativacao_foto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ativacao" Type="int" />
+    <Property Name="url_foto" Type="text" />
+    <Property Name="etapa" Type="int" />
+    <Property Name="id_peca" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="executivo" Type="tinyint" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="criacao" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ativacao_mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ativacao" Type="int" />
+    <Property Name="mensagem" Type="text" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="ativacao_peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ativacao" Type="int" />
+    <Property Name="quantidade" Type="int" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="ZCODPECA" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="book_online">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="url_upload" Type="text" />
+    <Property Name="titulo" Type="varchar" MaxLength="255" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="canal_SAP">
+    <Key>
+      <PropertyRef Name="ZCODCANAL" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODCANAL" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ZNOMCANAL" Type="char" MaxLength="40" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="caracteristica_de_peca_SAP">
+    <Key>
+      <PropertyRef Name="ZCODPIEZA" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODPIEZA" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZCODIPECA" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZCODMARCA" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZCODEMBAL" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZCODALIME" Type="numeric" Precision="4" Scale="0" />
+    <Property Name="ZCODIMAGEN" Type="char" MaxLength="100" />
+    <Property Name="ZDETALLE" Type="char" MaxLength="100" />
+    <Property Name="ZCODKITS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZFORMCUS" Type="char" MaxLength="2" />
+    <Property Name="ZCOSTOM2" Type="money" />
+    <Property Name="ZANCHO" Type="decimal" Precision="5" Scale="0" />
+    <Property Name="ZALTURA" Type="decimal" Precision="5" Scale="0" />
+    <Property Name="ZDIAMETRO" Type="decimal" Precision="5" Scale="0" />
+    <Property Name="ZPROVEEDO" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZVALORPZA" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="valor" Type="varchar" MaxLength="255" />
+    <Property Name="foto_url" Type="text" />
+  </EntityType>
+  <EntityType Name="cargo_SAP">
+    <Key>
+      <PropertyRef Name="ZCODCARGO" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODCARGO" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMCARGO" Type="char" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="carta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="razao" Type="varchar" MaxLength="255" />
+    <Property Name="cidade" Type="varchar" MaxLength="255" />
+    <Property Name="uf_id" Type="int" />
+    <Property Name="bairro" Type="varchar" MaxLength="255" />
+    <Property Name="endereco" Type="varchar" MaxLength="255" />
+    <Property Name="contato" Type="varchar" MaxLength="255" />
+    <Property Name="telefone" Type="varchar" MaxLength="255" />
+    <Property Name="rota_vendedor" Type="varchar" MaxLength="255" />
+    <Property Name="cluster" Type="varchar" MaxLength="255" />
+    <Property Name="unidade" Type="int" />
+    <Property Name="desenvolvedor" Type="varchar" MaxLength="255" />
+    <Property Name="prospector" Type="varchar" MaxLength="255" />
+    <Property Name="zat" Type="int" />
+    <Property Name="nome_zat" Type="varchar" MaxLength="255" />
+    <Property Name="ano_cliente" Type="int" />
+    <Property Name="ano_contrapartida" Type="int" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="pdf" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="chat_mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mensagem_id" Type="int" />
+    <Property Name="ZCODCOLAB" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="remetente_id" Type="int" />
+    <Property Name="texto" Type="text" />
+    <Property Name="hora" Type="datetime" />
+    <Property Name="tipo" Type="varchar" MaxLength="1" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="cliente_cluster_SAP">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="ZCLIENTE" Type="char" MaxLength="10" />
+    <Property Name="ZCODCLUSTER" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cliente_projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_projeto" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="ZCLIENTE" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="cliente_SAP">
+    <Key>
+      <PropertyRef Name="ZCLIENTE" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCLIENTE" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ZNOMBRE" Type="char" MaxLength="35" />
+    <Property Name="ZNOMFANTA" Type="char" MaxLength="20" />
+    <Property Name="ZCNPJCPFI" Type="char" MaxLength="16" />
+    <Property Name="ZCEP" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZDIRECCIO" Type="char" MaxLength="60" />
+    <Property Name="ZBARRIO" Type="char" MaxLength="40" />
+    <Property Name="ZCIUDAD" Type="char" MaxLength="40" />
+    <Property Name="ZUF" Type="char" MaxLength="3" />
+    <Property Name="ZPUNTOREF" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="ZTERRITOR" Type="varchar" MaxLength="5" />
+    <Property Name="ZUNIDAD" Type="char" MaxLength="5" />
+    <Property Name="ZTELEFONO" Type="char" MaxLength="30" />
+    <Property Name="ZCANAL" Type="char" MaxLength="5" />
+    <Property Name="ZGEC" Type="char" MaxLength="5" />
+    <Property Name="ZNSE" Type="char" MaxLength="2" />
+    <Property Name="ZRUTA" Type="char" MaxLength="10" />
+    <Property Name="ZZAT" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZKIT" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZMARCAGDM" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="ZLOCALIZA" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZNOMSHOPP" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZRED" Type="char" MaxLength="1" />
+    <Property Name="ZNOMBRERE" Type="varchar" MaxLength="50" />
+    <Property Name="ZHABACTIV" Type="char" MaxLength="1" />
+    <Property Name="ZHABRMANT" Type="char" MaxLength="1" />
+    <Property Name="ZHABSHOPP" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="id_novo" Type="varchar" MaxLength="50" />
+    <Property Name="id_antigo" Type="varchar" MaxLength="50" />
+    <Property Name="id_cluster" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="executivo" Type="varchar" MaxLength="30" />
+    <Property Name="prospector" Type="varchar" MaxLength="30" />
+    <Property Name="desenvolvedor" Type="varchar" MaxLength="30" />
+    <Property Name="fornecedor" Type="varchar" MaxLength="30" />
+    <Property Name="design" Type="varchar" MaxLength="30" />
+    <Property Name="zona_transporte" Type="varchar" MaxLength="50" />
+    <Property Name="regional" Type="varchar" MaxLength="50" />
+    <Property Name="numero" Type="varchar" MaxLength="50" />
+    <Property Name="lattext" Type="varchar" MaxLength="50" />
+    <Property Name="longtext" Type="varchar" MaxLength="50" />
+    <Property Name="status_ativacao" Type="int" />
+    <Property Name="id_colaborador" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="custo_budget" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="motivo_id" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="motivotxt" Type="text" />
+    <Property Name="cidade_limpa" Type="char" MaxLength="1" />
+    <Property Name="segundo_telefone" Type="varchar" MaxLength="255" />
+    <Property Name="id_executivo" Type="int" />
+    <Property Name="id_prospector" Type="int" />
+    <Property Name="ano_cliente" Type="varchar" MaxLength="4" />
+    <Property Name="acessooffline" Type="int" />
+    <Property Name="id_franquia" Type="int" />
+    <Property Name="recusa_foto" Type="text" />
+    <Property Name="ativacao_ultima_atualizacao" Type="datetime" />
+    <Property Name="observacao" Type="text" />
+    <Property Name="pendente_retorno" Type="int" />
+    <Property Name="motivo_retorno" Type="text" />
+    <Property Name="carta_foto" Type="text" />
+  </EntityType>
+  <EntityType Name="cluster_peca_SAP">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="ZCODCLUST" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZCODPECA" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="quantidade" Type="int" />
+  </EntityType>
+  <EntityType Name="cluster_SAP">
+    <Key>
+      <PropertyRef Name="ZCODCLUST" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODCLUST" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMBRE" Type="char" MaxLength="50" />
+    <Property Name="ZGPOCANAL" Type="char" MaxLength="2" />
+    <Property Name="ZCANAL" Type="char" MaxLength="5" />
+    <Property Name="ZGEC" Type="char" MaxLength="5" />
+    <Property Name="ZNSE" Type="char" MaxLength="2" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="foco" Type="varchar" MaxLength="50" />
+    <Property Name="sigla" Type="varchar" MaxLength="50" />
+    <Property Name="atributo4" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="colaborador_SAP">
+    <Key>
+      <PropertyRef Name="ZCODCOLAB" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODCOLAB" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMBRE" Type="char" MaxLength="50" />
+    <Property Name="ZTELEFONO" Type="numeric" Precision="11" Scale="0" />
+    <Property Name="ZEMAIL" Type="char" MaxLength="50" />
+    <Property Name="ZFUNCARGO" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZTERRITOR" Type="varchar" MaxLength="5" />
+    <Property Name="ZUNIDAD" Type="char" MaxLength="5" />
+    <Property Name="ZNUMPATRI" Type="char" MaxLength="50" />
+    <Property Name="ZNUMSERIE" Type="char" MaxLength="50" />
+    <Property Name="ZCONTRASE" Type="char" MaxLength="15" />
+    <Property Name="ZGRUPO" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZLOGIN" Type="char" MaxLength="15" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="id_usuario" Type="int" />
+    <Property Name="id_colaborador" Type="int" />
+    <Property Name="foto" Type="text" />
+    <Property Name="idioma" Type="tinyint" />
+    <Property Name="acessoffline" Type="tinyint" />
+    <Property Name="ultimosinc" Type="datetime" />
+  </EntityType>
+  <EntityType Name="contrapartida_ativacoes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_contrapartida" Type="int" />
+    <Property Name="id_ativacao" Type="int" />
+    <Property Name="etapa" Type="int" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="ZCODCONPA" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="contrapartida_projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_projeto" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="ZCODCONPA" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="contrapartida_SAP">
+    <Key>
+      <PropertyRef Name="ZCODCONPA" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODCONPA" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMCONPA" Type="char" MaxLength="20" />
+    <Property Name="obrigatorio" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="coordenador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="login" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="senha" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="email">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fase" Type="varchar" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="embalagem_SAP">
+    <Key>
+      <PropertyRef Name="ZCODEMBAL" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODEMBAL" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMEMBAL" Type="char" MaxLength="20" />
+    <Property Name="ZDESACTIVADO" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="enquete">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="255" />
+    <Property Name="vigencia" Type="char" MaxLength="1" />
+    <Property Name="data_limite" Type="date" />
+    <Property Name="status" Type="char" MaxLength="1" />
+    <Property Name="data_inicio" Type="date" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="ZCODCLUST" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="enquete_perguntas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="text" />
+    <Property Name="id_enquete" Type="int" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="enquete_resposta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_enquete" Type="int" />
+    <Property Name="data_resposta" Type="datetime" />
+    <Property Name="id_pergunta" Type="int" />
+    <Property Name="resposta" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="ZCODCOLAB" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="executivo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="30" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="familia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="foco">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="fornecedor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" />
+    <Property Name="nome" Type="varchar" MaxLength="255" />
+    <Property Name="contato" Type="varchar" MaxLength="255" />
+    <Property Name="telefone" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="codigo_sap" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="franquia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="grupo_de_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="grupo_SAP">
+    <Key>
+      <PropertyRef Name="ZCODGRUPO" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODGRUPO" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMGRUPO" Type="char" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="kit_SAP">
+    <Key>
+      <PropertyRef Name="ZCODKITS" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODKITS" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMKITS" Type="char" MaxLength="50" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="localizacao_SAP">
+    <Key>
+      <PropertyRef Name="ZCODLOCA" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODLOCA" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMLOCA" Type="char" MaxLength="50" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="data_manutencao" Type="date" />
+    <Property Name="data_ativacao" Type="date" />
+    <Property Name="meta_manutencao" Type="varchar" MaxLength="255" />
+    <Property Name="observacao_1" Type="text" />
+    <Property Name="observacao_2" Type="text" />
+    <Property Name="numero_rc" Type="varchar" MaxLength="255" />
+    <Property Name="data_rc" Type="date" />
+    <Property Name="url_foto" Type="text" />
+    <Property Name="solicitante" Type="varchar" MaxLength="255" />
+    <Property Name="manutencao_tipo" Type="int" />
+    <Property Name="manutencao_validacao" Type="int" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_administrador" Type="int" />
+    <Property Name="substituida" Type="tinyint" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="executivo_vendas" Type="varchar" MaxLength="255" />
+    <Property Name="executivo_trade" Type="varchar" MaxLength="255" />
+    <Property Name="prospector" Type="varchar" MaxLength="255" />
+    <Property Name="pos_venda" Type="varchar" MaxLength="255" />
+    <Property Name="ZCLIENTE" Type="char" MaxLength="10" />
+    <Property Name="ZCODPECA" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="manutencao_instalacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_manutencao" Type="int" />
+    <Property Name="foto" Type="text" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="manutencao_peca">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_manutencao" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="substituido" Type="int" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="ZCODPECA" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="marca_SAP">
+    <Key>
+      <PropertyRef Name="ZCODMARCA" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODMARCA" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMMARCA" Type="char" MaxLength="20" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="id_familia" Type="int" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="mensagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="texto" Type="text" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="administrador_id" Type="int" />
+    <Property Name="hora" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="status" Type="char" MaxLength="1" />
+    <Property Name="titulo" Type="varchar" MaxLength="50" />
+    <Property Name="grupo_id" Type="int" />
+    <Property Name="destinatario" Type="varchar" MaxLength="30" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+    <Property Name="ZCODGRUPO" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZCODCOLAB" Type="numeric" Precision="5" Scale="0" />
+  </EntityType>
+  <EntityType Name="mensagem_do_dia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mensagem" Type="text" />
+    <Property Name="status" Type="varchar" MaxLength="1" />
+    <Property Name="timestamp" Type="datetime" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="motivo_de_manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="motivo_de_recuso_SAP">
+    <Key>
+      <PropertyRef Name="ZCODMOTIV" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODMOTIV" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMMOTIV" Type="char" MaxLength="50" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="ZCODMOTI2" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="nse_SAP">
+    <Key>
+      <PropertyRef Name="ZCODNSE" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODNSE" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="ZNOMNSE" Type="char" MaxLength="20" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ocasiao_de_consumo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="peca_SAP">
+    <Key>
+      <PropertyRef Name="ZCODPECA" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODPECA" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMPECA" Type="char" MaxLength="50" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="peca_tipo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="planilhas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="url_upload" Type="text" />
+    <Property Name="descricao" Type="varchar" MaxLength="255" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="titulo" Type="varchar" MaxLength="255" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="observacao" Type="varchar" MaxLength="255" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="projeto_cluster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_projeto" Type="int" />
+    <Property Name="ZCODCLUST" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="prospector">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="nome" Type="varchar" MaxLength="30" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="provedor_SAP">
+    <Key>
+      <PropertyRef Name="ZCODPROVE" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODPROVE" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMBRE" Type="char" MaxLength="50" />
+    <Property Name="ZRAZONSOC" Type="char" MaxLength="50" />
+    <Property Name="ZCNPJ" Type="char" MaxLength="20" />
+    <Property Name="ZCONTRATO" Type="char" MaxLength="20" />
+    <Property Name="ZTELEFONO" Type="char" MaxLength="11" />
+    <Property Name="ZEMAIL" Type="char" MaxLength="50" />
+    <Property Name="ZTERRITOR" Type="varchar" MaxLength="5" />
+    <Property Name="ZCODSAP" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="ZVALLEITO" Type="decimal" Precision="4" Scale="0" />
+    <Property Name="ZVALORPER" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="VALORM2" Type="decimal" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="rede_SAP">
+    <Key>
+      <PropertyRef Name="ZCODREDES" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODREDES" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMREDES" Type="char" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="rota_colaborador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_colaborador" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="lattext" Type="varchar" MaxLength="50" />
+    <Property Name="longtext" Type="varchar" MaxLength="50" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="km" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="rota_SAP">
+    <Key>
+      <PropertyRef Name="ZCODIRUTA" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODIRUTA" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZEJECVTAS" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZPOSPECTO" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZDESARROL" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZPROVEEDO" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZORIGENMW" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZDISENADO" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZGTECOMER" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZGTEREGIO" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZEJECTRAD" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZPROMOTOR" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZCONSULTO" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZUNIDAD" Type="numeric" Precision="7" Scale="0" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="id_colaborador" Type="int" />
+  </EntityType>
+  <EntityType Name="shopping_SAP">
+    <Key>
+      <PropertyRef Name="ZCODSHOPP" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODSHOPP" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMSHOPP" Type="char" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="status_ativacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="20" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="subcanal_SAP">
+    <Key>
+      <PropertyRef Name="ZCODSUBCA" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODSUBCA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ZNOMSUBCA" Type="char" MaxLength="20" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="territorio_SAP">
+    <Key>
+      <PropertyRef Name="ZCODTERRI" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODTERRI" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ZNOMBRE" Type="char" MaxLength="50" />
+    <Property Name="ZCEP" Type="char" MaxLength="9" />
+    <Property Name="ZDIRECCIO" Type="char" MaxLength="100" />
+    <Property Name="ZBARRIO" Type="char" MaxLength="50" />
+    <Property Name="ZCIUDAD" Type="char" MaxLength="50" />
+    <Property Name="ZUF" Type="char" MaxLength="2" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="ZCENTRALI" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZCOORDIPA" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZAPROVCAN" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tipo_de_manutencao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="uf">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uf_sigla" Type="varchar" MaxLength="2" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="unidade_SAP">
+    <Key>
+      <PropertyRef Name="ZCODUNIDA" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODUNIDA" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ZNOMBRE" Type="char" MaxLength="20" />
+    <Property Name="ZTERRITOR" Type="varchar" MaxLength="5" />
+    <Property Name="ZGTECOMER" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="ZDESACTIV" Type="char" MaxLength="1" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="validacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="nome" Type="varchar" MaxLength="255" />
+    <Property Name="mandante" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="zat_SAP">
+    <Key>
+      <PropertyRef Name="ZCODZATS" />
+    </Key>
+    <Property Name="MANDT" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="ZCODZATS" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ZNOMBRE" Type="char" MaxLength="50" />
+    <Property Name="ZTERRITOR" Type="varchar" MaxLength="5" />
+    <Property Name="ZUNIDAD" Type="char" MaxLength="5" />
+    <Property Name="ZCIUDAD" Type="char" MaxLength="30" />
+    <Property Name="ZUF" Type="char" MaxLength="3" />
+    <Property Name="ZANO" Type="char" MaxLength="4" />
+    <Property Name="descricao" Type="varchar" MaxLength="50" />
+    <Property Name="regiao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__ativacao___id_at__1FD9753A">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_foto" Type="Self.ativacao_foto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_foto">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_at__21C1BDAC">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_mensagem" Type="Self.ativacao_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_mensagem">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_at__22B5E1E5">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_peca" Type="Self.ativacao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao_peca">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___id_pe__20CD9973">
+    <End Role="peca_SAP" Type="Self.peca_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_foto" Type="Self.ativacao_foto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca_SAP">
+        <PropertyRef Name="ZCODPECA" />
+      </Principal>
+      <Dependent Role="ativacao_foto">
+        <PropertyRef Name="id_peca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao___ZCODP__23AA061E">
+    <End Role="peca_SAP" Type="Self.peca_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ativacao_peca" Type="Self.ativacao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca_SAP">
+        <PropertyRef Name="ZCODPECA" />
+      </Principal>
+      <Dependent Role="ativacao_peca">
+        <PropertyRef Name="ZCODPECA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__id_pro__1CFD088F">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__status__1DF12CC8">
+    <End Role="status_ativacao" Type="Self.status_ativacao" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ativacao__ZCLIEN__1EE55101">
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="0..1" />
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente_SAP">
+        <PropertyRef Name="ZCLIENTE" />
+      </Principal>
+      <Dependent Role="ativacao">
+        <PropertyRef Name="ZCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__caracteri__ZCODA__249E2A57">
+    <End Role="alimento_SAP" Type="Self.alimento_SAP" Multiplicity="0..1" />
+    <End Role="caracteristica_de_peca_SAP" Type="Self.caracteristica_de_peca_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alimento_SAP">
+        <PropertyRef Name="ZCODIGOALIMENTO" />
+      </Principal>
+      <Dependent Role="caracteristica_de_peca_SAP">
+        <PropertyRef Name="ZCODALIME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__caracteri__ZCODE__25924E90">
+    <End Role="embalagem_SAP" Type="Self.embalagem_SAP" Multiplicity="0..1" />
+    <End Role="caracteristica_de_peca_SAP" Type="Self.caracteristica_de_peca_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="embalagem_SAP">
+        <PropertyRef Name="ZCODEMBAL" />
+      </Principal>
+      <Dependent Role="caracteristica_de_peca_SAP">
+        <PropertyRef Name="ZCODEMBAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__caracteri__ZCODI__268672C9">
+    <End Role="peca_SAP" Type="Self.peca_SAP" Multiplicity="0..1" />
+    <End Role="caracteristica_de_peca_SAP" Type="Self.caracteristica_de_peca_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca_SAP">
+        <PropertyRef Name="ZCODPECA" />
+      </Principal>
+      <Dependent Role="caracteristica_de_peca_SAP">
+        <PropertyRef Name="ZCODIPECA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__caracteri__ZCODM__277A9702">
+    <End Role="marca_SAP" Type="Self.marca_SAP" Multiplicity="0..1" />
+    <End Role="caracteristica_de_peca_SAP" Type="Self.caracteristica_de_peca_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marca_SAP">
+        <PropertyRef Name="ZCODMARCA" />
+      </Principal>
+      <Dependent Role="caracteristica_de_peca_SAP">
+        <PropertyRef Name="ZCODMARCA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__carta__uf_id__286EBB3B">
+    <End Role="uf" Type="Self.uf" Multiplicity="0..1" />
+    <End Role="carta" Type="Self.carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uf">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="carta">
+        <PropertyRef Name="uf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat_mens__mensa__2962DF74">
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mensagem">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="mensagem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat_mens__remet__2A5703AD">
+    <End Role="administrador" Type="Self.administrador" Multiplicity="0..1" />
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="remetente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat_mens__ZCODC__2B4B27E6">
+    <End Role="colaborador_SAP" Type="Self.colaborador_SAP" Multiplicity="0..1" />
+    <End Role="chat_mensagem" Type="Self.chat_mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador_SAP">
+        <PropertyRef Name="ZCODCOLAB" />
+      </Principal>
+      <Dependent Role="chat_mensagem">
+        <PropertyRef Name="ZCODCOLAB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_c__ZCLIE__2C3F4C1F">
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="cliente_cluster_SAP" Type="Self.cliente_cluster_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente_SAP">
+        <PropertyRef Name="ZCLIENTE" />
+      </Principal>
+      <Dependent Role="cliente_cluster_SAP">
+        <PropertyRef Name="ZCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_c__ZCODC__2D337058">
+    <End Role="cluster_SAP" Type="Self.cluster_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="cliente_cluster_SAP" Type="Self.cliente_cluster_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster_SAP">
+        <PropertyRef Name="ZCODCLUST" />
+      </Principal>
+      <Dependent Role="cliente_cluster_SAP">
+        <PropertyRef Name="ZCODCLUSTER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_p__id_pr__2E279491">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="cliente_projeto" Type="Self.cliente_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_projeto">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_p__ZCLIE__2F1BB8CA">
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="cliente_projeto" Type="Self.cliente_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente_SAP">
+        <PropertyRef Name="ZCLIENTE" />
+      </Principal>
+      <Dependent Role="cliente_projeto">
+        <PropertyRef Name="ZCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__id_cl__300FDD03">
+    <End Role="cluster_SAP" Type="Self.cluster_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster_SAP">
+        <PropertyRef Name="ZCODCLUST" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="id_cluster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__id_co__3104013C">
+    <End Role="colaborador_SAP" Type="Self.colaborador_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador_SAP">
+        <PropertyRef Name="ZCODCOLAB" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__id_ex__31F82575">
+    <End Role="executivo" Type="Self.executivo" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="executivo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="id_executivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__id_fr__32EC49AE">
+    <End Role="franquia" Type="Self.franquia" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="franquia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="id_franquia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__id_pr__33E06DE7">
+    <End Role="prospector" Type="Self.prospector" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prospector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="id_prospector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__motiv__34D49220">
+    <End Role="motivo_de_recuso_SAP" Type="Self.motivo_de_recuso_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="motivo_de_recuso_SAP">
+        <PropertyRef Name="ZCODMOTIV" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="motivo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__statu__35C8B659">
+    <End Role="status_ativacao" Type="Self.status_ativacao" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="status_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__ZCANA__36BCDA92">
+    <End Role="canal_SAP" Type="Self.canal_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="canal_SAP">
+        <PropertyRef Name="ZCODCANAL" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="ZCANAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__ZLOCA__37B0FECB">
+    <End Role="localizacao_SAP" Type="Self.localizacao_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="localizacao_SAP">
+        <PropertyRef Name="ZCODLOCA" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="ZLOCALIZA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__ZTERR__38A52304">
+    <End Role="territorio_SAP" Type="Self.territorio_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio_SAP">
+        <PropertyRef Name="ZCODTERRI" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="ZTERRITOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_S__ZUNID__3999473D">
+    <End Role="unidade_SAP" Type="Self.unidade_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade_SAP">
+        <PropertyRef Name="ZCODUNIDA" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="ZUNIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_SA__ZKIT__3A8D6B76">
+    <End Role="kit_SAP" Type="Self.kit_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kit_SAP">
+        <PropertyRef Name="ZCODKITS" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="ZKIT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_SA__ZZAT__3B818FAF">
+    <End Role="zat_SAP" Type="Self.zat_SAP" Multiplicity="0..1" />
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zat_SAP">
+        <PropertyRef Name="ZCODZATS" />
+      </Principal>
+      <Dependent Role="cliente_SAP">
+        <PropertyRef Name="ZZAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cluster_p__ZCODC__3C75B3E8">
+    <End Role="cluster_SAP" Type="Self.cluster_SAP" Multiplicity="0..1" />
+    <End Role="cluster_peca_SAP" Type="Self.cluster_peca_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster_SAP">
+        <PropertyRef Name="ZCODCLUST" />
+      </Principal>
+      <Dependent Role="cluster_peca_SAP">
+        <PropertyRef Name="ZCODCLUST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cluster_p__ZCODP__3D69D821">
+    <End Role="peca_SAP" Type="Self.peca_SAP" Multiplicity="0..1" />
+    <End Role="cluster_peca_SAP" Type="Self.cluster_peca_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca_SAP">
+        <PropertyRef Name="ZCODPECA" />
+      </Principal>
+      <Dependent Role="cluster_peca_SAP">
+        <PropertyRef Name="ZCODPECA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__ZGRUP__3E5DFC5A">
+    <End Role="grupo_SAP" Type="Self.grupo_SAP" Multiplicity="0..1" />
+    <End Role="colaborador_SAP" Type="Self.colaborador_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_SAP">
+        <PropertyRef Name="ZCODGRUPO" />
+      </Principal>
+      <Dependent Role="colaborador_SAP">
+        <PropertyRef Name="ZGRUPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__ZTERR__3F522093">
+    <End Role="territorio_SAP" Type="Self.territorio_SAP" Multiplicity="0..1" />
+    <End Role="colaborador_SAP" Type="Self.colaborador_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio_SAP">
+        <PropertyRef Name="ZCODTERRI" />
+      </Principal>
+      <Dependent Role="colaborador_SAP">
+        <PropertyRef Name="ZTERRITOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__colaborad__ZUNID__404644CC">
+    <End Role="unidade_SAP" Type="Self.unidade_SAP" Multiplicity="0..1" />
+    <End Role="colaborador_SAP" Type="Self.colaborador_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade_SAP">
+        <PropertyRef Name="ZCODUNIDA" />
+      </Principal>
+      <Dependent Role="colaborador_SAP">
+        <PropertyRef Name="ZUNIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_at__413A6905">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contrapartida_ativacoes" Type="Self.contrapartida_ativacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_ativacoes">
+        <PropertyRef Name="id_ativacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__id_pr__4322B177">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contrapartida_projeto" Type="Self.contrapartida_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contrapartida_projeto">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__ZCODC__422E8D3E">
+    <End Role="contrapartida_SAP" Type="Self.contrapartida_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contrapartida_ativacoes" Type="Self.contrapartida_ativacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contrapartida_SAP">
+        <PropertyRef Name="ZCODCONPA" />
+      </Principal>
+      <Dependent Role="contrapartida_ativacoes">
+        <PropertyRef Name="ZCODCONPA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contrapar__ZCODC__4416D5B0">
+    <End Role="contrapartida_SAP" Type="Self.contrapartida_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contrapartida_projeto" Type="Self.contrapartida_projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contrapartida_SAP">
+        <PropertyRef Name="ZCODCONPA" />
+      </Principal>
+      <Dependent Role="contrapartida_projeto">
+        <PropertyRef Name="ZCODCONPA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete__ZCODCLU__450AF9E9">
+    <End Role="cluster_SAP" Type="Self.cluster_SAP" Multiplicity="0..1" />
+    <End Role="enquete" Type="Self.enquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster_SAP">
+        <PropertyRef Name="ZCODCLUST" />
+      </Principal>
+      <Dependent Role="enquete">
+        <PropertyRef Name="ZCODCLUST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_p__id_en__45FF1E22">
+    <End Role="enquete" Type="Self.enquete" Multiplicity="0..1" />
+    <End Role="enquete_perguntas" Type="Self.enquete_perguntas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enquete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete_perguntas">
+        <PropertyRef Name="id_enquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_r__id_en__46F3425B">
+    <End Role="enquete" Type="Self.enquete" Multiplicity="0..1" />
+    <End Role="enquete_resposta" Type="Self.enquete_resposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enquete">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="enquete_resposta">
+        <PropertyRef Name="id_enquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__enquete_r__ZCODC__47E76694">
+    <End Role="colaborador_SAP" Type="Self.colaborador_SAP" Multiplicity="0..1" />
+    <End Role="enquete_resposta" Type="Self.enquete_resposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador_SAP">
+        <PropertyRef Name="ZCODCOLAB" />
+      </Principal>
+      <Dependent Role="enquete_resposta">
+        <PropertyRef Name="ZCODCOLAB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_ad__48DB8ACD">
+    <End Role="administrador" Type="Self.administrador" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="id_administrador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_ma__4DA03FEA">
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="manutencao_instalacao" Type="Self.manutencao_instalacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao_instalacao">
+        <PropertyRef Name="id_manutencao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__id_ma__4E946423">
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="manutencao_peca" Type="Self.manutencao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao_peca">
+        <PropertyRef Name="id_manutencao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__manut__49CFAF06">
+    <End Role="tipo_de_manutencao" Type="Self.tipo_de_manutencao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_de_manutencao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="manutencao_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__manut__4AC3D33F">
+    <End Role="validacao" Type="Self.validacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="validacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="manutencao_validacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__ZCLIE__4BB7F778">
+    <End Role="cliente_SAP" Type="Self.cliente_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente_SAP">
+        <PropertyRef Name="ZCLIENTE" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="ZCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__ZCODP__4CAC1BB1">
+    <End Role="peca_SAP" Type="Self.peca_SAP" Multiplicity="0..1" />
+    <End Role="manutencao" Type="Self.manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca_SAP">
+        <PropertyRef Name="ZCODPECA" />
+      </Principal>
+      <Dependent Role="manutencao">
+        <PropertyRef Name="ZCODPECA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__manutenca__ZCODP__4F88885C">
+    <End Role="peca_SAP" Type="Self.peca_SAP" Multiplicity="0..1" />
+    <End Role="manutencao_peca" Type="Self.manutencao_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="peca_SAP">
+        <PropertyRef Name="ZCODPECA" />
+      </Principal>
+      <Dependent Role="manutencao_peca">
+        <PropertyRef Name="ZCODPECA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__marca_SAP__id_fa__507CAC95">
+    <End Role="familia" Type="Self.familia" Multiplicity="0..1" />
+    <End Role="marca_SAP" Type="Self.marca_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="familia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="marca_SAP">
+        <PropertyRef Name="id_familia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__admini__5170D0CE">
+    <End Role="administrador" Type="Self.administrador" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="administrador_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__id_cli__5264F507">
+    <End Role="ativacao" Type="Self.ativacao" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ativacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__ZCODCO__53591940">
+    <End Role="colaborador_SAP" Type="Self.colaborador_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador_SAP">
+        <PropertyRef Name="ZCODCOLAB" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="ZCODCOLAB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__mensagem__ZCODGR__544D3D79">
+    <End Role="grupo_SAP" Type="Self.grupo_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="mensagem" Type="Self.mensagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_SAP">
+        <PropertyRef Name="ZCODGRUPO" />
+      </Principal>
+      <Dependent Role="mensagem">
+        <PropertyRef Name="ZCODGRUPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_c__id_pr__554161B2">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="projeto_cluster" Type="Self.projeto_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_cluster">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_c__ZCODC__563585EB">
+    <End Role="cluster_SAP" Type="Self.cluster_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="projeto_cluster" Type="Self.projeto_cluster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cluster_SAP">
+        <PropertyRef Name="ZCODCLUST" />
+      </Principal>
+      <Dependent Role="projeto_cluster">
+        <PropertyRef Name="ZCODCLUST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__provedor___ZTERR__5729AA24">
+    <End Role="territorio_SAP" Type="Self.territorio_SAP" Multiplicity="0..1" />
+    <End Role="provedor_SAP" Type="Self.provedor_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio_SAP">
+        <PropertyRef Name="ZCODTERRI" />
+      </Principal>
+      <Dependent Role="provedor_SAP">
+        <PropertyRef Name="ZTERRITOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rota_cola__id_co__61A73897">
+    <End Role="colaborador_SAP" Type="Self.colaborador_SAP" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="rota_colaborador" Type="Self.rota_colaborador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colaborador_SAP">
+        <PropertyRef Name="ZCODCOLAB" />
+      </Principal>
+      <Dependent Role="rota_colaborador">
+        <PropertyRef Name="id_colaborador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__unidade_S__ZTERR__581DCE5D">
+    <End Role="territorio_SAP" Type="Self.territorio_SAP" Multiplicity="0..1" />
+    <End Role="unidade_SAP" Type="Self.unidade_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio_SAP">
+        <PropertyRef Name="ZCODTERRI" />
+      </Principal>
+      <Dependent Role="unidade_SAP">
+        <PropertyRef Name="ZTERRITOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__zat_SAP__ZTERRIT__5911F296">
+    <End Role="territorio_SAP" Type="Self.territorio_SAP" Multiplicity="0..1" />
+    <End Role="zat_SAP" Type="Self.zat_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="territorio_SAP">
+        <PropertyRef Name="ZCODTERRI" />
+      </Principal>
+      <Dependent Role="zat_SAP">
+        <PropertyRef Name="ZTERRITOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__zat_SAP__ZUNIDAD__5A0616CF">
+    <End Role="unidade_SAP" Type="Self.unidade_SAP" Multiplicity="0..1" />
+    <End Role="zat_SAP" Type="Self.zat_SAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidade_SAP">
+        <PropertyRef Name="ZCODUNIDA" />
+      </Principal>
+      <Dependent Role="zat_SAP">
+        <PropertyRef Name="ZUNIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FemsadbModelStoreContainer">
+    <EntitySet Name="acessorio_SAP" EntityType="Self.acessorio_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="administrador" EntityType="Self.administrador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="alimento_SAP" EntityType="Self.alimento_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ativacao" EntityType="Self.ativacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ativacao_foto" EntityType="Self.ativacao_foto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ativacao_mensagem" EntityType="Self.ativacao_mensagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ativacao_peca" EntityType="Self.ativacao_peca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="book_online" EntityType="Self.book_online" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="canal_SAP" EntityType="Self.canal_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="caracteristica_de_peca_SAP" EntityType="Self.caracteristica_de_peca_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cargo_SAP" EntityType="Self.cargo_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="carta" EntityType="Self.carta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chat_mensagem" EntityType="Self.chat_mensagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente_cluster_SAP" EntityType="Self.cliente_cluster_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente_projeto" EntityType="Self.cliente_projeto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente_SAP" EntityType="Self.cliente_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cluster_peca_SAP" EntityType="Self.cluster_peca_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cluster_SAP" EntityType="Self.cluster_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="colaborador_SAP" EntityType="Self.colaborador_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contrapartida_ativacoes" EntityType="Self.contrapartida_ativacoes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contrapartida_projeto" EntityType="Self.contrapartida_projeto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contrapartida_SAP" EntityType="Self.contrapartida_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="coordenador" EntityType="Self.coordenador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="email" EntityType="Self.email" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="embalagem_SAP" EntityType="Self.embalagem_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enquete" EntityType="Self.enquete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enquete_perguntas" EntityType="Self.enquete_perguntas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enquete_resposta" EntityType="Self.enquete_resposta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="executivo" EntityType="Self.executivo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="familia" EntityType="Self.familia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="foco" EntityType="Self.foco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fornecedor" EntityType="Self.fornecedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="franquia" EntityType="Self.franquia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grupo_de_usuario" EntityType="Self.grupo_de_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grupo_SAP" EntityType="Self.grupo_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kit_SAP" EntityType="Self.kit_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="localizacao_SAP" EntityType="Self.localizacao_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manutencao" EntityType="Self.manutencao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manutencao_instalacao" EntityType="Self.manutencao_instalacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manutencao_peca" EntityType="Self.manutencao_peca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="marca_SAP" EntityType="Self.marca_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mensagem" EntityType="Self.mensagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mensagem_do_dia" EntityType="Self.mensagem_do_dia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="motivo_de_manutencao" EntityType="Self.motivo_de_manutencao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="motivo_de_recuso_SAP" EntityType="Self.motivo_de_recuso_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nse_SAP" EntityType="Self.nse_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ocasiao_de_consumo" EntityType="Self.ocasiao_de_consumo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="peca_SAP" EntityType="Self.peca_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="peca_tipo" EntityType="Self.peca_tipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="planilhas" EntityType="Self.planilhas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projeto" EntityType="Self.projeto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projeto_cluster" EntityType="Self.projeto_cluster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="prospector" EntityType="Self.prospector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="provedor_SAP" EntityType="Self.provedor_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rede_SAP" EntityType="Self.rede_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rota_colaborador" EntityType="Self.rota_colaborador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rota_SAP" EntityType="Self.rota_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shopping_SAP" EntityType="Self.shopping_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="status_ativacao" EntityType="Self.status_ativacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subcanal_SAP" EntityType="Self.subcanal_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="territorio_SAP" EntityType="Self.territorio_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_de_manutencao" EntityType="Self.tipo_de_manutencao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uf" EntityType="Self.uf" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="unidade_SAP" EntityType="Self.unidade_SAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="validacao" EntityType="Self.validacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="zat_SAP" EntityType="Self.zat_SAP" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ativacao___id_at__1FD9753A" Association="Self.FK__ativacao___id_at__1FD9753A">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_foto" EntitySet="ativacao_foto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_at__21C1BDAC" Association="Self.FK__ativacao___id_at__21C1BDAC">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_mensagem" EntitySet="ativacao_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_at__22B5E1E5" Association="Self.FK__ativacao___id_at__22B5E1E5">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="ativacao_peca" EntitySet="ativacao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___id_pe__20CD9973" Association="Self.FK__ativacao___id_pe__20CD9973">
+      <End Role="peca_SAP" EntitySet="peca_SAP" />
+      <End Role="ativacao_foto" EntitySet="ativacao_foto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao___ZCODP__23AA061E" Association="Self.FK__ativacao___ZCODP__23AA061E">
+      <End Role="peca_SAP" EntitySet="peca_SAP" />
+      <End Role="ativacao_peca" EntitySet="ativacao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__id_pro__1CFD088F" Association="Self.FK__ativacao__id_pro__1CFD088F">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__status__1DF12CC8" Association="Self.FK__ativacao__status__1DF12CC8">
+      <End Role="status_ativacao" EntitySet="status_ativacao" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ativacao__ZCLIEN__1EE55101" Association="Self.FK__ativacao__ZCLIEN__1EE55101">
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+      <End Role="ativacao" EntitySet="ativacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__caracteri__ZCODA__249E2A57" Association="Self.FK__caracteri__ZCODA__249E2A57">
+      <End Role="alimento_SAP" EntitySet="alimento_SAP" />
+      <End Role="caracteristica_de_peca_SAP" EntitySet="caracteristica_de_peca_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__caracteri__ZCODE__25924E90" Association="Self.FK__caracteri__ZCODE__25924E90">
+      <End Role="embalagem_SAP" EntitySet="embalagem_SAP" />
+      <End Role="caracteristica_de_peca_SAP" EntitySet="caracteristica_de_peca_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__caracteri__ZCODI__268672C9" Association="Self.FK__caracteri__ZCODI__268672C9">
+      <End Role="peca_SAP" EntitySet="peca_SAP" />
+      <End Role="caracteristica_de_peca_SAP" EntitySet="caracteristica_de_peca_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__caracteri__ZCODM__277A9702" Association="Self.FK__caracteri__ZCODM__277A9702">
+      <End Role="marca_SAP" EntitySet="marca_SAP" />
+      <End Role="caracteristica_de_peca_SAP" EntitySet="caracteristica_de_peca_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__carta__uf_id__286EBB3B" Association="Self.FK__carta__uf_id__286EBB3B">
+      <End Role="uf" EntitySet="uf" />
+      <End Role="carta" EntitySet="carta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat_mens__mensa__2962DF74" Association="Self.FK__chat_mens__mensa__2962DF74">
+      <End Role="mensagem" EntitySet="mensagem" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat_mens__remet__2A5703AD" Association="Self.FK__chat_mens__remet__2A5703AD">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat_mens__ZCODC__2B4B27E6" Association="Self.FK__chat_mens__ZCODC__2B4B27E6">
+      <End Role="colaborador_SAP" EntitySet="colaborador_SAP" />
+      <End Role="chat_mensagem" EntitySet="chat_mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_c__ZCLIE__2C3F4C1F" Association="Self.FK__cliente_c__ZCLIE__2C3F4C1F">
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+      <End Role="cliente_cluster_SAP" EntitySet="cliente_cluster_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_c__ZCODC__2D337058" Association="Self.FK__cliente_c__ZCODC__2D337058">
+      <End Role="cluster_SAP" EntitySet="cluster_SAP" />
+      <End Role="cliente_cluster_SAP" EntitySet="cliente_cluster_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_p__id_pr__2E279491" Association="Self.FK__cliente_p__id_pr__2E279491">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="cliente_projeto" EntitySet="cliente_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_p__ZCLIE__2F1BB8CA" Association="Self.FK__cliente_p__ZCLIE__2F1BB8CA">
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+      <End Role="cliente_projeto" EntitySet="cliente_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__id_cl__300FDD03" Association="Self.FK__cliente_S__id_cl__300FDD03">
+      <End Role="cluster_SAP" EntitySet="cluster_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__id_co__3104013C" Association="Self.FK__cliente_S__id_co__3104013C">
+      <End Role="colaborador_SAP" EntitySet="colaborador_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__id_ex__31F82575" Association="Self.FK__cliente_S__id_ex__31F82575">
+      <End Role="executivo" EntitySet="executivo" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__id_fr__32EC49AE" Association="Self.FK__cliente_S__id_fr__32EC49AE">
+      <End Role="franquia" EntitySet="franquia" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__id_pr__33E06DE7" Association="Self.FK__cliente_S__id_pr__33E06DE7">
+      <End Role="prospector" EntitySet="prospector" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__motiv__34D49220" Association="Self.FK__cliente_S__motiv__34D49220">
+      <End Role="motivo_de_recuso_SAP" EntitySet="motivo_de_recuso_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__statu__35C8B659" Association="Self.FK__cliente_S__statu__35C8B659">
+      <End Role="status_ativacao" EntitySet="status_ativacao" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__ZCANA__36BCDA92" Association="Self.FK__cliente_S__ZCANA__36BCDA92">
+      <End Role="canal_SAP" EntitySet="canal_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__ZLOCA__37B0FECB" Association="Self.FK__cliente_S__ZLOCA__37B0FECB">
+      <End Role="localizacao_SAP" EntitySet="localizacao_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__ZTERR__38A52304" Association="Self.FK__cliente_S__ZTERR__38A52304">
+      <End Role="territorio_SAP" EntitySet="territorio_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_S__ZUNID__3999473D" Association="Self.FK__cliente_S__ZUNID__3999473D">
+      <End Role="unidade_SAP" EntitySet="unidade_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_SA__ZKIT__3A8D6B76" Association="Self.FK__cliente_SA__ZKIT__3A8D6B76">
+      <End Role="kit_SAP" EntitySet="kit_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_SA__ZZAT__3B818FAF" Association="Self.FK__cliente_SA__ZZAT__3B818FAF">
+      <End Role="zat_SAP" EntitySet="zat_SAP" />
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cluster_p__ZCODC__3C75B3E8" Association="Self.FK__cluster_p__ZCODC__3C75B3E8">
+      <End Role="cluster_SAP" EntitySet="cluster_SAP" />
+      <End Role="cluster_peca_SAP" EntitySet="cluster_peca_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cluster_p__ZCODP__3D69D821" Association="Self.FK__cluster_p__ZCODP__3D69D821">
+      <End Role="peca_SAP" EntitySet="peca_SAP" />
+      <End Role="cluster_peca_SAP" EntitySet="cluster_peca_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__ZGRUP__3E5DFC5A" Association="Self.FK__colaborad__ZGRUP__3E5DFC5A">
+      <End Role="grupo_SAP" EntitySet="grupo_SAP" />
+      <End Role="colaborador_SAP" EntitySet="colaborador_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__ZTERR__3F522093" Association="Self.FK__colaborad__ZTERR__3F522093">
+      <End Role="territorio_SAP" EntitySet="territorio_SAP" />
+      <End Role="colaborador_SAP" EntitySet="colaborador_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__colaborad__ZUNID__404644CC" Association="Self.FK__colaborad__ZUNID__404644CC">
+      <End Role="unidade_SAP" EntitySet="unidade_SAP" />
+      <End Role="colaborador_SAP" EntitySet="colaborador_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_at__413A6905" Association="Self.FK__contrapar__id_at__413A6905">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="contrapartida_ativacoes" EntitySet="contrapartida_ativacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__id_pr__4322B177" Association="Self.FK__contrapar__id_pr__4322B177">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="contrapartida_projeto" EntitySet="contrapartida_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__ZCODC__422E8D3E" Association="Self.FK__contrapar__ZCODC__422E8D3E">
+      <End Role="contrapartida_SAP" EntitySet="contrapartida_SAP" />
+      <End Role="contrapartida_ativacoes" EntitySet="contrapartida_ativacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contrapar__ZCODC__4416D5B0" Association="Self.FK__contrapar__ZCODC__4416D5B0">
+      <End Role="contrapartida_SAP" EntitySet="contrapartida_SAP" />
+      <End Role="contrapartida_projeto" EntitySet="contrapartida_projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete__ZCODCLU__450AF9E9" Association="Self.FK__enquete__ZCODCLU__450AF9E9">
+      <End Role="cluster_SAP" EntitySet="cluster_SAP" />
+      <End Role="enquete" EntitySet="enquete" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_p__id_en__45FF1E22" Association="Self.FK__enquete_p__id_en__45FF1E22">
+      <End Role="enquete" EntitySet="enquete" />
+      <End Role="enquete_perguntas" EntitySet="enquete_perguntas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_r__id_en__46F3425B" Association="Self.FK__enquete_r__id_en__46F3425B">
+      <End Role="enquete" EntitySet="enquete" />
+      <End Role="enquete_resposta" EntitySet="enquete_resposta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__enquete_r__ZCODC__47E76694" Association="Self.FK__enquete_r__ZCODC__47E76694">
+      <End Role="colaborador_SAP" EntitySet="colaborador_SAP" />
+      <End Role="enquete_resposta" EntitySet="enquete_resposta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_ad__48DB8ACD" Association="Self.FK__manutenca__id_ad__48DB8ACD">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_ma__4DA03FEA" Association="Self.FK__manutenca__id_ma__4DA03FEA">
+      <End Role="manutencao" EntitySet="manutencao" />
+      <End Role="manutencao_instalacao" EntitySet="manutencao_instalacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__id_ma__4E946423" Association="Self.FK__manutenca__id_ma__4E946423">
+      <End Role="manutencao" EntitySet="manutencao" />
+      <End Role="manutencao_peca" EntitySet="manutencao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__manut__49CFAF06" Association="Self.FK__manutenca__manut__49CFAF06">
+      <End Role="tipo_de_manutencao" EntitySet="tipo_de_manutencao" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__manut__4AC3D33F" Association="Self.FK__manutenca__manut__4AC3D33F">
+      <End Role="validacao" EntitySet="validacao" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__ZCLIE__4BB7F778" Association="Self.FK__manutenca__ZCLIE__4BB7F778">
+      <End Role="cliente_SAP" EntitySet="cliente_SAP" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__ZCODP__4CAC1BB1" Association="Self.FK__manutenca__ZCODP__4CAC1BB1">
+      <End Role="peca_SAP" EntitySet="peca_SAP" />
+      <End Role="manutencao" EntitySet="manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__manutenca__ZCODP__4F88885C" Association="Self.FK__manutenca__ZCODP__4F88885C">
+      <End Role="peca_SAP" EntitySet="peca_SAP" />
+      <End Role="manutencao_peca" EntitySet="manutencao_peca" />
+    </AssociationSet>
+    <AssociationSet Name="FK__marca_SAP__id_fa__507CAC95" Association="Self.FK__marca_SAP__id_fa__507CAC95">
+      <End Role="familia" EntitySet="familia" />
+      <End Role="marca_SAP" EntitySet="marca_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__admini__5170D0CE" Association="Self.FK__mensagem__admini__5170D0CE">
+      <End Role="administrador" EntitySet="administrador" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__id_cli__5264F507" Association="Self.FK__mensagem__id_cli__5264F507">
+      <End Role="ativacao" EntitySet="ativacao" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__ZCODCO__53591940" Association="Self.FK__mensagem__ZCODCO__53591940">
+      <End Role="colaborador_SAP" EntitySet="colaborador_SAP" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__mensagem__ZCODGR__544D3D79" Association="Self.FK__mensagem__ZCODGR__544D3D79">
+      <End Role="grupo_SAP" EntitySet="grupo_SAP" />
+      <End Role="mensagem" EntitySet="mensagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_c__id_pr__554161B2" Association="Self.FK__projeto_c__id_pr__554161B2">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="projeto_cluster" EntitySet="projeto_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_c__ZCODC__563585EB" Association="Self.FK__projeto_c__ZCODC__563585EB">
+      <End Role="cluster_SAP" EntitySet="cluster_SAP" />
+      <End Role="projeto_cluster" EntitySet="projeto_cluster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__provedor___ZTERR__5729AA24" Association="Self.FK__provedor___ZTERR__5729AA24">
+      <End Role="territorio_SAP" EntitySet="territorio_SAP" />
+      <End Role="provedor_SAP" EntitySet="provedor_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rota_cola__id_co__61A73897" Association="Self.FK__rota_cola__id_co__61A73897">
+      <End Role="colaborador_SAP" EntitySet="colaborador_SAP" />
+      <End Role="rota_colaborador" EntitySet="rota_colaborador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__unidade_S__ZTERR__581DCE5D" Association="Self.FK__unidade_S__ZTERR__581DCE5D">
+      <End Role="territorio_SAP" EntitySet="territorio_SAP" />
+      <End Role="unidade_SAP" EntitySet="unidade_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__zat_SAP__ZTERRIT__5911F296" Association="Self.FK__zat_SAP__ZTERRIT__5911F296">
+      <End Role="territorio_SAP" EntitySet="territorio_SAP" />
+      <End Role="zat_SAP" EntitySet="zat_SAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__zat_SAP__ZUNIDAD__5A0616CF" Association="Self.FK__zat_SAP__ZUNIDAD__5A0616CF">
+      <End Role="unidade_SAP" EntitySet="unidade_SAP" />
+      <End Role="zat_SAP" EntitySet="zat_SAP" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

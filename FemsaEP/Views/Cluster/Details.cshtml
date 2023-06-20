@@ -1,0 +1,99 @@
+﻿@model FemsaEP.Models.cluster_SAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cluster_SAP</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MANDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZGPOCANAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZGPOCANAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZCANAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZCANAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZGEC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZGEC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZNSE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZNSE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sigla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.atributo4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.atributo4)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ZCODCLUST }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

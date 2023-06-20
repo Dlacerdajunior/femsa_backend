@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MC1_DB_FEMSAModelStoreContainer" CdmEntityContainer="MC1_DB_FEMSAEntities">
+    <EntitySetMapping Name="acessorio">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.acessorio">
+        <MappingFragment StoreEntitySet="acessorio">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="administrador">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.administrador">
+        <MappingFragment StoreEntitySet="administrador">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="alimento">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.alimento">
+        <MappingFragment StoreEntitySet="alimento">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ativacao">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.ativacao">
+        <MappingFragment StoreEntitySet="ativacao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="custo_valor" ColumnName="custo_valor" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id_projeto" ColumnName="id_projeto" />
+          <ScalarProperty Name="situacao" ColumnName="situacao" />
+          <ScalarProperty Name="executivo" ColumnName="executivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ativacao_foto">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.ativacao_foto">
+        <MappingFragment StoreEntitySet="ativacao_foto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_ativacao" ColumnName="id_ativacao" />
+          <ScalarProperty Name="url_foto" ColumnName="url_foto" />
+          <ScalarProperty Name="etapa" ColumnName="etapa" />
+          <ScalarProperty Name="id_peca" ColumnName="id_peca" />
+          <ScalarProperty Name="executivo" ColumnName="executivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ativacao_mensagem">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.ativacao_mensagem">
+        <MappingFragment StoreEntitySet="ativacao_mensagem">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_ativacao" ColumnName="id_ativacao" />
+          <ScalarProperty Name="mensagem" ColumnName="mensagem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ativacao_peca">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.ativacao_peca">
+        <MappingFragment StoreEntitySet="ativacao_peca">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_peca" ColumnName="id_peca" />
+          <ScalarProperty Name="id_ativacao" ColumnName="id_ativacao" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="book_online">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.book_online">
+        <MappingFragment StoreEntitySet="book_online">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="url_upload" ColumnName="url_upload" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="canal">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.canal">
+        <MappingFragment StoreEntitySet="canal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cargo">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.cargo">
+        <MappingFragment StoreEntitySet="cargo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carta">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.carta">
+        <MappingFragment StoreEntitySet="carta">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="razao" ColumnName="razao" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="uf_id" ColumnName="uf_id" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+          <ScalarProperty Name="contato" ColumnName="contato" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="rota_vendedor" ColumnName="rota_vendedor" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="unidade" ColumnName="unidade" />
+          <ScalarProperty Name="desenvolvedor" ColumnName="desenvolvedor" />
+          <ScalarProperty Name="prospector" ColumnName="prospector" />
+          <ScalarProperty Name="zat" ColumnName="zat" />
+          <ScalarProperty Name="nome_zat" ColumnName="nome_zat" />
+          <ScalarProperty Name="ano_cliente" ColumnName="ano_cliente" />
+          <ScalarProperty Name="ano_contrapartida" ColumnName="ano_contrapartida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chat_mensagem">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.chat_mensagem">
+        <MappingFragment StoreEntitySet="chat_mensagem">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mensagem_id" ColumnName="mensagem_id" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="remetente_id" ColumnName="remetente_id" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="numero_cliente" ColumnName="numero_cliente" />
+          <ScalarProperty Name="id_territorio" ColumnName="id_territorio" />
+          <ScalarProperty Name="id_unidade" ColumnName="id_unidade" />
+          <ScalarProperty Name="id_novo" ColumnName="id_novo" />
+          <ScalarProperty Name="id_antigo" ColumnName="id_antigo" />
+          <ScalarProperty Name="id_cluster" ColumnName="id_cluster" />
+          <ScalarProperty Name="executivo" ColumnName="executivo" />
+          <ScalarProperty Name="prospector" ColumnName="prospector" />
+          <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="uf_id" ColumnName="uf_id" />
+          <ScalarProperty Name="id_rota" ColumnName="id_rota" />
+          <ScalarProperty Name="desenvolvedor" ColumnName="desenvolvedor" />
+          <ScalarProperty Name="fornecedor" ColumnName="fornecedor" />
+          <ScalarProperty Name="design" ColumnName="design" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="termo_de_pesquisa" ColumnName="termo_de_pesquisa" />
+          <ScalarProperty Name="cnpj" ColumnName="cnpj" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="local" ColumnName="local" />
+          <ScalarProperty Name="regiao" ColumnName="regiao" />
+          <ScalarProperty Name="ponto_referencia" ColumnName="ponto_referencia" />
+          <ScalarProperty Name="primeiro_telefone" ColumnName="primeiro_telefone" />
+          <ScalarProperty Name="canal" ColumnName="canal" />
+          <ScalarProperty Name="classificacao_clientes" ColumnName="classificacao_clientes" />
+          <ScalarProperty Name="zona_transporte" ColumnName="zona_transporte" />
+          <ScalarProperty Name="id_zat" ColumnName="id_zat" />
+          <ScalarProperty Name="id_kits" ColumnName="id_kits" />
+          <ScalarProperty Name="id_localizacao" ColumnName="id_localizacao" />
+          <ScalarProperty Name="marca_gdm" ColumnName="marca_gdm" />
+          <ScalarProperty Name="localizacao" ColumnName="localizacao" />
+          <ScalarProperty Name="nome_shopping" ColumnName="nome_shopping" />
+          <ScalarProperty Name="red" ColumnName="red" />
+          <ScalarProperty Name="nome_red" ColumnName="nome_red" />
+          <ScalarProperty Name="habilitar_ativacao" ColumnName="habilitar_ativacao" />
+          <ScalarProperty Name="habilitar_manutencao" ColumnName="habilitar_manutencao" />
+          <ScalarProperty Name="habilitar_shopping" ColumnName="habilitar_shopping" />
+          <ScalarProperty Name="regional" ColumnName="regional" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="lattext" ColumnName="lattext" />
+          <ScalarProperty Name="longtext" ColumnName="longtext" />
+          <ScalarProperty Name="status_ativacao" ColumnName="status_ativacao" />
+          <ScalarProperty Name="id_colaborador" ColumnName="id_colaborador" />
+          <ScalarProperty Name="custo_budget" ColumnName="custo_budget" />
+          <ScalarProperty Name="motivo_id" ColumnName="motivo_id" />
+          <ScalarProperty Name="motivotxt" ColumnName="motivotxt" />
+          <ScalarProperty Name="cidade_limpa" ColumnName="cidade_limpa" />
+          <ScalarProperty Name="segundo_telefone" ColumnName="segundo_telefone" />
+          <ScalarProperty Name="id_executivo" ColumnName="id_executivo" />
+          <ScalarProperty Name="id_prospector" ColumnName="id_prospector" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente_cluster">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.cliente_cluster">
+        <MappingFragment StoreEntitySet="cliente_cluster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_cluster" ColumnName="id_cluster" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente_projeto">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.cliente_projeto">
+        <MappingFragment StoreEntitySet="cliente_projeto">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_projeto" ColumnName="id_projeto" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cluster">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.cluster">
+        <MappingFragment StoreEntitySet="cluster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="grupo_canal" ColumnName="grupo_canal" />
+          <ScalarProperty Name="canal" ColumnName="canal" />
+          <ScalarProperty Name="classificacao_clientes" ColumnName="classificacao_clientes" />
+          <ScalarProperty Name="nse" ColumnName="nse" />
+          <ScalarProperty Name="foco" ColumnName="foco" />
+          <ScalarProperty Name="sigla" ColumnName="sigla" />
+          <ScalarProperty Name="gec" ColumnName="gec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cluster_peca">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.cluster_peca">
+        <MappingFragment StoreEntitySet="cluster_peca">
+          <ScalarProperty Name="id_cluster" ColumnName="id_cluster" />
+          <ScalarProperty Name="id_peca" ColumnName="id_peca" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="colaborador">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.colaborador">
+        <MappingFragment StoreEntitySet="colaborador">
+          <ScalarProperty Name="idioma" ColumnName="idioma" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="id_titulo" ColumnName="id_titulo" />
+          <ScalarProperty Name="id_territorio" ColumnName="id_territorio" />
+          <ScalarProperty Name="id_unidade" ColumnName="id_unidade" />
+          <ScalarProperty Name="numero_patrimonio" ColumnName="numero_patrimonio" />
+          <ScalarProperty Name="numero_serie_camera" ColumnName="numero_serie_camera" />
+          <ScalarProperty Name="id_grupos" ColumnName="id_grupos" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+          <ScalarProperty Name="funcao" ColumnName="funcao" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_colaborador" ColumnName="id_colaborador" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contrapartida">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.contrapartida">
+        <MappingFragment StoreEntitySet="contrapartida">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="obrigatorio" ColumnName="obrigatorio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contrapartida_ativacoes">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.contrapartida_ativacoes">
+        <MappingFragment StoreEntitySet="contrapartida_ativacoes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_contrapartida" ColumnName="id_contrapartida" />
+          <ScalarProperty Name="id_ativacao" ColumnName="id_ativacao" />
+          <ScalarProperty Name="etapa" ColumnName="etapa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contrapartida_projeto">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.contrapartida_projeto">
+        <MappingFragment StoreEntitySet="contrapartida_projeto">
+          <ScalarProperty Name="id_projeto" ColumnName="id_projeto" />
+          <ScalarProperty Name="id_contrapartida" ColumnName="id_contrapartida" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="email">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.email">
+        <MappingFragment StoreEntitySet="email">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fase" ColumnName="fase" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="embalagem">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.embalagem">
+        <MappingFragment StoreEntitySet="embalagem">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enquete">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.enquete">
+        <MappingFragment StoreEntitySet="enquete">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="data_limite" ColumnName="data_limite" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id_cluster" ColumnName="id_cluster" />
+          <ScalarProperty Name="data_inicio" ColumnName="data_inicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enquete_perguntas">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.enquete_perguntas">
+        <MappingFragment StoreEntitySet="enquete_perguntas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_enquete" ColumnName="id_enquete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enquete_resposta">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.enquete_resposta">
+        <MappingFragment StoreEntitySet="enquete_resposta">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_enquete" ColumnName="id_enquete" />
+          <ScalarProperty Name="id_colaborador" ColumnName="id_colaborador" />
+          <ScalarProperty Name="data_resposta" ColumnName="data_resposta" />
+          <ScalarProperty Name="id_pergunta" ColumnName="id_pergunta" />
+          <ScalarProperty Name="resposta" ColumnName="resposta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="executivo">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.executivo">
+        <MappingFragment StoreEntitySet="executivo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="familia">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.familia">
+        <MappingFragment StoreEntitySet="familia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foco">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.foco">
+        <MappingFragment StoreEntitySet="foco">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fornecedor">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.fornecedor">
+        <MappingFragment StoreEntitySet="fornecedor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="contato" ColumnName="contato" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="codigo_sap" ColumnName="codigo_sap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="franquia">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.franquia">
+        <MappingFragment StoreEntitySet="franquia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gec">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.gec">
+        <MappingFragment StoreEntitySet="gec">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grupo">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.grupo">
+        <MappingFragment StoreEntitySet="grupo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grupo_de_usuario">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.grupo_de_usuario">
+        <MappingFragment StoreEntitySet="grupo_de_usuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kit">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.kit">
+        <MappingFragment StoreEntitySet="kit">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="localizacao">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.localizacao">
+        <MappingFragment StoreEntitySet="localizacao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="manutencao_instalacao">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.manutencao_instalacao">
+        <MappingFragment StoreEntitySet="manutencao_instalacao">
+          <ScalarProperty Name="id_manutencao" ColumnName="id_manutencao" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="manutencao_peca">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.manutencao_peca">
+        <MappingFragment StoreEntitySet="manutencao_peca">
+          <ScalarProperty Name="id_peca" ColumnName="id_peca" />
+          <ScalarProperty Name="id_manutencao" ColumnName="id_manutencao" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marca">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.marca">
+        <MappingFragment StoreEntitySet="marca">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+          <ScalarProperty Name="id_familia" ColumnName="id_familia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mensagem">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.mensagem">
+        <MappingFragment StoreEntitySet="mensagem">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="administrador_id" ColumnName="administrador_id" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="grupo_id" ColumnName="grupo_id" />
+          <ScalarProperty Name="destinatario" ColumnName="destinatario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mensagem_do_dia">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.mensagem_do_dia">
+        <MappingFragment StoreEntitySet="mensagem_do_dia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mensagem" ColumnName="mensagem" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="motivo_de_manutencao">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.motivo_de_manutencao">
+        <MappingFragment StoreEntitySet="motivo_de_manutencao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="motivo_de_recuso">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.motivo_de_recuso">
+        <MappingFragment StoreEntitySet="motivo_de_recuso">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+          <ScalarProperty Name="id_motivos_2" ColumnName="id_motivos_2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ocasiao_de_consumo">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.ocasiao_de_consumo">
+        <MappingFragment StoreEntitySet="ocasiao_de_consumo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="peca">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.peca">
+        <MappingFragment StoreEntitySet="peca">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+          <ScalarProperty Name="embalagem" ColumnName="embalagem" />
+          <ScalarProperty Name="alimento" ColumnName="alimento" />
+          <ScalarProperty Name="ocasiao" ColumnName="ocasiao" />
+          <ScalarProperty Name="atributo" ColumnName="atributo" />
+          <ScalarProperty Name="tamanho" ColumnName="tamanho" />
+          <ScalarProperty Name="largura" ColumnName="largura" />
+          <ScalarProperty Name="altura" ColumnName="altura" />
+          <ScalarProperty Name="diametro" ColumnName="diametro" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="detalhe" ColumnName="detalhe" />
+          <ScalarProperty Name="texto_inserido" ColumnName="texto_inserido" />
+          <ScalarProperty Name="lona_instalada" ColumnName="lona_instalada" />
+          <ScalarProperty Name="foto_url" ColumnName="foto_url" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="peca_tipo">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.peca_tipo">
+        <MappingFragment StoreEntitySet="peca_tipo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="planilhas">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.planilhas">
+        <MappingFragment StoreEntitySet="planilhas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="url_upload" ColumnName="url_upload" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projeto">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.projeto">
+        <MappingFragment StoreEntitySet="projeto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="observacao" ColumnName="observacao" />
+          <ScalarProperty Name="id_cluster" ColumnName="id_cluster" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projeto_cluster">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.projeto_cluster">
+        <MappingFragment StoreEntitySet="projeto_cluster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_projeto" ColumnName="id_projeto" />
+          <ScalarProperty Name="id_cluster" ColumnName="id_cluster" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prospector">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.prospector">
+        <MappingFragment StoreEntitySet="prospector">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="provedor">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.provedor">
+        <MappingFragment StoreEntitySet="provedor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+          <ScalarProperty Name="cnpj" ColumnName="cnpj" />
+          <ScalarProperty Name="contato" ColumnName="contato" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_territorio" ColumnName="id_territorio" />
+          <ScalarProperty Name="id_sap" ColumnName="id_sap" />
+          <ScalarProperty Name="valor_leitoso" ColumnName="valor_leitoso" />
+          <ScalarProperty Name="valor_perfurado" ColumnName="valor_perfurado" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rede">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.rede">
+        <MappingFragment StoreEntitySet="rede">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rota">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.rota">
+        <MappingFragment StoreEntitySet="rota">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="executivo_venda" ColumnName="executivo_venda" />
+          <ScalarProperty Name="prospector" ColumnName="prospector" />
+          <ScalarProperty Name="desenvolvedor" ColumnName="desenvolvedor" />
+          <ScalarProperty Name="fornecedor" ColumnName="fornecedor" />
+          <ScalarProperty Name="origem_mw" ColumnName="origem_mw" />
+          <ScalarProperty Name="designer" ColumnName="designer" />
+          <ScalarProperty Name="gerente_comercial" ColumnName="gerente_comercial" />
+          <ScalarProperty Name="gerente_regional" ColumnName="gerente_regional" />
+          <ScalarProperty Name="executivo_trade" ColumnName="executivo_trade" />
+          <ScalarProperty Name="promotor" ColumnName="promotor" />
+          <ScalarProperty Name="consultor" ColumnName="consultor" />
+          <ScalarProperty Name="unidade" ColumnName="unidade" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+          <ScalarProperty Name="id_colaborador" ColumnName="id_colaborador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shopping">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.shopping">
+        <MappingFragment StoreEntitySet="shopping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status_ativacao">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.status_ativacao">
+        <MappingFragment StoreEntitySet="status_ativacao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subcanal">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.subcanal">
+        <MappingFragment StoreEntitySet="subcanal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="territorio">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.territorio">
+        <MappingFragment StoreEntitySet="territorio">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="uf_id" ColumnName="uf_id" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+          <ScalarProperty Name="id_centralizador" ColumnName="id_centralizador" />
+          <ScalarProperty Name="id_coordenador_pa" ColumnName="id_coordenador_pa" />
+          <ScalarProperty Name="id_aprovador_canais" ColumnName="id_aprovador_canais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_de_manutencao">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.tipo_de_manutencao">
+        <MappingFragment StoreEntitySet="tipo_de_manutencao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uf">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.uf">
+        <MappingFragment StoreEntitySet="uf">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uf_sigla" ColumnName="uf_sigla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="unidade">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.unidade">
+        <MappingFragment StoreEntitySet="unidade">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_territorio" ColumnName="id_territorio" />
+          <ScalarProperty Name="id_colaborador" ColumnName="id_colaborador" />
+          <ScalarProperty Name="desativado" ColumnName="desativado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="validacao">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.validacao">
+        <MappingFragment StoreEntitySet="validacao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zat">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.zat">
+        <MappingFragment StoreEntitySet="zat">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mandante" ColumnName="mandante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_territorio" ColumnName="id_territorio" />
+          <ScalarProperty Name="id_unidade" ColumnName="id_unidade" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="regiao" ColumnName="regiao" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="manutencao">
+      <EntityTypeMapping TypeName="MC1_DB_FEMSAModel.manutencao">
+        <MappingFragment StoreEntitySet="manutencao">
+          <ScalarProperty Name="substituida" ColumnName="substituida" />
+          <ScalarProperty Name="id_administrador" ColumnName="id_administrador" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="peca_id" ColumnName="peca_id" />
+          <ScalarProperty Name="manutencao_validacao" ColumnName="manutencao_validacao" />
+          <ScalarProperty Name="manutencao_tipo" ColumnName="manutencao_tipo" />
+          <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+          <ScalarProperty Name="solicitante" ColumnName="solicitante" />
+          <ScalarProperty Name="url_foto" ColumnName="url_foto" />
+          <ScalarProperty Name="data_rc" ColumnName="data_rc" />
+          <ScalarProperty Name="numero_rc" ColumnName="numero_rc" />
+          <ScalarProperty Name="observacao_2" ColumnName="observacao_2" />
+          <ScalarProperty Name="observacao_1" ColumnName="observacao_1" />
+          <ScalarProperty Name="meta_manutencao" ColumnName="meta_manutencao" />
+          <ScalarProperty Name="data_ativacao" ColumnName="data_ativacao" />
+          <ScalarProperty Name="data_manutencao" ColumnName="data_manutencao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

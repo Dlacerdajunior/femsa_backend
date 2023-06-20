@@ -1,0 +1,138 @@
+﻿@model FemsaEP.Models.colaborador_SAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditarcolaborador" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    <script>
+        jQuery(function ($) {
+            $('#ZTELEFONO').mask('00000000000');
+            $('#ZFUNCARGO').mask('00000');
+        });
+
+        $(function () {
+            // your code goes here
+            $("#bteditarcolaborador").click(function () {
+                senha = $("#ZCONTRASE").val()
+                confsenha = $("#confsenha").val()
+                if (senha == "" && confsenha == "") {
+                    alert("Campo Senha não pode ser vazio");
+                    return false;
+                }
+                if (senha != confsenha) {
+                    alert("Senha não confere");
+                    return false;
+                } else {
+                    $("#formeditarcolaborador").submit();
+                }
+            });
+        });
+
+    </script>
+    @Html.HiddenFor(model => model.ZCODCOLAB)
+    @Html.HiddenFor(model => model.MANDT)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZNOMBRE, "Nome", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ZNOMBRE, new { @class = "form-control", placeholder = "Nome", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.ZNOMBRE)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZTELEFONO, "Telefone", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZTELEFONO, new { @class = "form-control", placeholder = "Telefone" })
+            @Html.ValidationMessageFor(model => model.ZTELEFONO)
+        </div>
+        @Html.LabelFor(model => model.ZEMAIL, "E-mail", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZEMAIL, new { @class = "form-control", placeholder = "E-mail", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.ZEMAIL)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZNUMPATRI, "Número do patrimônio", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZNUMPATRI, new { @class = "form-control", placeholder = "Número do patrimônio", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.ZNUMPATRI)
+        </div>
+        @Html.LabelFor(model => model.ZNUMSERIE, "Número de série da câmera", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZNUMSERIE, new { @class = "form-control", placeholder = "Número de série da câmera", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.ZNUMSERIE)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZLOGIN,"Login", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZLOGIN, new { @class = "form-control", placeholder = "Login", MaxLength = "15" })
+            @Html.ValidationMessageFor(model => model.ZLOGIN)
+        </div>
+        @Html.LabelFor(model => model.ZFUNCARGO, "Código Título", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ZFUNCARGO, new { @class = "form-control", placeholder = "Código Título" })
+            @Html.ValidationMessageFor(model => model.ZFUNCARGO)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZCONTRASE, "Senha", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(model => model.ZCONTRASE, new { @class = "form-control", placeholder = "Senha", MaxLength = "15" })
+            @Html.ValidationMessageFor(model => model.ZCONTRASE)
+        </div>
+        <label for="" class="col-md-2 control-label">Confirmar Senha</label>
+        <div class="col-md-4">
+            <input type="password" class="form-control" id="confsenha" required="" placeholder="Confirmar Senha">
+        </div>
+    </div>
+        
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZTERRITOR, "Território", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("ZTERRITOR", String.Empty)
+            @Html.ValidationMessageFor(model => model.ZTERRITOR)
+        </div>
+        @Html.LabelFor(model => model.ZUNIDAD, "Unidade", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("ZUNIDAD", String.Empty)
+            @Html.ValidationMessageFor(model => model.ZUNIDAD)
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZGRUPO, "Função", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.DropDownList("ZGRUPO", String.Empty)
+            @Html.ValidationMessageFor(model => model.ZGRUPO)
+        </div>
+        @Html.LabelFor(model => model.ZDESACTIV, "Desativado", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.RadioButtonFor(model => model.ZDESACTIV, 1, new { @Id = "desativadosim" })
+            <label for="desativadosim">Sim</label>
+            @Html.RadioButtonFor(model => model.ZDESACTIV, 0, new { @Id = "desativadonao" })
+            <label for="desativadonao">Não</label>
+            @Html.ValidationMessageFor(model => model.ZDESACTIV)
+        </div>
+    </div>    
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.descricao, "Descrição", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextAreaFor(model => model.descricao, new { @class = "form-control", placeholder = "Descrição", MaxLength = "50" })
+            @Html.ValidationMessageFor(model => model.descricao)
+        </div>
+    </div>
+
+}

@@ -1,0 +1,51 @@
+﻿@model FemsaEP.Models.mensagem_do_dia
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditarmensagemdd" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.id)
+
+    <script>
+        $(function () {
+            // your code goes here
+            $("#bteditarmensagemdd").click(function () {
+                mensagem = $("#mensagem").val()
+                status = $("#status").val()
+                if (mensagem == "" || status == "") {
+                    alert("É necessário preencher os campos abaixo");
+                    return false;
+                }
+                else {
+                    $("#formeditarmensagemdd").submit();
+                }
+
+            });
+        });
+    </script>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.mensagem, "Mensagem", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.mensagem, new { @class = "form-control", placeholder = "Mensagem" })
+            @Html.ValidationMessageFor(model => model.mensagem)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.status, "Status", new { @class = "control-label col-md-2" })
+        <div class="col-md-7">
+            @Html.RadioButtonFor(model => model.status, 1, new { @Id = "statussim" })
+            <label for="statussim">Sim</label>
+            @Html.RadioButtonFor(model => model.status, 0, new { @Id = "statusnao" })
+            <label for="statusnao">Não</label>
+            @Html.ValidationMessageFor(model => model.status)
+        </div>
+    </div>
+}
+

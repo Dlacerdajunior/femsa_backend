@@ -1,0 +1,76 @@
+﻿@model FemsaEP.Models.motivo_de_recuso_SAP
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formeditarmotivo_de_recuso" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+
+
+    <script>
+        jQuery(function ($) {
+            $('#ZCODMOTI2').mask('00000');
+        });
+
+        $(function () {
+            // your code goes here
+            $("#bteditarmotivo_de_recuso").click(function () {
+                codigo = $("#ZCODMOTIV").val()
+                if (codigo == "") {
+                    alert("É necessário preencher os campos abaixo");
+                    return false;
+                }
+                else {
+                    $("#formeditarmotivo_de_recuso").submit();
+                }
+
+            });
+        });
+    </script>
+
+
+        @Html.HiddenFor(model => model.MANDT)
+        @Html.HiddenFor(model => model.ZCODMOTIV)
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZCODMOTI2, "Código 2", new { @class = "col-md-3 control-label" })
+    <div class="col-md-7">
+        @Html.TextBoxFor(model => model.ZCODMOTI2, new { @class = "form-control", placeholder = "Código 2" })
+        @Html.ValidationMessageFor(model => model.ZCODMOTI2)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ZNOMMOTIV, "Nome", new { @class = "col-md-3 control-label" })
+    <div class="col-md-7">
+        @Html.TextBoxFor(model => model.ZNOMMOTIV, new { @class = "form-control", placeholder = "Nome", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.ZNOMMOTIV)
+    </div>
+</div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZDESACTIV, "Desativado", new { @class = "col-md-3 control-label" })
+        <div class="col-md-7">
+            @Html.RadioButtonFor(model => model.ZDESACTIV, "X", new { @Id = "desativadosim" })
+            <label for="desativadosim">Sim</label>
+            @Html.RadioButtonFor(model => model.ZDESACTIV, "", new { @Id = "desativadonao" })
+            <label for="desativadonao">Não</label>
+            @Html.ValidationMessageFor(model => model.ZDESACTIV)
+        </div>
+    </div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.descricao, "Descrição", new { @class = "col-md-3 control-label" })
+    <div class="col-md-7">
+        @Html.TextAreaFor(model => model.descricao, new { @class = "form-control", placeholder = "Descrição", MaxLength = "50" })
+        @Html.ValidationMessageFor(model => model.descricao)
+    </div>
+</div>
+}

@@ -1,0 +1,264 @@
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\FemsaEP.dll.config
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\FemsaEP.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\FemsaEP.pdb
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Antlr3.Runtime.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\EntityFramework.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\EntityFramework.SqlServer.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\ICSharpCode.SharpZipLib.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Core.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Owin.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Host.SystemWeb.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Cookies.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Facebook.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Google.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.OAuth.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Twitter.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Web.Infrastructure.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Newtonsoft.Json.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\NPOI.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\NPOI.OOXML.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\NPOI.OpenXml4Net.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\NPOI.OpenXmlFormats.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Owin.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\PagedList.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\PagedList.Mvc.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.Helpers.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.Mvc.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.Optimization.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.Razor.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.WebPages.Deployment.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.WebPages.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.WebPages.Razor.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\WebGrease.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\NPOI.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\PagedList.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\PagedList.Mvc.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.Helpers.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.Mvc.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.Optimization.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.Razor.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.WebPages.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.WebPages.Deployment.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\System.Web.WebPages.Razor.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Newtonsoft.Json.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Antlr3.Runtime.pdb
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\EntityFramework.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\EntityFramework.SqlServer.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Core.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Owin.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Host.SystemWeb.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Facebook.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Cookies.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.OAuth.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Google.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Twitter.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+\\MOBITAP2-PC\FemsaEP\FemsaEP\obj\Release\FemsaEP.dll
+\\MOBITAP2-PC\FemsaEP\FemsaEP\obj\Release\FemsaEP.pdb
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\FemsaEP.dll.config
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\FemsaEP.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\FemsaEP.pdb
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Antlr3.Runtime.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\EntityFramework.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\EntityFramework.SqlServer.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Newtonsoft.Json.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\NPOI.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\NPOI.OOXML.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\NPOI.OpenXml4Net.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\NPOI.OpenXmlFormats.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Owin.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\PagedList.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\PagedList.Mvc.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.Helpers.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.Mvc.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.Optimization.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.Razor.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.WebPages.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.WebPages.Razor.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\WebGrease.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\NPOI.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\PagedList.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\PagedList.Mvc.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.Helpers.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.Mvc.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.Optimization.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.Razor.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.WebPages.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\System.Web.WebPages.Razor.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Newtonsoft.Json.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Antlr3.Runtime.pdb
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\EntityFramework.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\EntityFramework.SqlServer.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\obj\Release\FemsaEP.csprojResolveAssemblyReference.cache
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\obj\Release\FemsaEP.dll
+C:\Users\user\documents\visual studio 2013\Projects\FemsaEP\FemsaEP\obj\Release\FemsaEP.pdb
+\\MOBITAP2-PC\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\obj\Release\FemsaEP.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\FemsaEP.dll.config
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\FemsaEP.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\FemsaEP.pdb
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Antlr3.Runtime.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\EntityFramework.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Excel.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Newtonsoft.Json.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\NPOI.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\NPOI.OOXML.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\NPOI.OpenXml4Net.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\NPOI.OpenXmlFormats.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Owin.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\PagedList.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\PagedList.Mvc.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.Helpers.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.Mvc.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.Optimization.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.Razor.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.WebPages.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.WebPages.Razor.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\WebGrease.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Excel.pdb
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\NPOI.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\PagedList.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\PagedList.Mvc.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.Helpers.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.Mvc.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.Optimization.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.Razor.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.WebPages.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\System.Web.WebPages.Razor.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Newtonsoft.Json.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Antlr3.Runtime.pdb
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\EntityFramework.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\obj\Release\FemsaEP.dll
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\obj\Release\FemsaEP.pdb
+C:\Users\user\Desktop\Femsa\FemsaEP - agora vai\FemsaEP\obj\Release\FemsaEP.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\obj\Release\FemsaEP.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\FemsaEP.dll.config
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\FemsaEP.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\FemsaEP.pdb
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Antlr3.Runtime.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\EntityFramework.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Excel.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Newtonsoft.Json.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\NPOI.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\NPOI.OOXML.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\NPOI.OpenXml4Net.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\NPOI.OpenXmlFormats.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Owin.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\PagedList.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\PagedList.Mvc.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.Helpers.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.Mvc.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.Optimization.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.Razor.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.WebPages.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.WebPages.Razor.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\WebGrease.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Excel.pdb
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\NPOI.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\PagedList.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\PagedList.Mvc.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.Helpers.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.Mvc.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.Optimization.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.Razor.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.WebPages.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\System.Web.WebPages.Razor.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Newtonsoft.Json.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Antlr3.Runtime.pdb
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\EntityFramework.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\obj\Release\FemsaEP.dll
+C:\Users\user\Desktop\Femsa\FemsaEP\FemsaEP\obj\Release\FemsaEP.pdb

@@ -1,0 +1,845 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F3E3F7F-8FD1-4F67-8FB3-4E35655C4618}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FemsaEP</RootNamespace>
+    <AssemblyName>FemsaEP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AcessoriosController.cs" />
+    <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\AlimentosController.cs" />
+    <Compile Include="Controllers\AtivacaoController.cs" />
+    <Compile Include="Controllers\BookOnlineController.cs" />
+    <Compile Include="Controllers\CadastroPecasController.cs" />
+    <Compile Include="Controllers\CanaisController.cs" />
+    <Compile Include="Controllers\CaracteristicaPecaController.cs" />
+    <Compile Include="Controllers\CartasController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ClusterController.cs" />
+    <Compile Include="Controllers\ClusterPecaController.cs" />
+    <Compile Include="Controllers\ColaboradoresController.cs" />
+    <Compile Include="Controllers\ContrapartidaProjetoController.cs" />
+    <Compile Include="Controllers\ContrapartidasController.cs" />
+    <Compile Include="Controllers\CoordenadorController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\EmbalagensController.cs" />
+    <Compile Include="Controllers\ExecutivoController.cs" />
+    <Compile Include="Controllers\FamiliasController.cs" />
+    <Compile Include="Controllers\FocosController.cs" />
+    <Compile Include="Controllers\FornecedorController.cs" />
+    <Compile Include="Controllers\FranquiasController.cs" />
+    <Compile Include="Controllers\GrupoUsuariosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocalizacoesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ManutencaoController.cs" />
+    <Compile Include="Controllers\MarcasController.cs" />
+    <Compile Include="Controllers\MensagemController.cs" />
+    <Compile Include="Controllers\MensagemDoDiaController.cs" />
+    <Compile Include="Controllers\MobileBridgeController.cs" />
+    <Compile Include="Controllers\MobileController.cs" />
+    <Compile Include="Controllers\MotivoManutencaoController.cs" />
+    <Compile Include="Controllers\MotivoRecusaController.cs" />
+    <Compile Include="Controllers\OcasiaoConsumoController.cs" />
+    <Compile Include="Controllers\PerguntasController.cs" />
+    <Compile Include="Controllers\PesquisasController.cs" />
+    <Compile Include="Controllers\PlanilhasController.cs" />
+    <Compile Include="Controllers\ProjetosController.cs" />
+    <Compile Include="Controllers\ProspectorController.cs" />
+    <Compile Include="Controllers\RedeController.cs" />
+    <Compile Include="Controllers\RelatoriosController.cs" />
+    <Compile Include="Controllers\RotaController.cs" />
+    <Compile Include="Controllers\SubcanaisController.cs" />
+    <Compile Include="Controllers\TipoManutencaoController.cs" />
+    <Compile Include="Controllers\UnidadesController.cs" />
+    <Compile Include="Controllers\ZatController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\acessorio_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\administrador.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\alimento_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ativacao.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ativacao_foto.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ativacao_mensagem.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ativacao_peca.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\book_online.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\canal_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\caracteristica_de_peca_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cargo_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\carta.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\chat_mensagem.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cliente_cluster_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cliente_projeto.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cliente_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cluster_peca_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cluster_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\colaborador_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contrapartida_ativacoes.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contrapartida_projeto.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contrapartida_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\coordenador.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\email.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\embalagem_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\enquete.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\enquete_perguntas.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\enquete_resposta.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\executivo.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\familia.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Femsadb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Femsadb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Femsadb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Femsadb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Femsadb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\foco.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fornecedor.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\franquia.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\grupo_de_usuario.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\grupo_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\kit_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\localizacao_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\manutencao.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\manutencao_instalacao.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\manutencao_peca.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\marca_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mensagem.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mensagem_do_dia.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\motivo_de_manutencao.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\motivo_de_recuso_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\nse_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ocasiao_de_consumo.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\peca_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\peca_tipo.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\planilhas.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\projeto.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\projeto_cluster.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\prospector.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\provedor_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rede_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rota_colaborador.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rota_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shopping_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\status_ativacao.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subcanal_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\territorio_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_de_manutencao.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uf.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\unidade_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\validacao.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\zat_SAP.cs">
+      <DependentUpon>Femsadb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Controllers\KitController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Femsadb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Femsadb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Femsadb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Femsadb.edmx</DependentUpon>
+      <LastGenOutput>Femsadb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Femsadb.edmx.diagram">
+      <DependentUpon>Femsadb.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Femsadb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Femsadb.edmx</DependentUpon>
+      <LastGenOutput>Femsadb.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\FemsaPublish.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutAjax.cshtml" />
+    <Content Include="Views\Shared\_LayoutPageBo.cshtml" />
+    <Content Include="Views\Acessorios\Create.cshtml" />
+    <Content Include="Views\Acessorios\Delete.cshtml" />
+    <Content Include="Views\Acessorios\Details.cshtml" />
+    <Content Include="Views\Acessorios\Edit.cshtml" />
+    <Content Include="Views\Acessorios\Index.cshtml" />
+    <Content Include="Views\Canais\Create.cshtml" />
+    <Content Include="Views\Canais\Delete.cshtml" />
+    <Content Include="Views\Canais\Details.cshtml" />
+    <Content Include="Views\Canais\Edit.cshtml" />
+    <Content Include="Views\Canais\Index.cshtml" />
+    <Content Include="Views\Subcanais\Create.cshtml" />
+    <Content Include="Views\Subcanais\Delete.cshtml" />
+    <Content Include="Views\Subcanais\Details.cshtml" />
+    <Content Include="Views\Subcanais\Edit.cshtml" />
+    <Content Include="Views\Subcanais\Index.cshtml" />
+    <Content Include="Views\Contrapartidas\Create.cshtml" />
+    <Content Include="Views\Contrapartidas\Delete.cshtml" />
+    <Content Include="Views\Contrapartidas\Details.cshtml" />
+    <Content Include="Views\Contrapartidas\Edit.cshtml" />
+    <Content Include="Views\Contrapartidas\Index.cshtml" />
+    <Content Include="Views\Familias\Create.cshtml" />
+    <Content Include="Views\Familias\Delete.cshtml" />
+    <Content Include="Views\Familias\Details.cshtml" />
+    <Content Include="Views\Familias\Edit.cshtml" />
+    <Content Include="Views\Familias\Index.cshtml" />
+    <Content Include="Views\Focos\Create.cshtml" />
+    <Content Include="Views\Focos\Delete.cshtml" />
+    <Content Include="Views\Focos\Details.cshtml" />
+    <Content Include="Views\Focos\Edit.cshtml" />
+    <Content Include="Views\Focos\Index.cshtml" />
+    <Content Include="Views\Franquias\Create.cshtml" />
+    <Content Include="Views\Franquias\Delete.cshtml" />
+    <Content Include="Views\Franquias\Details.cshtml" />
+    <Content Include="Views\Franquias\Edit.cshtml" />
+    <Content Include="Views\Franquias\Index.cshtml" />
+    <Content Include="Views\Kit\Create.cshtml" />
+    <Content Include="Views\Kit\Delete.cshtml" />
+    <Content Include="Views\Kit\Details.cshtml" />
+    <Content Include="Views\Kit\Edit.cshtml" />
+    <Content Include="Views\Kit\Index.cshtml" />
+    <Content Include="Views\Localizacoes\Create.cshtml" />
+    <Content Include="Views\Localizacoes\Delete.cshtml" />
+    <Content Include="Views\Localizacoes\Details.cshtml" />
+    <Content Include="Views\Localizacoes\Edit.cshtml" />
+    <Content Include="Views\Localizacoes\Index.cshtml" />
+    <Content Include="Views\MotivoManutencao\Create.cshtml" />
+    <Content Include="Views\MotivoManutencao\Delete.cshtml" />
+    <Content Include="Views\MotivoManutencao\Details.cshtml" />
+    <Content Include="Views\MotivoManutencao\Edit.cshtml" />
+    <Content Include="Views\MotivoManutencao\Index.cshtml" />
+    <Content Include="Views\TipoManutencao\Create.cshtml" />
+    <Content Include="Views\TipoManutencao\Delete.cshtml" />
+    <Content Include="Views\TipoManutencao\Details.cshtml" />
+    <Content Include="Views\TipoManutencao\Edit.cshtml" />
+    <Content Include="Views\TipoManutencao\Index.cshtml" />
+    <Content Include="Views\Rede\Create.cshtml" />
+    <Content Include="Views\Rede\Delete.cshtml" />
+    <Content Include="Views\Rede\Details.cshtml" />
+    <Content Include="Views\Rede\Edit.cshtml" />
+    <Content Include="Views\Rede\Index.cshtml" />
+    <Content Include="Views\Rota\Create.cshtml" />
+    <Content Include="Views\Rota\Delete.cshtml" />
+    <Content Include="Views\Rota\Details.cshtml" />
+    <Content Include="Views\Rota\Edit.cshtml" />
+    <Content Include="Views\Rota\Index.cshtml" />
+    <Content Include="Views\Unidades\Create.cshtml" />
+    <Content Include="Views\Unidades\Delete.cshtml" />
+    <Content Include="Views\Unidades\Details.cshtml" />
+    <Content Include="Views\Unidades\Edit.cshtml" />
+    <Content Include="Views\Unidades\Index.cshtml" />
+    <Content Include="Views\Zat\Create.cshtml" />
+    <Content Include="Views\Zat\Delete.cshtml" />
+    <Content Include="Views\Zat\Details.cshtml" />
+    <Content Include="Views\Zat\Edit.cshtml" />
+    <Content Include="Views\Zat\Index.cshtml" />
+    <Content Include="Views\Cartas\Create.cshtml" />
+    <Content Include="Views\Cartas\Delete.cshtml" />
+    <Content Include="Views\Cartas\Details.cshtml" />
+    <Content Include="Views\Cartas\Edit.cshtml" />
+    <Content Include="Views\Cartas\Index.cshtml" />
+    <Content Include="Views\Projetos\Create.cshtml" />
+    <Content Include="Views\Projetos\Delete.cshtml" />
+    <Content Include="Views\Projetos\Details.cshtml" />
+    <Content Include="Views\Projetos\Edit.cshtml" />
+    <Content Include="Views\Projetos\Index.cshtml" />
+    <Content Include="Views\Administrador\Create.cshtml" />
+    <Content Include="Views\Administrador\Delete.cshtml" />
+    <Content Include="Views\Administrador\Details.cshtml" />
+    <Content Include="Views\Administrador\Edit.cshtml" />
+    <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\MensagemDoDia\Create.cshtml" />
+    <Content Include="Views\MensagemDoDia\Delete.cshtml" />
+    <Content Include="Views\MensagemDoDia\Details.cshtml" />
+    <Content Include="Views\MensagemDoDia\Edit.cshtml" />
+    <Content Include="Views\MensagemDoDia\Index.cshtml" />
+    <Content Include="Views\Chat\Create.cshtml" />
+    <Content Include="Views\Chat\Delete.cshtml" />
+    <Content Include="Views\Chat\Details.cshtml" />
+    <Content Include="Views\Chat\Edit.cshtml" />
+    <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\Chat\Chat.cshtml" />
+    <Content Include="Views\Alimentos\Create.cshtml" />
+    <Content Include="Views\Alimentos\Delete.cshtml" />
+    <Content Include="Views\Alimentos\Details.cshtml" />
+    <Content Include="Views\Alimentos\Edit.cshtml" />
+    <Content Include="Views\Alimentos\Index.cshtml" />
+    <Content Include="Views\OcasiaoConsumo\Create.cshtml" />
+    <Content Include="Views\OcasiaoConsumo\Delete.cshtml" />
+    <Content Include="Views\OcasiaoConsumo\Details.cshtml" />
+    <Content Include="Views\OcasiaoConsumo\Edit.cshtml" />
+    <Content Include="Views\OcasiaoConsumo\Index.cshtml" />
+    <Content Include="Views\Email\Create.cshtml" />
+    <Content Include="Views\Email\Delete.cshtml" />
+    <Content Include="Views\Email\Details.cshtml" />
+    <Content Include="Views\Email\Edit.cshtml" />
+    <Content Include="Views\Email\Index.cshtml" />
+    <Content Include="Views\Mensagem\Create.cshtml" />
+    <Content Include="Views\Mensagem\Delete.cshtml" />
+    <Content Include="Views\Mensagem\Details.cshtml" />
+    <Content Include="Views\Mensagem\Edit.cshtml" />
+    <Content Include="Views\Mensagem\Index.cshtml" />
+    <Content Include="Views\Pesquisas\Create.cshtml" />
+    <Content Include="Views\Pesquisas\Delete.cshtml" />
+    <Content Include="Views\Pesquisas\Details.cshtml" />
+    <Content Include="Views\Pesquisas\Edit.cshtml" />
+    <Content Include="Views\Pesquisas\Index.cshtml" />
+    <Content Include="Views\Perguntas\Create.cshtml" />
+    <Content Include="Views\Perguntas\Delete.cshtml" />
+    <Content Include="Views\Perguntas\Details.cshtml" />
+    <Content Include="Views\Perguntas\Edit.cshtml" />
+    <Content Include="Views\Perguntas\Index.cshtml" />
+    <Content Include="Views\BookOnline\Create.cshtml" />
+    <Content Include="Views\BookOnline\Delete.cshtml" />
+    <Content Include="Views\BookOnline\Details.cshtml" />
+    <Content Include="Views\BookOnline\Edit.cshtml" />
+    <Content Include="Views\BookOnline\Index.cshtml" />
+    <Content Include="Views\Planilhas\Create.cshtml" />
+    <Content Include="Views\Planilhas\Delete.cshtml" />
+    <Content Include="Views\Planilhas\Details.cshtml" />
+    <Content Include="Views\Planilhas\Edit.cshtml" />
+    <Content Include="Views\Planilhas\Index.cshtml" />
+    <Content Include="Views\ContrapartidaProjeto\Create.cshtml" />
+    <Content Include="Views\ContrapartidaProjeto\Delete.cshtml" />
+    <Content Include="Views\ContrapartidaProjeto\Details.cshtml" />
+    <Content Include="Views\ContrapartidaProjeto\Edit.cshtml" />
+    <Content Include="Views\ContrapartidaProjeto\Index.cshtml" />
+    <Content Include="Views\Ativacao\Create.cshtml" />
+    <Content Include="Views\Ativacao\Delete.cshtml" />
+    <Content Include="Views\Ativacao\Details.cshtml" />
+    <Content Include="Views\Ativacao\Edit.cshtml" />
+    <Content Include="Views\Ativacao\Index.cshtml" />
+    <Content Include="Views\Ativacao\Detalhes.cshtml" />
+    <Content Include="Views\Manutencao\Create.cshtml" />
+    <Content Include="Views\Manutencao\Delete.cshtml" />
+    <Content Include="Views\Manutencao\Details.cshtml" />
+    <Content Include="Views\Manutencao\Edit.cshtml" />
+    <Content Include="Views\Manutencao\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Relatorios\EstoqueAcessorios.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioAtivacao.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioChecking.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioContrapartidas.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioEstatisticas.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioExtrapolacoes.cshtml" />
+    <Content Include="Views\Relatorios\ImagensHumanizadas.cshtml" />
+    <Content Include="Views\Relatorios\ControleInvestimentos.cshtml" />
+    <Content Include="Views\Relatorios\CriacaoRC.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioManutencao.cshtml" />
+    <Content Include="Views\Relatorios\PecasCluster.cshtml" />
+    <Content Include="Views\Relatorios\PecasUnidades.cshtml" />
+    <Content Include="Views\Relatorios\PecasRecusadas.cshtml" />
+    <Content Include="Views\Relatorios\PesquisaSatisfacao.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioPrazos.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioRCs.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioRecusas.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioShopping.cshtml" />
+    <Content Include="Views\Relatorios\RelatorioVerbas.cshtml" />
+    <Content Include="Views\Executivo\Create.cshtml" />
+    <Content Include="Views\Executivo\Delete.cshtml" />
+    <Content Include="Views\Executivo\Details.cshtml" />
+    <Content Include="Views\Executivo\Edit.cshtml" />
+    <Content Include="Views\Executivo\Index.cshtml" />
+    <Content Include="Views\Prospector\Create.cshtml" />
+    <Content Include="Views\Prospector\Delete.cshtml" />
+    <Content Include="Views\Prospector\Details.cshtml" />
+    <Content Include="Views\Prospector\Edit.cshtml" />
+    <Content Include="Views\Prospector\Index.cshtml" />
+    <Content Include="Views\Manutencao\DeletarPeca.cshtml" />
+    <Content Include="Views\Manutencao\DeletarInstalacao.cshtml" />
+    <Content Include="Views\Ativacao\testecontrapartida.cshtml" />
+    <Content Include="Views\Relatorios\PecasCliente.cshtml" />
+    <Content Include="Views\Relatorios\MonitoramentoRevisitas.cshtml" />
+    <Content Include="Views\Login\Logout.cshtml" />
+    <Content Include="Views\Coordenador\Create.cshtml" />
+    <Content Include="Views\Coordenador\Delete.cshtml" />
+    <Content Include="Views\Coordenador\Details.cshtml" />
+    <Content Include="Views\Coordenador\Edit.cshtml" />
+    <Content Include="Views\Coordenador\Index.cshtml" />
+    <Content Include="Views\CadastroPecas\Create.cshtml" />
+    <Content Include="Views\CadastroPecas\Delete.cshtml" />
+    <Content Include="Views\CadastroPecas\Details.cshtml" />
+    <Content Include="Views\CadastroPecas\Edit.cshtml" />
+    <Content Include="Views\CadastroPecas\Index.cshtml" />
+    <Content Include="Views\CaracteristicaPeca\Create.cshtml" />
+    <Content Include="Views\CaracteristicaPeca\Delete.cshtml" />
+    <Content Include="Views\CaracteristicaPeca\Details.cshtml" />
+    <Content Include="Views\CaracteristicaPeca\Edit.cshtml" />
+    <Content Include="Views\CaracteristicaPeca\Index.cshtml" />
+    <Content Include="Views\MotivoRecusa\Create.cshtml" />
+    <Content Include="Views\MotivoRecusa\Delete.cshtml" />
+    <Content Include="Views\MotivoRecusa\Details.cshtml" />
+    <Content Include="Views\MotivoRecusa\Edit.cshtml" />
+    <Content Include="Views\MotivoRecusa\Index.cshtml" />
+    <Content Include="Views\Marcas\Create.cshtml" />
+    <Content Include="Views\Marcas\Delete.cshtml" />
+    <Content Include="Views\Marcas\Details.cshtml" />
+    <Content Include="Views\Marcas\Edit.cshtml" />
+    <Content Include="Views\Marcas\Index.cshtml" />
+    <Content Include="Views\GrupoUsuarios\Create.cshtml" />
+    <Content Include="Views\GrupoUsuarios\Delete.cshtml" />
+    <Content Include="Views\GrupoUsuarios\Details.cshtml" />
+    <Content Include="Views\GrupoUsuarios\Edit.cshtml" />
+    <Content Include="Views\GrupoUsuarios\Index.cshtml" />
+    <Content Include="Views\Embalagens\Create.cshtml" />
+    <Content Include="Views\Embalagens\Delete.cshtml" />
+    <Content Include="Views\Embalagens\Details.cshtml" />
+    <Content Include="Views\Embalagens\Edit.cshtml" />
+    <Content Include="Views\Embalagens\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Cluster\Create.cshtml" />
+    <Content Include="Views\Cluster\Delete.cshtml" />
+    <Content Include="Views\Cluster\Details.cshtml" />
+    <Content Include="Views\Cluster\Edit.cshtml" />
+    <Content Include="Views\Cluster\Index.cshtml" />
+    <Content Include="Views\Colaboradores\Create.cshtml" />
+    <Content Include="Views\Colaboradores\Delete.cshtml" />
+    <Content Include="Views\Colaboradores\Details.cshtml" />
+    <Content Include="Views\Colaboradores\Edit.cshtml" />
+    <Content Include="Views\Colaboradores\Index.cshtml" />
+    <Content Include="Views\Clientes\Upload.cshtml" />
+    <Content Include="Views\CadastroPecas\Upload.cshtml" />
+    <Content Include="Views\Cluster\Upload.cshtml" />
+    <Content Include="Views\Fornecedor\Create.cshtml" />
+    <Content Include="Views\Fornecedor\Delete.cshtml" />
+    <Content Include="Views\Fornecedor\Details.cshtml" />
+    <Content Include="Views\Fornecedor\Edit.cshtml" />
+    <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\ClusterPeca\Create.cshtml" />
+    <Content Include="Views\ClusterPeca\Delete.cshtml" />
+    <Content Include="Views\ClusterPeca\Details.cshtml" />
+    <Content Include="Views\ClusterPeca\Edit.cshtml" />
+    <Content Include="Views\ClusterPeca\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\MobileBridge\" />
+    <Folder Include="Views\Mobile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55037</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55037/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://192.168.2.108:55037/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
